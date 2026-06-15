@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://b7jqnmdj26qvp"]
 
+[ext_resource type="Script" uid="uid://b7arabluyk84g" path="res://script/level_1_scene.gd" id="1_aoa7p"]
+[ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://scene/Leve_1_Background.png" id="1_w17ck"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aimkq"]
 size = Vector2(1286.5, 91)
 
@@ -8,6 +11,7 @@ radius = 39.0
 height = 130.0
 
 [node name="Node2D" type="Node2D" unique_id=252982734]
+script = ExtResource("1_aoa7p")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1889459583]
 
@@ -20,3 +24,8 @@ shape = SubResource("RectangleShape2D_aimkq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=538130367]
 position = Vector2(76, 560)
 shape = SubResource("CapsuleShape2D_aimkq")
+
+[node name="Leve1Background" type="Sprite2D" parent="." unique_id=2080607564]
+position = Vector2(575.75, 325)
+scale = Vector2(0.7961806, 0.62890625)
+texture = ExtResource("1_w17ck")
