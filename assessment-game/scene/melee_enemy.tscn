@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dca1w67i7yitl"]
+
+[ext_resource type="Script" uid="uid://bxyanml0nsffa" path="res://script/melee_enemy.gd" id="1_wvbdg"]
+[ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://scene/ME.png" id="2_vf2vw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmx5u"]
+radius = 13.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=71175403]
+script = ExtResource("1_wvbdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=727251034]
+shape = SubResource("CapsuleShape2D_dmx5u")
+
+[node name="Me" type="Sprite2D" parent="." unique_id=694298261]
+position = Vector2(1, -3)
+scale = Vector2(0.08749999, 0.092499994)
+texture = ExtResource("2_vf2vw")
