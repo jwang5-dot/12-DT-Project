@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://qsxetot13ond"]
+
+[ext_resource type="Texture2D" uid="uid://c0rpsd2d8to4" path="res://scene/Enemy.png" id="1_uramm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dregr"]
+radius = 73.0
+height = 202.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045443720]
+position = Vector2(428, 278)
+shape = SubResource("CapsuleShape2D_dregr")
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=302135733]
+position = Vector2(428.00003, 285)
+scale = Vector2(0.7366667, 0.73333335)
+texture = ExtResource("1_uramm")

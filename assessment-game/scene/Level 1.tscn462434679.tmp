@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dv2nciv14o138"]
+
+[ext_resource type="Texture2D" uid="uid://cpco8di3lulvi" path="res://Ancient China.png" id="1_osfm5"]
+[ext_resource type="Texture2D" uid="uid://bbp32viflnjmt" path="res://Box.png" id="2_kccbx"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_kccbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
+size = Vector2(1050.4375, 50.49991)
+
+[node name="Level 2" type="Node2D" unique_id=117724919]
+
+[node name="AncientChina" type="Sprite2D" parent="." unique_id=1820799256]
+position = Vector2(577.50006, 329)
+scale = Vector2(0.8192858, 0.6347656)
+texture = ExtResource("1_osfm5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1289578008]
+offset_left = 54.0
+offset_top = 582.0
+offset_right = 1107.0
+offset_bottom = 648.0
+texture = ExtResource("2_kccbx")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2084395277]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=548512493]
+position = Vector2(581, 615)
+shape = SubResource("RectangleShape2D_y32ns")
+
+[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_kccbx")]
+position = Vector2(-411, 154)

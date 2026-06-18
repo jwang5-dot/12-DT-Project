@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://6c7tsvcvxxtp"]
+
+[ext_resource type="Script" uid="uid://ltra7iahdvu8" path="res://scene/player_1.gd" id="1_43gw1"]
+[ext_resource type="Texture2D" uid="uid://hojnl1h58k41" path="res://Player 1 RBG.png" id="1_l08bg"]
+
+[sub_resource type="Curve" id="Curve_43gw1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42187497, 0.41886795), 0.0, 0.0, 0, 0, Vector2(0.953125, 0.35094345), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwabi"]
+radius = 89.0
+height = 208.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377]
+script = ExtResource("1_43gw1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
+position = Vector2(535, 185)
+amount = 30
+emission_shape = 6
+emission_ring_inner_radius = 10.0
+emission_ring_radius = 10.0
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 44.94
+initial_velocity_max = 73.03
+scale_amount_max = 29.0
+scale_amount_curve = SubResource("Curve_43gw1")
+color = Color(0.6784314, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791006491]
+position = Vector2(545, 325)
+shape = SubResource("CapsuleShape2D_xwabi")
+
+[node name="Player1Rbg" type="Sprite2D" parent="." unique_id=815419151]
+position = Vector2(570.8125, 289)
+scale = Vector2(1.6720831, 1.7299998)
+texture = ExtResource("1_l08bg")
