@@ -9,10 +9,10 @@ height = 202.0
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045443720]
-position = Vector2(428, 278)
+position = Vector2(571.5, 297)
 shape = SubResource("CapsuleShape2D_dregr")
 
 [node name="Enemy" type="Sprite2D" parent="." unique_id=302135733]
-position = Vector2(428.00003, 285)
+position = Vector2(571.5, 304)
 scale = Vector2(0.7366667, 0.73333335)
 texture = ExtResource("1_uramm")
