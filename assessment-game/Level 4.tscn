@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://igvw8tb6gqr0"]
 
-[ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://scene/Space1.png" id="1_uiaec"]
-[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="2_16vqg"]
-[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://scene/Enemy.tscn" id="3_x2u3o"]
+[ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://scene/Space1.png" id="1_3eitq"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="2_o8t15"]
+[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://scene/Enemy.tscn" id="3_7jaat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vqg"]
 size = Vector2(1175, 29)
@@ -10,11 +10,11 @@ size = Vector2(1175, 29)
 [node name="Level 2" type="Node2D" unique_id=341672757]
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
-position = Vector2(573.00006, 299.00003)
-scale = Vector2(0.8017361, 0.6738282)
-texture = ExtResource("1_uiaec")
+position = Vector2(575.62506, 294.5)
+scale = Vector2(0.7980902, 0.6826172)
+texture = ExtResource("1_3eitq")
 
-[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("2_16vqg")]
+[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("2_o8t15")]
 position = Vector2(-423, 190)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=723386610]
@@ -24,5 +24,5 @@ position = Vector2(-423, 190)
 position = Vector2(997.5, 437.5)
 shape = SubResource("RectangleShape2D_16vqg")
 
-[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("3_x2u3o")]
+[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("3_7jaat")]
 position = Vector2(622, -146)
