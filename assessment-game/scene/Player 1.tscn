@@ -11,11 +11,18 @@ point_count = 3
 radius = 89.0
 height = 208.0
 
+[sub_resource type="Environment" id="Environment_43gw1"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.33
+glow_strength = 1.24
+glow_hdr_threshold = 0.9
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377]
 script = ExtResource("1_43gw1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
-position = Vector2(535, 185)
+position = Vector2(503, 313)
 amount = 30
 emission_shape = 6
 emission_ring_inner_radius = 10.0
@@ -37,3 +44,6 @@ shape = SubResource("CapsuleShape2D_xwabi")
 position = Vector2(570.8125, 289)
 scale = Vector2(1.6720831, 1.7299998)
 texture = ExtResource("1_l08bg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1842009504]
+environment = SubResource("Environment_43gw1")
