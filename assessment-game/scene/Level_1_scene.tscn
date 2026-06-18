@@ -1,31 +1,47 @@
 [gd_scene format=3 uid="uid://b7jqnmdj26qvp"]
 
 [ext_resource type="Script" uid="uid://b7arabluyk84g" path="res://script/level_1_scene.gd" id="1_aoa7p"]
-[ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://scene/Leve_1_Background.png" id="1_w17ck"]
+[ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://images/Leve_1_Background.png" id="1_w17ck"]
+[ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_affpu"]
+[ext_resource type="PackedScene" uid="uid://fcep4lc6j851" path="res://scene/Melee_Enemy.tscn" id="4_u8ckq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aimkq"]
-size = Vector2(1286.5, 91)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
+size = Vector2(1181.5, 64)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aoa7p"]
-radius = 49.0
-height = 148.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_affpu"]
+size = Vector2(110, 661)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i458t"]
+size = Vector2(82, 686)
 
 [node name="Node2D" type="Node2D" unique_id=252982734]
 script = ExtResource("1_aoa7p")
 
 [node name="Leve1Background" type="Sprite2D" parent="." unique_id=2080607564]
-position = Vector2(575.75, 325)
-scale = Vector2(0.7961806, 0.62890625)
+position = Vector2(575.75, 324.99997)
+scale = Vector2(0.7961806, 0.6289062)
 texture = ExtResource("1_w17ck")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1889459583]
+[node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("3_affpu")]
+position = Vector2(88, 542)
 
-[node name="Player_Platform" type="CollisionShape2D" parent="Area2D" unique_id=897803624]
-position = Vector2(643.75, 697)
-shape = SubResource("RectangleShape2D_aimkq")
+[node name="Player_Platform" type="StaticBody2D" parent="." unique_id=2016147382]
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=1268232444]
+[node name="Player_Platform" type="CollisionShape2D" parent="Player_Platform" unique_id=1653198284]
+position = Vector2(572, 675)
+shape = SubResource("RectangleShape2D_u8ckq")
 
-[node name="Portal" type="CollisionShape2D" parent="Area2D2" unique_id=667317035]
-position = Vector2(67, 562)
-shape = SubResource("CapsuleShape2D_aoa7p")
+[node name="Left_End" type="StaticBody2D" parent="." unique_id=1973759862]
+
+[node name="Left_End" type="CollisionShape2D" parent="Left_End" unique_id=1471472125]
+position = Vector2(-57, 325.5)
+shape = SubResource("RectangleShape2D_affpu")
+
+[node name="Right_End" type="StaticBody2D" parent="." unique_id=28339939]
+
+[node name="Right_End" type="CollisionShape2D" parent="Right_End" unique_id=171513192]
+position = Vector2(1190, 340)
+shape = SubResource("RectangleShape2D_i458t")
+
+[node name="CharacterBody2D2" parent="." unique_id=967582635 instance=ExtResource("4_u8ckq")]
+position = Vector2(944, 534)
