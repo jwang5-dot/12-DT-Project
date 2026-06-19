@@ -47,3 +47,13 @@ texture = ExtResource("1_l08bg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1842009504]
 environment = SubResource("Environment_43gw1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=889360019]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=839356112]
+offset_left = 347.0
+offset_top = 168.0
+offset_right = 733.0
+offset_bottom = 195.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/ProgressBar" unique_id=1609440310]

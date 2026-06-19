@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://c22l1xihtmgl"]
 
-[ext_resource type="Texture2D" uid="uid://bt2ceesck031k" path="res://scene/Player 1 Attack.png" id="1_t6ct3"]
+[ext_resource type="Script" uid="uid://s6htukvk80by" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://bt2ceesck031k" path="res://scene/Player 1 Attack.png" id="2_t4vbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6ct3"]
 radius = 132.0606
 
 [node name="Player Attack LR" type="Node2D" unique_id=30487574]
+script = ExtResource("1_v8qja")
 
 [node name="Player1Attack" type="Sprite2D" parent="." unique_id=1557795673]
 position = Vector2(576.00006, 328)
 scale = Vector2(0.31666657, 0.31333336)
-texture = ExtResource("1_t6ct3")
+texture = ExtResource("2_t4vbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=447906704]
 visible = false
