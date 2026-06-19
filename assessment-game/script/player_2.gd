@@ -6,7 +6,8 @@ const GRAVITY = 1200.0  # Define your own gravity
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
-@export var max_health: int = 100
+
+var health: int = 100
 
 var double_jump = true  # Track double jump
 

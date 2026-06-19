@@ -3,10 +3,37 @@
 [ext_resource type="Script" uid="uid://bbmrgiu1r4d2u" path="res://script/ending_scene.gd" id="1_vjpgg"]
 [ext_resource type="Texture2D" uid="uid://cv2vdveaqj01r" path="res://images/Ending_Scene_Door_Walking.png" id="2_cogn0"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cogn0"]
+size = Vector2(254.75, 794.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yht1g"]
+size = Vector2(342, 817)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8t5q"]
+size = Vector2(1355.5, 134)
+
 [node name="Node2D" type="Node2D" unique_id=91584699]
 script = ExtResource("1_vjpgg")
 
 [node name="EndingSceneDoorWalking" type="Sprite2D" parent="." unique_id=2057187375]
-position = Vector2(606.3125, 324.62503)
-scale = Vector2(0.860677, 0.64135754)
+position = Vector2(576.81256, 324.62494)
+scale = Vector2(0.81970483, 0.64135736)
 texture = ExtResource("2_cogn0")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=493829415]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=224438179]
+position = Vector2(1292.625, 390)
+shape = SubResource("RectangleShape2D_cogn0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1454984313]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=144322440]
+position = Vector2(-177, 403.5)
+shape = SubResource("RectangleShape2D_yht1g")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1398005504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1697011624]
+position = Vector2(649.25, 708)
+shape = SubResource("RectangleShape2D_u8t5q")

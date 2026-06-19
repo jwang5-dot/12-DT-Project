@@ -17,7 +17,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mepv0"]
 bg_color = Color(0, 0.71826625, 0.36439627, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563 groups=["player"]]
 script = ExtResource("1_03o14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368636899]
