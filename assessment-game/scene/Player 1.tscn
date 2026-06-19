@@ -18,6 +18,22 @@ glow_intensity = 2.33
 glow_strength = 1.24
 glow_hdr_threshold = 0.9
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gw1"]
+bg_color = Color(0.9647059, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40s8o"]
+bg_color = Color(0.019607844, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377]
 script = ExtResource("1_43gw1")
 
@@ -55,5 +71,11 @@ offset_left = 347.0
 offset_top = 168.0
 offset_right = 733.0
 offset_bottom = 195.0
+theme_override_styles/background = SubResource("StyleBoxFlat_43gw1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_40s8o")
+max_value = 10.0
+step = 1.0
+value = 7.0
+show_percentage = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/ProgressBar" unique_id=1609440310]
