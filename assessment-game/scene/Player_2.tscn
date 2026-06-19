@@ -7,6 +7,16 @@
 radius = 40.0
 height = 182.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03o14"]
+bg_color = Color(0.99999994, 0.35267124, 0.072142385, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mepv0"]
+bg_color = Color(0, 0.71826625, 0.36439627, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563]
 script = ExtResource("1_03o14")
 
@@ -19,8 +29,12 @@ position = Vector2(2, -4.9999995)
 scale = Vector2(0.5833333, 0.60333335)
 texture = ExtResource("2_mepv0")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1355321709]
-offset_left = -76.0
-offset_top = -119.0
-offset_right = 85.0
-offset_bottom = -86.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1368539308]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1355321709]
+offset_left = -78.0
+offset_top = -127.0
+offset_right = 83.0
+offset_bottom = -94.0
+theme_override_styles/background = SubResource("StyleBoxFlat_03o14")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mepv0")

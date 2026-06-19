@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://bqgdr7ykscmoy"]
 
 [ext_resource type="Script" uid="uid://bbmrgiu1r4d2u" path="res://script/ending_scene.gd" id="1_vjpgg"]
+[ext_resource type="Texture2D" uid="uid://cv2vdveaqj01r" path="res://images/Ending_Scene_Door_Walking.png" id="2_cogn0"]
 
 [node name="Node2D" type="Node2D" unique_id=91584699]
 script = ExtResource("1_vjpgg")
+
+[node name="EndingSceneDoorWalking" type="Sprite2D" parent="." unique_id=2057187375]
+position = Vector2(606.3125, 324.62503)
+scale = Vector2(0.860677, 0.64135754)
+texture = ExtResource("2_cogn0")
