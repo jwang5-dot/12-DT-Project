@@ -10,8 +10,8 @@ size = Vector2(1175, 29)
 [node name="Level 2" type="Node2D" unique_id=341672757]
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
-position = Vector2(575.62506, 294.5)
-scale = Vector2(0.7980902, 0.6826172)
+position = Vector2(560.5938, 295)
+scale = Vector2(0.8241754, 0.6826172)
 texture = ExtResource("1_3eitq")
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("2_o8t15")]
