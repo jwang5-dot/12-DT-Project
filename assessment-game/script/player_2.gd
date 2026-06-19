@@ -6,14 +6,9 @@ const GRAVITY = 1200.0  # Define your own gravity
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
+@export var max_health: int = 100
 
 var double_jump = true  # Track double jump
-var health: int = 100
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	health_ui.max_value = health
-	health_ui.value = health
 
 func _physics_process(delta: float) -> void:
 # Apply gravity
