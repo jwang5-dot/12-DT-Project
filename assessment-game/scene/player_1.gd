@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 	# Move the character
 	move_and_slide()
 
-extends CharacterBody2D
 
 var speed: float = 400.0
 var health: int = 10
