@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6c7tsvcvxxtp"]
 
-[ext_resource type="Script" uid="uid://ltra7iahdvu8" path="res://scene/player_1.gd" id="1_43gw1"]
-[ext_resource type="Texture2D" uid="uid://hojnl1h58k41" path="res://Player 1 RBG.png" id="1_l08bg"]
+[ext_resource type="Script" uid="uid://ltra7iahdvu8" path="res://scripts/player_1.gd" id="1_43gw1"]
+[ext_resource type="Texture2D" uid="uid://hojnl1h58k41" path="res://images/Player 1 RBG.png" id="1_l08bg"]
 
 [sub_resource type="Curve" id="Curve_43gw1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42187497, 0.41886795), 0.0, 0.0, 0, 0, Vector2(0.953125, 0.35094345), 0.0, 0.0, 0, 0]

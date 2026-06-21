@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://qsxetot13ond"]
 
-[ext_resource type="Texture2D" uid="uid://c0rpsd2d8to4" path="res://scene/Enemy.png" id="1_uramm"]
+[ext_resource type="Texture2D" uid="uid://c0rpsd2d8to4" path="res://images/Enemy.png" id="1_uramm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dregr"]
 radius = 73.0

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://igvw8tb6gqr0"]
 
-[ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://scene/Space1.png" id="1_3eitq"]
-[ext_resource type="Script" uid="uid://dmw6xjr06nrwi" path="res://manager.gd" id="1_o8t15"]
-[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="2_o8t15"]
-[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://scene/Enemy.tscn" id="3_7jaat"]
+[ext_resource type="Script" uid="uid://dmw6xjr06nrwi" path="res://scripts/manager.gd" id="1_yavb0"]
+[ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://images/Space1.png" id="2_g46qk"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_s4evf"]
+[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://scene/Enemy.tscn" id="4_cr61s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8t15"]
 bg_color = Color(0.9647059, 0, 0, 1)
@@ -25,14 +25,14 @@ corner_detail = 6
 size = Vector2(1175, 29)
 
 [node name="Level 2" type="Node2D" unique_id=341672757]
-script = ExtResource("1_o8t15")
+script = ExtResource("1_yavb0")
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
-position = Vector2(560.5938, 295)
-scale = Vector2(0.8241754, 0.6826172)
-texture = ExtResource("1_3eitq")
+position = Vector2(584, 292.00003)
+scale = Vector2(0.8036133, 0.73901373)
+texture = ExtResource("2_g46qk")
 
-[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("2_o8t15")]
+[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_s4evf")]
 position = Vector2(-423, 190)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="CharacterBody2D" unique_id=1256509333]
@@ -58,5 +58,5 @@ position = Vector2(-423, 190)
 position = Vector2(997.5, 437.5)
 shape = SubResource("RectangleShape2D_16vqg")
 
-[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("3_7jaat")]
+[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_cr61s")]
 position = Vector2(469, -173)

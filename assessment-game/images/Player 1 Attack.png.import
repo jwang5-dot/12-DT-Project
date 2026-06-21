@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpco8di3lulvi"
-path="res://.godot/imported/Ancient China.png-2a7472bdfc975c6f9467517bbd001ae2.ctex"
+uid="uid://bt2ceesck031k"
+path="res://.godot/imported/Player 1 Attack.png-49968530bae33f606e513253c8a2743d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ancient China.png"
-dest_files=["res://.godot/imported/Ancient China.png-2a7472bdfc975c6f9467517bbd001ae2.ctex"]
+source_file="res://images/Player 1 Attack.png"
+dest_files=["res://.godot/imported/Player 1 Attack.png-49968530bae33f606e513253c8a2743d.ctex"]
 
 [params]
 

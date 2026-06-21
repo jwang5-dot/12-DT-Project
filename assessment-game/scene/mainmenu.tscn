@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dd3qjjkboj5yi"]
 
-[ext_resource type="Script" uid="uid://5urilrmdgfjf" path="res://mainmenu.gd" id="1_cmhrf"]
+[ext_resource type="Script" uid="uid://5urilrmdgfjf" path="res://scripts/mainmenu.gd" id="1_0khfh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loy4s"]
 content_margin_top = 147.0
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cmhrf")
+script = ExtResource("1_0khfh")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1170390896]
 layout_mode = 0
@@ -50,3 +50,6 @@ offset_right = 730.0
 offset_bottom = 164.0
 text = "Main Menu"
 label_settings = SubResource("LabelSettings_loy4s")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_play"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_quit"]
