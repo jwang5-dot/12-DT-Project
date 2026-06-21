@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dd3qjjkboj5yi"]
 
+[ext_resource type="Script" uid="uid://5urilrmdgfjf" path="res://mainmenu.gd" id="1_cmhrf"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loy4s"]
 content_margin_top = 147.0
 bg_color = Color(0.3019608, 0.6666667, 0.6745098, 1)
@@ -8,6 +10,9 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 
+[sub_resource type="LabelSettings" id="LabelSettings_loy4s"]
+font_size = 50
+
 [node name="Control" type="Control" unique_id=1504643729]
 layout_mode = 3
 anchors_preset = 15
@@ -15,12 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="." unique_id=722119871]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Ruin Quest"
+script = ExtResource("1_cmhrf")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1170390896]
 layout_mode = 0
@@ -32,6 +32,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_loy4s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1886486837]
 layout_mode = 2
+theme_override_constants/separation = 40
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=421905610]
 layout_mode = 2
@@ -39,3 +40,13 @@ text = "Play"
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1344334416]
 layout_mode = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=722119871]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 95.0
+offset_right = 730.0
+offset_bottom = 164.0
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_loy4s")
