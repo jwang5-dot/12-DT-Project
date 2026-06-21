@@ -28,8 +28,8 @@ size = Vector2(1175, 29)
 script = ExtResource("1_yavb0")
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
-position = Vector2(568.24994, 294.00003)
-scale = Vector2(0.8232639, 0.73901373)
+position = Vector2(576.50006, 294.00003)
+scale = Vector2(0.8034722, 0.73901373)
 texture = ExtResource("2_g46qk")
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_s4evf")]
