@@ -3,6 +3,22 @@
 [ext_resource type="Script" uid="uid://ltra7iahdvu8" path="res://scripts/player_1.gd" id="1_43gw1"]
 [ext_resource type="Texture2D" uid="uid://hojnl1h58k41" path="res://images/Player 1 RBG.png" id="1_l08bg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gw1"]
+bg_color = Color(0.9647059, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40s8o"]
+bg_color = Color(0.019607844, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
 [sub_resource type="Curve" id="Curve_43gw1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42187497, 0.41886795), 0.0, 0.0, 0, 0, Vector2(0.953125, 0.35094345), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -20,6 +36,20 @@ glow_hdr_threshold = 0.9
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377]
 script = ExtResource("1_43gw1")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1833323141]
+offset_left = 435.0
+offset_top = 186.0
+offset_right = 673.0
+offset_bottom = 213.0
+theme_override_styles/background = SubResource("StyleBoxFlat_43gw1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_40s8o")
+max_value = 10.0
+step = 1.0
+value = 7.0
+show_percentage = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=809011032]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
 position = Vector2(503, 313)
