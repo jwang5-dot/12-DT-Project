@@ -1,15 +1,7 @@
 [gd_scene format=3 uid="uid://dd3qjjkboj5yi"]
 
 [ext_resource type="Script" uid="uid://5urilrmdgfjf" path="res://scripts/mainmenu.gd" id="1_0khfh"]
-[ext_resource type="Texture2D" uid="uid://bao12nou8rrh5" path="res://images/Main menu3.png" id="2_h8uk4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loy4s"]
-content_margin_top = 147.0
-bg_color = Color(0.3019608, 0.6666667, 0.6745098, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+[ext_resource type="Texture2D" uid="uid://csavqyn30716i" path="res://images/Main menu7.png" id="2_h8uk4"]
 
 [node name="Control" type="Control" unique_id=1504643729]
 layout_mode = 3
@@ -20,31 +12,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0khfh")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1170390896]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=244743756]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -1.0
+offset_left = 3.0
+offset_top = 527.0
 offset_right = 1154.0
-offset_bottom = 650.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_loy4s")
+offset_bottom = 558.0
 
-[node name="MainMenu3" type="Sprite2D" parent="PanelContainer" unique_id=31307909]
-position = Vector2(577, 395.00006)
-scale = Vector2(0.80138886, 0.7812501)
-texture = ExtResource("2_h8uk4")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1886486837]
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 2
-
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=421905610]
-layout_mode = 2
-text = "PLAY"
-
-[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1344334416]
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1344334416]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_play"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_quit"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1886486837]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 190.0
+offset_right = 1150.0
+offset_bottom = 238.0
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=421905610]
+layout_mode = 2
+text = "PLAY"
+
+[node name="MainMenu7" type="Sprite2D" parent="VBoxContainer2" unique_id=1764803551]
+position = Vector2(571.5, 157.00006)
+scale = Vector2(0.8020834, 0.7675781)
+texture = ExtResource("2_h8uk4")
+
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_quit"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_play"]
