@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dd3qjjkboj5yi"]
 
 [ext_resource type="Script" uid="uid://5urilrmdgfjf" path="res://scripts/mainmenu.gd" id="1_0khfh"]
+[ext_resource type="Texture2D" uid="uid://bao12nou8rrh5" path="res://images/Main menu3.png" id="2_h8uk4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loy4s"]
 content_margin_top = 147.0
@@ -9,9 +10,6 @@ border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_loy4s"]
-font_size = 50
 
 [node name="Control" type="Control" unique_id=1504643729]
 layout_mode = 3
@@ -24,32 +22,29 @@ script = ExtResource("1_0khfh")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1170390896]
 layout_mode = 0
-offset_left = 263.0
-offset_top = 64.0
-offset_right = 874.0
-offset_bottom = 621.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1154.0
+offset_bottom = 650.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_loy4s")
+
+[node name="MainMenu3" type="Sprite2D" parent="PanelContainer" unique_id=31307909]
+position = Vector2(577, 395.00006)
+scale = Vector2(0.80138886, 0.7812501)
+texture = ExtResource("2_h8uk4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1886486837]
 layout_mode = 2
 theme_override_constants/separation = 40
+alignment = 2
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=421905610]
 layout_mode = 2
-text = "Play"
+text = "PLAY"
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1344334416]
 layout_mode = 2
 text = "Quit"
-
-[node name="Label" type="Label" parent="." unique_id=722119871]
-layout_mode = 0
-offset_left = 428.0
-offset_top = 95.0
-offset_right = 730.0
-offset_bottom = 164.0
-text = "Main Menu"
-label_settings = SubResource("LabelSettings_loy4s")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_play"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_quit"]
