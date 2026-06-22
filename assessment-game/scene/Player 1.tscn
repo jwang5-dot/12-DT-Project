@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://ltra7iahdvu8" path="res://scripts/player_1.gd" id="1_43gw1"]
 [ext_resource type="Texture2D" uid="uid://hojnl1h58k41" path="res://images/Player 1 RBG.png" id="1_l08bg"]
 
+[sub_resource type="Curve" id="Curve_43gw1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42187497, 0.41886795), 0.0, 0.0, 0, 0, Vector2(0.953125, 0.35094345), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gw1"]
 bg_color = Color(0.9647059, 0, 0, 1)
 corner_radius_top_left = 6
@@ -19,13 +23,9 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="Curve" id="Curve_43gw1"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42187497, 0.41886795), 0.0, 0.0, 0, 0, Vector2(0.953125, 0.35094345), 0.0, 0.0, 0, 0]
-point_count = 3
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwabi"]
-radius = 89.0
-height = 208.0
+radius = 53.0
+height = 152.0
 
 [sub_resource type="Environment" id="Environment_43gw1"]
 background_mode = 3
@@ -37,23 +37,9 @@ glow_hdr_threshold = 0.9
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377]
 script = ExtResource("1_43gw1")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1833323141]
-offset_left = 435.0
-offset_top = 186.0
-offset_right = 673.0
-offset_bottom = 213.0
-theme_override_styles/background = SubResource("StyleBoxFlat_43gw1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_40s8o")
-max_value = 10.0
-step = 1.0
-value = 7.0
-show_percentage = false
-
-[node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=809011032]
-
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
-position = Vector2(503, 313)
-amount = 30
+position = Vector2(507, 309)
+amount = 50
 emission_shape = 6
 emission_ring_inner_radius = 10.0
 emission_ring_radius = 10.0
@@ -64,15 +50,29 @@ initial_velocity_min = 44.94
 initial_velocity_max = 73.03
 scale_amount_max = 29.0
 scale_amount_curve = SubResource("Curve_43gw1")
-color = Color(0.6784314, 1, 0, 1)
+color = Color(0.50632703, 0.9890936, 0.869905, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1833323141]
+offset_left = 483.0
+offset_top = 218.0
+offset_right = 620.0
+offset_bottom = 235.0
+theme_override_styles/background = SubResource("StyleBoxFlat_43gw1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_40s8o")
+max_value = 10.0
+step = 1.0
+value = 7.0
+show_percentage = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=809011032]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791006491]
-position = Vector2(545, 325)
+position = Vector2(550, 329)
 shape = SubResource("CapsuleShape2D_xwabi")
 
 [node name="Player1Rbg" type="Sprite2D" parent="." unique_id=815419151]
-position = Vector2(570.8125, 289)
-scale = Vector2(1.6720831, 1.7299998)
+position = Vector2(561, 291)
+scale = Vector2(1.4733332, 1.5583333)
 texture = ExtResource("1_l08bg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1842009504]

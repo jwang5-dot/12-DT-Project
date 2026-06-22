@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed: float = 200.0
 var player: CharacterBody2D
 var health: int = 1
-
+		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 		velocity = Vector2(1, 0).rotated(rotation) * speed
 
 		move_and_slide()
-
 
 func take_damage() -> void:
 	if health > 1:

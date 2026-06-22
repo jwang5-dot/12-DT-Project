@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://scene/Enemy.tscn" id="4_h7in3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
-size = Vector2(1050.4375, 50.49991)
+size = Vector2(1148, 28.249989)
 
 [node name="Level 2" type="Node2D" unique_id=117724919]
 
@@ -16,9 +16,9 @@ scale = Vector2(0.8192858, 0.6347656)
 texture = ExtResource("1_2w6kw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1289578008]
-offset_left = 54.0
-offset_top = 582.0
-offset_right = 1107.0
+offset_left = 3.0
+offset_top = 607.0
+offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_2p7nl")
 patch_margin_left = 16
@@ -27,12 +27,12 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_brqh1")]
-position = Vector2(-411, 154)
+position = Vector2(-407, 165)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=272474380]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
-position = Vector2(581, 615)
+position = Vector2(575, 626.125)
 shape = SubResource("RectangleShape2D_y32ns")
 
 [node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_h7in3")]

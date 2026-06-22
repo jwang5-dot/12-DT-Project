@@ -2,7 +2,7 @@ extends Control
 
 
 func _play() -> void:
-	get_tree().change_scene_to_file("res://scene/Level 4.tscn")
+	get_tree().change_scene_to_file("res://scene/Level 2.tscn")
 
 func _quit() -> void:
 	get_tree().quit()
