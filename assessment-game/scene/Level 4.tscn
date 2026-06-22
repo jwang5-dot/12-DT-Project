@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://images/Space1.png" id="2_g46qk"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_s4evf"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://scene/EnemyRC.tscn" id="4_yavb0"]
-[ext_resource type="Texture2D" uid="uid://b78avdw75bkjk" path="res://images/Portal-removebg-preview.png" id="5_g46qk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vqg"]
 size = Vector2(1175, 29)
@@ -29,7 +28,3 @@ shape = SubResource("RectangleShape2D_16vqg")
 
 [node name="CharacterBody2D2" parent="." unique_id=1277688742 instance=ExtResource("4_yavb0")]
 position = Vector2(429, -145)
-
-[node name="PortalRemovebgPreview" type="Sprite2D" parent="." unique_id=709995858]
-position = Vector2(1049, 522)
-texture = ExtResource("5_g46qk")
