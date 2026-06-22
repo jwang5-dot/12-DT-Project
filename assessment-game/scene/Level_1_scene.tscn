@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b7arabluyk84g" path="res://script/level_1_scene.gd" id="1_aoa7p"]
 [ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://images/Leve_1_Background.png" id="1_w17ck"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_affpu"]
-[ext_resource type="PackedScene" uid="uid://fcep4lc6j851" path="res://scene/Melee_Enemy.tscn" id="4_u8ckq"]
+[ext_resource type="PackedScene" uid="uid://fcep4lc6j851" path="res://scene/melee_enemy.tscn" id="4_u8ckq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
 size = Vector2(1181.5, 64)

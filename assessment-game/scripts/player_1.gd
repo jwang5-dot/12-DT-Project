@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		double_jump = true
 
 	# Jumping
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_W"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif double_jump:
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 			double_jump = false
 
 	# Horizontal movement
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("ui_A", "ui_D")
 
 	if direction:
 		velocity.x = direction * SPEED
