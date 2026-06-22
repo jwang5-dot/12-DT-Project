@@ -4,12 +4,22 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 1200.0  # Define your own gravity
 
+var health: int = 100
+var double_jump = true  # Track double jump
+
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
 
-var health: int = 100
-
-var double_jump = true  # Track double jump
+func _ready() -> void:
+	health_ui.max_value = health
+	health_ui.value = health
+	
+func take_damage() -> void:
+	if health > 1:
+		health -= 1
+		health_ui.value = health
+	else:
+		get_tree().call_deferred("reload_current_scene")
 
 func _physics_process(delta: float) -> void:
 # Apply gravity

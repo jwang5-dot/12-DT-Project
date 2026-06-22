@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://bhkny1rx35i4k" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
 [ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://images/ME.png" id="2_584gp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
-radius = 113.0
-height = 226.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eph0u"]
 bg_color = Color(1, 0.31867278, 0.43288794, 1)
 corner_radius_top_left = 10
@@ -17,8 +13,25 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_584gp"]
 bg_color = Color(5.7275593e-06, 0.716855, 0.38713267, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
+radius = 113.0
+height = 226.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eph0u"]
+radius = 113.0
+height = 228.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_eph0u")
+health_bar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1290858401]
+offset_left = -87.0
+offset_top = -127.0
+offset_right = 106.0
+offset_bottom = -100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_eph0u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_584gp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=970804352]
 shape = SubResource("CapsuleShape2D_qoxbp")
@@ -28,12 +41,9 @@ position = Vector2(4, -2)
 scale = Vector2(0.84, 0.8233333)
 texture = ExtResource("2_584gp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1970685880]
+[node name="Area2D" type="Area2D" parent="." unique_id=510127655]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1290858401]
-offset_left = -87.0
-offset_top = -127.0
-offset_right = 106.0
-offset_bottom = -100.0
-theme_override_styles/background = SubResource("StyleBoxFlat_eph0u")
-theme_override_styles/fill = SubResource("StyleBoxFlat_584gp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=118082940]
+shape = SubResource("CapsuleShape2D_eph0u")
+
+[connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
