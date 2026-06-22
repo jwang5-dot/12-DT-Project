@@ -17,6 +17,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03o14"]
+radius = 40.0
+height = 184.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv3h5"]
 radius = 40.0
 height = 182.0
@@ -33,11 +37,18 @@ offset_bottom = -94.0
 theme_override_styles/background = SubResource("StyleBoxFlat_03o14")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mepv0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368636899]
-shape = SubResource("CapsuleShape2D_bv3h5")
-one_way_collision = true
-
 [node name="Player2BasicDesign" type="Sprite2D" parent="." unique_id=1750448838]
 position = Vector2(2, -4.9999995)
 scale = Vector2(0.5833333, 0.60333335)
 texture = ExtResource("2_mepv0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=16967595]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1209528100]
+shape = SubResource("CapsuleShape2D_03o14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368636899]
+shape = SubResource("CapsuleShape2D_bv3h5")
+one_way_collision = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_attack"]
