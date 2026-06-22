@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d1mt6johjoroo"]
+
+[ext_resource type="Script" uid="uid://c8e00r45lc8wo" path="res://script/player_2.gd" id="1_03o14"]
+[ext_resource type="Texture2D" uid="uid://crfkjt70py4pv" path="res://images/Player_2_basic_design.png" id="2_mepv0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03o14"]
+bg_color = Color(0.99999994, 0.35267124, 0.072142385, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mepv0"]
+bg_color = Color(4.813075e-07, 0.64129114, 0.43978617, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03o14"]
+radius = 40.0
+height = 184.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv3h5"]
+radius = 40.0
+height = 182.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563 node_paths=PackedStringArray("health_ui") groups=["player"]]
+script = ExtResource("1_03o14")
+health_ui = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1355321709]
+offset_left = -78.0
+offset_top = -127.0
+offset_right = 83.0
+offset_bottom = -94.0
+theme_override_styles/background = SubResource("StyleBoxFlat_03o14")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mepv0")
+
+[node name="Player2BasicDesign" type="Sprite2D" parent="." unique_id=1750448838]
+position = Vector2(2, -4.9999995)
+scale = Vector2(0.5833333, 0.60333335)
+texture = ExtResource("2_mepv0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=16967595]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1209528100]
+shape = SubResource("CapsuleShape2D_03o14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368636899]
+shape = SubResource("CapsuleShape2D_bv3h5")
+one_way_collision = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_attack"]
