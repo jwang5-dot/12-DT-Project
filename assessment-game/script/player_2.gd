@@ -6,6 +6,7 @@ const GRAVITY = 1200.0  # Define your own gravity
 
 var health: int = 100
 var double_jump = true  # Track double jump
+var player = CharacterBody2D
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -13,6 +14,8 @@ var double_jump = true  # Track double jump
 func _ready() -> void:
 	health_ui.max_value = health
 	health_ui.value = health
+	for node in get_tree().get_nodes_in_group("player_2"):
+		player = node
 	
 func take_damage() -> void:
 	if health > 1:
@@ -49,4 +52,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _attack(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body == player:
+		player.take_damage()

@@ -1,17 +1,21 @@
-[gd_scene format=3 uid="uid://fcep4lc6j851"]
+[gd_scene format=3 uid="uid://blbmko3orl7nl"]
 
-[ext_resource type="Script" uid="uid://bhkny1rx35i4k" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
+[ext_resource type="Script" uid="uid://bhkny1rx35i4k" path="res://script/melee_enemy.gd" id="1_eph0u"]
 [ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://images/ME.png" id="2_584gp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eph0u"]
-bg_color = Color(1, 0.31867278, 0.43288794, 1)
+bg_color = Color(1, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_584gp"]
-bg_color = Color(5.7275593e-06, 0.716855, 0.38713267, 1)
+bg_color = Color(0.20633417, 0.6137954, 0.99999994, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
 radius = 113.0

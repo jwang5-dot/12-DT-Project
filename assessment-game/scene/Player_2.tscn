@@ -29,6 +29,8 @@ height = 182.0
 script = ExtResource("1_03o14")
 health_ui = NodePath("ProgressBar")
 
+[node name="Node2D" type="Node2D" parent="." unique_id=1069805923]
+
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1355321709]
 offset_left = -78.0
 offset_top = -127.0
