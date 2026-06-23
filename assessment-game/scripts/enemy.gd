@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 	if not player == null:
 		look_at(player.global_position)
 		velocity = Vector2(1, 0).rotated(rotation) * speed
-
 		move_and_slide()
 
 func take_damage() -> void:

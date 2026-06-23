@@ -25,20 +25,81 @@ text = "Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1886486837]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 190.0
-offset_right = 1150.0
-offset_bottom = 233.0
-theme_override_constants/separation = 40
+offset_left = 1.0
+offset_top = 124.0
+offset_right = 1149.0
+offset_bottom = 297.0
+theme_override_constants/separation = 1
 
 [node name="Button" type="Button" parent="VBoxContainer2" unique_id=421905610]
 layout_mode = 2
 text = "PLAY"
 
-[node name="MainMenu7" type="Sprite2D" parent="VBoxContainer2" unique_id=1764803551]
-position = Vector2(571.5, 163.50006)
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2" unique_id=917904183]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer2/VBoxContainer2" unique_id=286259833]
+layout_mode = 2
+text = "PLAY"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1262753732]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 187.0
+offset_right = 1149.0
+offset_bottom = 224.0
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer3" unique_id=1117926773]
+layout_mode = 2
+text = "PLAY"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=434058183]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 214.0
+offset_right = 1149.0
+offset_bottom = 245.0
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer4" unique_id=1774586425]
+layout_mode = 2
+text = "PLAY"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="." unique_id=1299670338]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 242.0
+offset_right = 1149.0
+offset_bottom = 279.0
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer5" unique_id=881876098]
+layout_mode = 2
+text = "PLAY"
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="." unique_id=801041467]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 273.0
+offset_right = 1149.0
+offset_bottom = 304.0
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer6" unique_id=57018041]
+layout_mode = 2
+text = "PLAY"
+
+[node name="MainMenu7" type="Sprite2D" parent="VBoxContainer6/Button" unique_id=1764803551]
+position = Vector2(575.5, 92.50006)
 scale = Vector2(0.8020834, 0.7548829)
 texture = ExtResource("2_h8uk4")
 
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_quit"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_play"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/Button" to="." method="_play"]
+[connection signal="pressed" from="VBoxContainer3/Button" to="." method="_play"]
+[connection signal="pressed" from="VBoxContainer4/Button" to="." method="_play"]
+[connection signal="pressed" from="VBoxContainer5/Button" to="." method="_play"]
+[connection signal="pressed" from="VBoxContainer6/Button" to="." method="_play"]
