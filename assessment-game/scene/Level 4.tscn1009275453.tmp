@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://images/Space1.png" id="2_g46qk"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_s4evf"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://scene/EnemyRC.tscn" id="4_yavb0"]
+[ext_resource type="Script" uid="uid://bwsd4keydc330" path="res://scene/level 4.gd" id="5_s4evf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vqg"]
 size = Vector2(1175, 29)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjxe6"]
-radius = 67.0
-height = 222.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yavb0"]
+radius = 61.0
+height = 188.0
 
 [node name="Level 4" type="Node2D" unique_id=341672757]
+script = ExtResource("5_s4evf")
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
 position = Vector2(576.50006, 294.00003)
@@ -31,10 +33,12 @@ shape = SubResource("RectangleShape2D_16vqg")
 [node name="CharacterBody2D2" parent="." unique_id=1277688742 instance=ExtResource("4_yavb0")]
 position = Vector2(429, -145)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1816056417]
+[node name="Area2D" type="Area2D" parent="." unique_id=959146622]
+position = Vector2(1067, 506)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932510721]
-position = Vector2(1038, 496)
-shape = SubResource("CapsuleShape2D_wjxe6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1943625733]
+position = Vector2(1, 6)
+shape = SubResource("CapsuleShape2D_yavb0")
+script = ExtResource("5_s4evf")
 
-[connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

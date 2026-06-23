@@ -9,3 +9,7 @@ func _spawn_enemy() -> void:
 	var enemy = enemy_scene.instantiate()
 	enemy.global_position = spawn_point.global_position
 	add_child(enemy)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

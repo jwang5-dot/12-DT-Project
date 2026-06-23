@@ -96,3 +96,7 @@ func add_score(amount: int) -> void:
 		score_label.text = "SCORE: " + str(score)
 
 	print("Score:", score)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
