@@ -15,36 +15,39 @@ size = Vector2(1355.5, 134)
 size = Vector2(240.5, 838.5)
 
 [node name="Node2D" type="Node2D" unique_id=91584699]
+position = Vector2(85, 384)
 script = ExtResource("1_vjpgg")
 
 [node name="EndingSceneDoorWalking" type="Sprite2D" parent="." unique_id=2057187375]
-position = Vector2(576.81256, 324.62494)
+position = Vector2(502.00003, -65.99996)
 scale = Vector2(0.81970483, 0.64135736)
 texture = ExtResource("2_cogn0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1454984313]
+position = Vector2(30, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=144322440]
-position = Vector2(-177, 403.5)
+position = Vector2(-276, -52)
 shape = SubResource("RectangleShape2D_yht1g")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1398005504]
+position = Vector2(30, -67)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1697011624]
-position = Vector2(560, 597)
+position = Vector2(513, 248)
 shape = SubResource("RectangleShape2D_u8t5q")
 
 [node name="Right" type="Area2D" parent="." unique_id=998735698 node_paths=PackedStringArray("landing_zone")]
-position = Vector2(19, 421)
+position = Vector2(10, -45)
 script = ExtResource("3_yht1g")
 landing_zone = NodePath("../Left")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=666362084]
-position = Vector2(1267, -42)
+position = Vector2(1193, 58)
 shape = SubResource("RectangleShape2D_cogn0")
 
 [node name="Marker2D" type="Marker2D" parent="Right" unique_id=464493378]
-position = Vector2(6, -366)
+position = Vector2(-17, -223)
 
 [node name="Left" type="Area2D" parent="." unique_id=289510215 node_paths=PackedStringArray("landing_zone")]
 position = Vector2(17, 422)
@@ -52,14 +55,14 @@ script = ExtResource("3_yht1g")
 landing_zone = NodePath("../Right")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1225915889]
-position = Vector2(1264, -24)
+position = Vector2(1179, -388)
 shape = SubResource("RectangleShape2D_cogn0")
 
 [node name="Marker2D" type="Marker2D" parent="Left" unique_id=156884394]
 position = Vector2(7, -373)
 
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(127, 427)
+position = Vector2(144, 5)
 
 [connection signal="body_entered" from="Right" to="Right" method="_on_body_entered"]
 [connection signal="body_entered" from="Left" to="Left" method="_on_body_entered"]

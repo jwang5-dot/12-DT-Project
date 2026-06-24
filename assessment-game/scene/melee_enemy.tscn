@@ -22,8 +22,8 @@ radius = 113.0
 height = 226.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eph0u"]
-radius = 113.0
-height = 228.0
+radius = 175.0
+height = 350.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("health_ui")]
 script = ExtResource("1_eph0u")

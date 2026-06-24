@@ -1,3 +1,4 @@
+class_name Player_2
 extends CharacterBody2D
 
 const SPEED = 300.0
@@ -19,7 +20,7 @@ func _ready() -> void:
 	
 func take_damage() -> void:
 	if health > 1:
-		health -= 1
+		health -= 10
 		health_ui.value = health
 	else:
 		get_tree().call_deferred("reload_current_scene")
@@ -52,5 +53,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _attack(body: Node2D) -> void:
-	if body == player:
-		player.take_damage()
+	if body == Melee_Enemy:
+		body.take_damage()
