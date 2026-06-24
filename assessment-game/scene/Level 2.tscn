@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="6_brqh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
-size = Vector2(1148, 28.249989)
+size = Vector2(1148, 24.249994)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p7nl"]
 radius = 55.0
@@ -24,7 +24,7 @@ texture = ExtResource("1_2w6kw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1289578008]
 offset_left = 3.0
-offset_top = 607.0
+offset_top = 612.0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_2p7nl")
@@ -39,7 +39,7 @@ position = Vector2(-420, 194)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=272474380]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
-position = Vector2(575, 626.125)
+position = Vector2(575, 628.125)
 shape = SubResource("RectangleShape2D_y32ns")
 
 [node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_h7in3")]
