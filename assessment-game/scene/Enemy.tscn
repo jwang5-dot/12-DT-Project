@@ -7,6 +7,22 @@
 radius = 73.0
 height = 202.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dregr"]
+bg_color = Color(0.9647059, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sja4v"]
+bg_color = Color(0.019607844, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679]
 script = ExtResource("1_dregr")
 
@@ -18,3 +34,17 @@ shape = SubResource("CapsuleShape2D_dregr")
 position = Vector2(0, 7)
 scale = Vector2(0.7366667, 0.73333335)
 texture = ExtResource("1_uramm")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1156493572]
+offset_left = 500.0
+offset_top = 170.0
+offset_right = 637.0
+offset_bottom = 187.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dregr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sja4v")
+max_value = 10.0
+step = 1.0
+value = 7.0
+show_percentage = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=1865486663]
