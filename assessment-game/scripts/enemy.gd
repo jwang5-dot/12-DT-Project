@@ -9,6 +9,8 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
 		player = node
 
+@export var health_ui: ProgressBar
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,11 +21,11 @@ func _process(delta: float) -> void:
 
 func take_damage() -> void:
 	if health > 1:
-		health -= 1
+		health -= 5
 	else:
 		player.add_score(1)  
 		queue_free()
 
 func _damage_player(body: Node2D) -> void:
-	if body == player:
-		player.take_damage()
+	if body == Player_1:
+		body.take_damage()

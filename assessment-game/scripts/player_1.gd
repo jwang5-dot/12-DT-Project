@@ -1,3 +1,4 @@
+class_name Player_1
 extends CharacterBody2D
 
 # Movement
@@ -8,7 +9,7 @@ const GRAVITY = 1200.0
 var double_jump = true
 
 # Health
-var health: int = 10
+var health: int = 100
 
 # Score
 var score: int = 0

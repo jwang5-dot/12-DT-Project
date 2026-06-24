@@ -23,8 +23,9 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui")]
 script = ExtResource("1_dregr")
+health_ui = NodePath("ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045443720]
 position = Vector2(571.5, 297)
@@ -45,6 +46,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_sja4v")
 max_value = 10.0
 step = 1.0
 value = 7.0
-show_percentage = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=1865486663]

@@ -34,8 +34,9 @@ glow_intensity = 2.33
 glow_strength = 1.24
 glow_hdr_threshold = 0.9
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377 groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377 node_paths=PackedStringArray("health_ui") groups=["player"]]
 script = ExtResource("1_43gw1")
+health_ui = NodePath("ProgressBar")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
 position = Vector2(507, 309)
@@ -62,7 +63,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_40s8o")
 max_value = 10.0
 step = 1.0
 value = 7.0
-show_percentage = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=809011032]
 
