@@ -18,11 +18,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03o14"]
-radius = 40.0
+radius = 49.0
 height = 184.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv3h5"]
-radius = 40.0
+radius = 48.0
 height = 182.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563 node_paths=PackedStringArray("health_ui") groups=["player"]]

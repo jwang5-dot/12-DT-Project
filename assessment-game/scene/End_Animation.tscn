@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://drshu2mb4pb1q" path="res://images/Ending_Scene_Door_Hand.png" id="14_gmw4g"]
 [ext_resource type="Texture2D" uid="uid://cx7v3h61d0k5u" path="res://images/Ending_Scene_Door_Hand_3.png" id="15_it54i"]
 [ext_resource type="Texture2D" uid="uid://dc03xqf6w7kk6" path="res://images/Ending_Scene_Door_Hand_4.png" id="16_2devq"]
+[ext_resource type="Texture2D" uid="uid://brs8vf5sxa4d2" path="res://images/Jumpscare.png" id="17_4gvpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf5bg"]
 size = Vector2(1207, 79)
@@ -61,6 +62,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_2devq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
 }],
 "loop": true,
 "name": &"default",
@@ -91,4 +95,8 @@ position = Vector2(574.5, 608)
 shape = SubResource("RectangleShape2D_vf5bg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=635328980]
+position = Vector2(662, 358)
 sprite_frames = SubResource("SpriteFrames_vf5bg")
+autoplay = "default"
+frame = 5
+frame_progress = 0.610859

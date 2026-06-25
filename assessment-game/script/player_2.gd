@@ -15,15 +15,6 @@ var player = CharacterBody2D
 func _ready() -> void:
 	health_ui.max_value = health
 	health_ui.value = health
-	for node in get_tree().get_nodes_in_group("player_2"):
-		player = node
-	
-func take_damage() -> void:
-	if health > 1:
-		health -= 10
-		health_ui.value = health
-	else:
-		get_tree().call_deferred("reload_current_scene")
 
 func _physics_process(delta: float) -> void:
 # Apply gravity
@@ -50,8 +41,15 @@ func _physics_process(delta: float) -> void:
 
 # Move the character
 	move_and_slide()
+	
+func take_damage() -> void:
+	if health > 1:
+		health -= 10
+		health_ui.value = health
+	else:
+		get_tree().call_deferred("reload_current_scene")
 
 
 func _attack(body: Node2D) -> void:
-	if body == Melee_Enemy:
+	if body is Melee_Enemy:
 		body.take_damage()

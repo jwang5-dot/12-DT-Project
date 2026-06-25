@@ -17,9 +17,10 @@ func _ready() -> void:
 func take_damage() -> void:
 	if health > 1:
 		health -= 10
+		health_ui.value = health
 	else:
-		queue_free()
-s
+		get_tree().call_deferred("reload_current_scene")
+
 func _take_damage(body: Node2D) -> void:
 	if body is Player_2:
 		body.take_damage()

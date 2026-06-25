@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blbmko3orl7nl"]
 
-[ext_resource type="Script" uid="uid://bfrnwgdugfixq" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
+[ext_resource type="Script" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
 [ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://images/ME.png" id="2_584gp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eph0u"]
@@ -25,9 +25,8 @@ height = 226.0
 radius = 175.0
 height = 350.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("sprite", "health_ui")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("health_ui")]
 script = ExtResource("1_eph0u")
-sprite = NodePath("Me")
 health_ui = NodePath("ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1290858401]
