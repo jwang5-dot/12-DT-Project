@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv2nciv14o138"]
 
-[ext_resource type="Script" uid="uid://gh61jfginn33" path="res://scene/level_2.gd" id="1_2p7nl"]
+[ext_resource type="Script" uid="uid://gh61jfginn33" path="res://scripts/level_2.gd" id="1_2p7nl"]
 [ext_resource type="Texture2D" uid="uid://cpco8di3lulvi" path="res://images/Ancient China.png" id="1_2w6kw"]
 [ext_resource type="Texture2D" uid="uid://bbp32viflnjmt" path="res://images/Box.png" id="2_2p7nl"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_brqh1"]

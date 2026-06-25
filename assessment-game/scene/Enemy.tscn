@@ -23,24 +23,30 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sja4v"]
+radius = 74.0
+height = 204.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui")]
+rotation = -1.9966567
 script = ExtResource("1_dregr")
 health_ui = NodePath("ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045443720]
-position = Vector2(571.5, 297)
+position = Vector2(-1.5, -2)
 shape = SubResource("CapsuleShape2D_dregr")
 
 [node name="Enemy" type="Sprite2D" parent="CollisionShape2D" unique_id=302135733]
 position = Vector2(0, 7)
+rotation = 1.9966567
 scale = Vector2(0.7366667, 0.73333335)
 texture = ExtResource("1_uramm")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1156493572]
-offset_left = 500.0
-offset_top = 170.0
-offset_right = 637.0
-offset_bottom = 187.0
+offset_left = -73.0
+offset_top = -129.0
+offset_right = 64.0
+offset_bottom = -106.0
 theme_override_styles/background = SubResource("StyleBoxFlat_dregr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sja4v")
 max_value = 10.0
@@ -48,3 +54,12 @@ step = 1.0
 value = 7.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=1865486663]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1838143207]
+position = Vector2(-573, -299)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1720319297]
+position = Vector2(572, 300)
+shape = SubResource("CapsuleShape2D_sja4v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_take_damage"]

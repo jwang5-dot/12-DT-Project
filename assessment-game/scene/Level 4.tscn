@@ -20,7 +20,7 @@ scale = Vector2(0.8034722, 0.73901373)
 texture = ExtResource("2_g46qk")
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_s4evf")]
-position = Vector2(-419, 189)
+position = Vector2(143, 481)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=723386610]
 position = Vector2(-423, 190)
@@ -30,7 +30,7 @@ position = Vector2(997.5, 437.5)
 shape = SubResource("RectangleShape2D_16vqg")
 
 [node name="CharacterBody2D2" parent="." unique_id=1277688742 instance=ExtResource("4_yavb0")]
-position = Vector2(429, -145)
+position = Vector2(1026, 173)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1816056417]
 

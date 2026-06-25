@@ -90,14 +90,13 @@ func take_damage() -> void:
 	else:
 		get_tree().reload_current_scene()
 
-func add_score(amount: int) -> void:
-	score += amount
-
-	if score_label:
-		score_label.text = "SCORE: " + str(score)
-
-	print("Score:", score)
-
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+func attack_damage() -> void:
+	if health > 1:
+		health -= 5
+		health_ui.value = health
+	else: 
+		queue_free()
+		
+func _melee_damage(body: Node2D) -> void:
+	if body is Enemy_Black or Enemy_Red:
+		body.attack_damage

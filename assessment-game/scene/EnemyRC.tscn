@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://22oru3imdu3t" path="res://scripts/enemy_rc.gd" id="1_252ky"]
 [ext_resource type="Texture2D" uid="uid://oejmdi3ecsx5" path="res://images/Red Crow.png" id="2_wew88"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhns0"]
-radius = 83.0
-height = 232.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_252ky"]
+radius = 80.0
+height = 226.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_252ky"]
 bg_color = Color(0.9647059, 0, 0, 1)
@@ -23,24 +23,30 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhns0"]
+radius = 83.0
+height = 232.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277688742 node_paths=PackedStringArray("health_ui")]
+rotation = -1.9966567
 script = ExtResource("1_252ky")
 health_ui = NodePath("ProgressBar")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1706283920]
-position = Vector2(616, 292)
-shape = SubResource("CapsuleShape2D_nhns0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1109315571]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_252ky")
 
 [node name="RedCrow" type="Sprite2D" parent="." unique_id=180294512]
-position = Vector2(612, 308)
+position = Vector2(-3.0000622, 9.999966)
+rotation = 1.9966567
 scale = Vector2(0.86, 0.87)
 texture = ExtResource("2_wew88")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1700341769]
-offset_left = 544.0
-offset_top = 146.0
-offset_right = 681.0
-offset_bottom = 163.0
+offset_left = -71.0
+offset_top = -152.0
+offset_right = 66.0
+offset_bottom = -129.0
 theme_override_styles/background = SubResource("StyleBoxFlat_252ky")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wew88")
 max_value = 10.0
@@ -48,3 +54,12 @@ step = 1.0
 value = 7.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=78874855]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=595870994]
+position = Vector2(-615, -298)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1706283920]
+position = Vector2(616, 299)
+shape = SubResource("CapsuleShape2D_nhns0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
