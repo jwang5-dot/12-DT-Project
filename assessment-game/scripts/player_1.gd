@@ -83,20 +83,11 @@ func _bullet_cooldown() -> void:
 
 func take_damage() -> void:
 	if health > 1:
-		health -= 1
-
-		if health_ui:
-			health_ui.value = health
-	else:
-		get_tree().reload_current_scene()
-
-func attack_damage() -> void:
-	if health > 1:
 		health -= 5
 		health_ui.value = health
-	else: 
-		queue_free()
+	else:
+		get_tree().reload_current_scene()
 		
 func _melee_damage(body: Node2D) -> void:
-	if body is Enemy_Black or Enemy_Red:
-		body.attack_damage
+	if body is Enemy_Red:
+		body.take_damage()
