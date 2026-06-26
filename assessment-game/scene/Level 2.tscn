@@ -34,7 +34,7 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_brqh1")]
-position = Vector2(-420, 194)
+position = Vector2(114, 523)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=272474380]
 
@@ -43,7 +43,7 @@ position = Vector2(575, 628.125)
 shape = SubResource("RectangleShape2D_y32ns")
 
 [node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_h7in3")]
-position = Vector2(458, -184)
+position = Vector2(1017, 113)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=784893877]
 

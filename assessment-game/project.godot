@@ -15,6 +15,10 @@ run/main_scene="uid://dd3qjjkboj5yi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://images/icon.svg"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/minin/Documents/prototype/prototype.avi"
+
 [input]
 
 ui_accept={
