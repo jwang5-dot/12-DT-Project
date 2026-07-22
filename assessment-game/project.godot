@@ -15,6 +15,15 @@ run/main_scene="uid://dd3qjjkboj5yi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://images/icon.svg"
 
+[display]
+
+window/size/viewport_width=1327
+window/size/viewport_height=935
+
+[editor]
+
+movie_writer/movie_file="C:/Users/nicol/OneDrive/Pictures/prototype_End_teleport.avi"
+
 [input]
 
 ui_accept={

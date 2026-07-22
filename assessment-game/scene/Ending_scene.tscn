@@ -5,64 +5,53 @@
 [ext_resource type="Script" uid="uid://ejv277pbfsjl" path="res://script/end_walk_tp.gd" id="3_yht1g"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="4_u8t5q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yht1g"]
-size = Vector2(342, 817)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8t5q"]
 size = Vector2(1355.5, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cogn0"]
-size = Vector2(240.5, 838.5)
+size = Vector2(248.25, 851.25)
 
 [node name="Node2D" type="Node2D" unique_id=91584699]
-position = Vector2(85, 384)
+position = Vector2(0, 1)
 script = ExtResource("1_vjpgg")
 
 [node name="EndingSceneDoorWalking" type="Sprite2D" parent="." unique_id=2057187375]
-position = Vector2(502.00003, -65.99996)
-scale = Vector2(0.81970483, 0.64135736)
+position = Vector2(673, 472.00003)
+scale = Vector2(0.92721355, 0.9121093)
 texture = ExtResource("2_cogn0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1454984313]
-position = Vector2(30, 60)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=144322440]
-position = Vector2(-276, -52)
-shape = SubResource("RectangleShape2D_yht1g")
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1398005504]
-position = Vector2(30, -67)
+position = Vector2(-2, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1697011624]
-position = Vector2(513, 248)
+position = Vector2(674, 854)
 shape = SubResource("RectangleShape2D_u8t5q")
 
 [node name="Right" type="Area2D" parent="." unique_id=998735698 node_paths=PackedStringArray("landing_zone")]
-position = Vector2(10, -45)
 script = ExtResource("3_yht1g")
 landing_zone = NodePath("../Left")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=666362084]
-position = Vector2(1193, 58)
+position = Vector2(-105, 423)
 shape = SubResource("RectangleShape2D_cogn0")
 
 [node name="Marker2D" type="Marker2D" parent="Right" unique_id=464493378]
-position = Vector2(-17, -223)
+position = Vector2(4, 3)
 
 [node name="Left" type="Area2D" parent="." unique_id=289510215 node_paths=PackedStringArray("landing_zone")]
-position = Vector2(17, 422)
+position = Vector2(-2, 4)
 script = ExtResource("3_yht1g")
 landing_zone = NodePath("../Right")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1225915889]
-position = Vector2(1179, -388)
+position = Vector2(1462, 438)
 shape = SubResource("RectangleShape2D_cogn0")
 
 [node name="Marker2D" type="Marker2D" parent="Left" unique_id=156884394]
-position = Vector2(7, -373)
+position = Vector2(0, 3)
 
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(144, 5)
+position = Vector2(204, 636)
 
 [connection signal="body_entered" from="Right" to="Right" method="_on_body_entered"]
 [connection signal="body_entered" from="Left" to="Left" method="_on_body_entered"]

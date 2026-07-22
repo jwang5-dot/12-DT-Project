@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlpy2k6vp14y3"
-path="res://.godot/imported/Ending_Scene_Door_Hand_4.png-de8e55b41d2d95c6670eb9ce262165ab.ctex"
+uid="uid://cfvan3jxs3var"
+path="res://.godot/imported/Jump_scare.png-d5df611f47cd6fee8d9fe15b0afd2fee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Ending_Scene_Door_Hand_4.png"
-dest_files=["res://.godot/imported/Ending_Scene_Door_Hand_4.png-de8e55b41d2d95c6670eb9ce262165ab.ctex"]
+source_file="res://images/Jump_scare.png"
+dest_files=["res://.godot/imported/Jump_scare.png-d5df611f47cd6fee8d9fe15b0afd2fee.ctex"]
 
 [params]
 

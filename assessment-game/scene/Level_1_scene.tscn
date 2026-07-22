@@ -44,4 +44,5 @@ position = Vector2(1190, 340)
 shape = SubResource("RectangleShape2D_i458t")
 
 [node name="CharacterBody2D2" parent="." unique_id=967582635 instance=ExtResource("4_u8ckq")]
-position = Vector2(985, 530)
+visible = false
+position = Vector2(957, 524)
