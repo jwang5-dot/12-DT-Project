@@ -6,6 +6,7 @@ var player: CharacterBody2D
 var health: int = 100
 
 @export var health_ui: ProgressBar
+@export var sprite: Sprite2D
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +20,8 @@ func _process(delta: float) -> void:
 		look_at(player.global_position)
 		velocity = Vector2(1, 0).rotated(rotation) * speed
 		move_and_slide()
+	health_ui.get_parent().rotation = -rotation
+	sprite.global_rotation = 0
 
 func take_damage() -> void:
 	if health > 1:
