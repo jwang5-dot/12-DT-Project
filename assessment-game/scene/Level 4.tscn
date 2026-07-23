@@ -15,18 +15,18 @@ height = 222.0
 [node name="Level 4" type="Node2D" unique_id=341672757]
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
-position = Vector2(576.50006, 294.00003)
+position = Vector2(580.00006, 372.00003)
 scale = Vector2(0.8034722, 0.73901373)
 texture = ExtResource("2_g46qk")
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_s4evf")]
-position = Vector2(143, 481)
+position = Vector2(136, 607)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=723386610]
 position = Vector2(-423, 190)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=48585223]
-position = Vector2(997.5, 437.5)
+position = Vector2(998, 533)
 shape = SubResource("RectangleShape2D_16vqg")
 
 [node name="CharacterBody2D2" parent="." unique_id=1277688742 instance=ExtResource("4_yavb0")]
@@ -35,11 +35,11 @@ position = Vector2(1026, 173)
 [node name="Area2D" type="Area2D" parent="." unique_id=1816056417]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932510721]
-position = Vector2(1038, 496)
+position = Vector2(1057.2501, 582.75)
 shape = SubResource("CapsuleShape2D_wjxe6")
 
 [node name="Portall555" type="Sprite2D" parent="." unique_id=408069698]
-position = Vector2(1044, 505.00003)
+position = Vector2(1063.2501, 591.75)
 scale = Vector2(0.21562515, 0.2475586)
 texture = ExtResource("4_g46qk")
 

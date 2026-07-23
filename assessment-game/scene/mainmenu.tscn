@@ -92,8 +92,8 @@ layout_mode = 2
 text = "PLAY"
 
 [node name="MainMenu7" type="Sprite2D" parent="." unique_id=1764803551]
-position = Vector2(576.5, 365.50006)
-scale = Vector2(0.8020834, 0.7548829)
+position = Vector2(576.5, 405.5)
+scale = Vector2(0.8020834, 0.7919922)
 texture = ExtResource("2_h8uk4")
 
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_quit"]

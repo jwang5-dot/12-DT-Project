@@ -18,15 +18,15 @@ height = 164.0
 script = ExtResource("1_2p7nl")
 
 [node name="AncientChina" type="Sprite2D" parent="." unique_id=1820799256]
-position = Vector2(577.50006, 329)
-scale = Vector2(0.8192858, 0.6347656)
+position = Vector2(576.5, 369.00003)
+scale = Vector2(0.8207143, 0.7207031)
 texture = ExtResource("1_2w6kw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1289578008]
-offset_left = 3.0
-offset_top = 612.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 4.0
+offset_top = 695.0
+offset_right = 1153.0
+offset_bottom = 731.0
 texture = ExtResource("2_2p7nl")
 patch_margin_left = 16
 patch_margin_top = 16
@@ -39,7 +39,7 @@ position = Vector2(114, 523)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=272474380]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
-position = Vector2(575, 628.125)
+position = Vector2(571, 709)
 shape = SubResource("RectangleShape2D_y32ns")
 
 [node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_h7in3")]
@@ -48,11 +48,11 @@ position = Vector2(1017, 113)
 [node name="Area2D" type="Area2D" parent="." unique_id=784893877]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1643291848]
-position = Vector2(1071, 512)
+position = Vector2(1067.6251, 597.375)
 shape = SubResource("CapsuleShape2D_2p7nl")
 
 [node name="Portall555" type="Sprite2D" parent="." unique_id=466631491]
-position = Vector2(1065, 514)
+position = Vector2(1061.6251, 599.375)
 scale = Vector2(0.20086819, 0.20971681)
 texture = ExtResource("6_brqh1")
 
