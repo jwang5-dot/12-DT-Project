@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bbmrgiu1r4d2u" path="res://script/ending_scene.gd" id="1_vjpgg"]
 [ext_resource type="Texture2D" uid="uid://cv2vdveaqj01r" path="res://images/Ending_Scene_Door_Walking.png" id="2_cogn0"]
-[ext_resource type="Script" uid="uid://ejv277pbfsjl" path="res://script/end_walk_tp.gd" id="3_yht1g"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="4_u8t5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8t5q"]
@@ -10,6 +9,9 @@ size = Vector2(1355.5, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cogn0"]
 size = Vector2(248.25, 851.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lr76"]
+size = Vector2(167.5, 936)
 
 [node name="Node2D" type="Node2D" unique_id=91584699]
 position = Vector2(0, 1)
@@ -24,34 +26,25 @@ texture = ExtResource("2_cogn0")
 position = Vector2(-2, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1697011624]
-position = Vector2(674, 854)
+position = Vector2(670, 766)
 shape = SubResource("RectangleShape2D_u8t5q")
 
-[node name="Right" type="Area2D" parent="." unique_id=998735698 node_paths=PackedStringArray("landing_zone")]
-script = ExtResource("3_yht1g")
-landing_zone = NodePath("../Left")
+[node name="Right" type="Area2D" parent="." unique_id=998735698]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=666362084]
-position = Vector2(-105, 423)
+position = Vector2(-130, 431)
 shape = SubResource("RectangleShape2D_cogn0")
 
 [node name="Marker2D" type="Marker2D" parent="Right" unique_id=464493378]
 position = Vector2(4, 3)
 
-[node name="Left" type="Area2D" parent="." unique_id=289510215 node_paths=PackedStringArray("landing_zone")]
-position = Vector2(-2, 4)
-script = ExtResource("3_yht1g")
-landing_zone = NodePath("../Right")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1225915889]
-position = Vector2(1462, 438)
-shape = SubResource("RectangleShape2D_cogn0")
-
-[node name="Marker2D" type="Marker2D" parent="Left" unique_id=156884394]
-position = Vector2(0, 3)
-
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(204, 636)
+position = Vector2(61, 598)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1335190959 groups=["Portal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=686610100 groups=["Portal"]]
+position = Vector2(1418.25, 473)
+shape = SubResource("RectangleShape2D_5lr76")
 
 [connection signal="body_entered" from="Right" to="Right" method="_on_body_entered"]
-[connection signal="body_entered" from="Left" to="Left" method="_on_body_entered"]

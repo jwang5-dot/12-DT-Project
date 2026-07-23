@@ -53,4 +53,5 @@ shape = SubResource("CapsuleShape2D_03o14")
 shape = SubResource("CapsuleShape2D_bv3h5")
 one_way_collision = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_portal"]
 [connection signal="body_entered" from="Area2D" to="." method="_attack"]

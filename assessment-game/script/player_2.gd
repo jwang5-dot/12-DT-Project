@@ -8,6 +8,7 @@ const GRAVITY = 1200.0  # Define your own gravity
 var health: int = 100
 var double_jump = true  # Track double jump
 var player = CharacterBody2D
+var teleport_count: int = 0
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -53,3 +54,12 @@ func take_damage() -> void:
 func _attack(body: Node2D) -> void:
 	if body is Melee_Enemy:
 		body.take_damage()
+
+
+func _portal(area: Area2D) -> void:
+	if area.is_in_group("Portal"):
+		position.x = 61
+		position.y = 598
+		teleport_count += 1
+		if teleport_count >= 2:
+			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")

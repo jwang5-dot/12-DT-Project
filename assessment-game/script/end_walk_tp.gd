@@ -12,13 +12,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-func _on_body_entered(body: Node2D) -> void:
-	var tp_point = landing_zone.get_node("Marker2D").global_position
-	body.global_position = tp_point
-	teleport_count += 1
-	
-	if teleport_count >= 3:
-		get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
-		
