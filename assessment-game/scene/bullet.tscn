@@ -3,20 +3,22 @@
 [ext_resource type="Script" uid="uid://s6htukvk80by" path="res://scripts/bullet.gd" id="1_xw300"]
 [ext_resource type="Texture2D" uid="uid://bt2ceesck031k" path="res://images/Player 1 Attack.png" id="2_m2l4i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t6ct3"]
-radius = 132.0606
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwydi"]
+radius = 25.079872
 
-[node name="Player Attack LR" type="Node2D" unique_id=30487574]
+[node name="Bullet" type="Area2D" unique_id=856501910]
 script = ExtResource("1_xw300")
 
-[node name="Player1Attack" type="Sprite2D" parent="." unique_id=1557795673]
-position = Vector2(576.00006, 328)
-scale = Vector2(0.31666657, 0.31333336)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655960083]
+shape = SubResource("CircleShape2D_qwydi")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1274225627]
+position = Vector2(-40, -36)
+rect = Rect2(-10, -10, 100, 100)
+
+[node name="Player1Attack" type="Sprite2D" parent="." unique_id=148059401]
+scale = Vector2(0.19291669, 0.1866667)
 texture = ExtResource("2_m2l4i")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=654307898]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=447906704]
-position = Vector2(575.00006, 328)
-scale = Vector2(0.31666654, 0.31333336)
-shape = SubResource("CircleShape2D_t6ct3")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

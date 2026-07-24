@@ -27,33 +27,36 @@ corner_detail = 6
 radius = 74.0
 height = 204.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui", "sprite") groups=["enemy"]]
 rotation = -1.9966567
 script = ExtResource("1_dregr")
-health_ui = NodePath("ProgressBar")
+health_ui = NodePath("Node2D/ProgressBar")
+sprite = NodePath("BlackEnemy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045443720]
 position = Vector2(-1.5, -2)
 shape = SubResource("CapsuleShape2D_dregr")
 
-[node name="Enemy" type="Sprite2D" parent="CollisionShape2D" unique_id=302135733]
-position = Vector2(0, 7)
-rotation = 1.9966567
-scale = Vector2(0.7366667, 0.73333335)
+[node name="BlackEnemy" type="Sprite2D" parent="." unique_id=302135733]
+position = Vector2(-3, 10)
+rotation = 1.8797196
+scale = Vector2(0.804, 0.8)
 texture = ExtResource("1_uramm")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1156493572]
-offset_left = -73.0
-offset_top = -129.0
-offset_right = 64.0
-offset_bottom = -106.0
+[node name="Node2D" type="Node2D" parent="." unique_id=1279991443]
+
+[node name="ProgressBar" type="ProgressBar" parent="Node2D" unique_id=1156493572]
+offset_left = -71.0
+offset_top = -152.0
+offset_right = 66.0
+offset_bottom = -129.0
 theme_override_styles/background = SubResource("StyleBoxFlat_dregr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sja4v")
 max_value = 10.0
 step = 1.0
 value = 7.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar" unique_id=1865486663]
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D/ProgressBar" unique_id=1865486663]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1838143207]
 position = Vector2(-573, -299)

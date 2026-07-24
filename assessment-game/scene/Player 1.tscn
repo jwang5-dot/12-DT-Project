@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ltra7iahdvu8" path="res://scripts/player_1.gd" id="1_43gw1"]
 [ext_resource type="Texture2D" uid="uid://hojnl1h58k41" path="res://images/Player 1 RBG.png" id="1_l08bg"]
+[ext_resource type="PackedScene" uid="uid://c22l1xihtmgl" path="res://scene/bullet.tscn" id="2_40s8o"]
 
 [sub_resource type="Curve" id="Curve_43gw1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42187497, 0.41886795), 0.0, 0.0, 0, 0, Vector2(0.953125, 0.35094345), 0.0, 0.0, 0, 0]
@@ -38,8 +39,12 @@ glow_hdr_threshold = 0.9
 radius = 53.0
 height = 150.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377 node_paths=PackedStringArray("health_ui") groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=516776377 node_paths=PackedStringArray("sprite", "pivot", "bullet_spawn", "health_ui") groups=["player"]]
 script = ExtResource("1_43gw1")
+sprite = NodePath("Player1Rbg")
+pivot = NodePath("Pivot")
+bullet_spawn = NodePath("Pivot/Marker2D")
+bullet_scene = ExtResource("2_40s8o")
 health_ui = NodePath("ProgressBar")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
@@ -74,11 +79,6 @@ value = 7.0
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_xwabi")
 
-[node name="Player1Rbg" type="Sprite2D" parent="." unique_id=815419151]
-position = Vector2(11, -37)
-scale = Vector2(1.4733332, 1.5583333)
-texture = ExtResource("1_l08bg")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1842009504]
 environment = SubResource("Environment_43gw1")
 
@@ -88,5 +88,14 @@ position = Vector2(-550, -328)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=680265979]
 position = Vector2(550, 328)
 shape = SubResource("CapsuleShape2D_43gw1")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1828304672]
+
+[node name="Marker2D" type="Marker2D" parent="Pivot" unique_id=1591186306]
+
+[node name="Player1Rbg" type="Sprite2D" parent="." unique_id=815419151]
+position = Vector2(11, -37)
+scale = Vector2(1.4733332, 1.5583333)
+texture = ExtResource("1_l08bg")
 
 [connection signal="body_entered" from="Area2D" to="." method="_melee_damage"]

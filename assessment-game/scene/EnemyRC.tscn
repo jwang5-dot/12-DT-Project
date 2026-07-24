@@ -27,7 +27,7 @@ corner_detail = 6
 radius = 83.0
 height = 232.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277688742 node_paths=PackedStringArray("health_ui", "sprite")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277688742 node_paths=PackedStringArray("health_ui", "sprite") groups=["enemy"]]
 rotation = -1.9966567
 script = ExtResource("1_252ky")
 health_ui = NodePath("Node2D/ProgressBar")
