@@ -46,6 +46,7 @@ pivot = NodePath("Pivot")
 bullet_spawn = NodePath("Pivot/Marker2D")
 bullet_scene = ExtResource("2_40s8o")
 health_ui = NodePath("ProgressBar")
+metadata/_edit_group_ = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1705773205]
 position = Vector2(-43, -19)
@@ -97,5 +98,7 @@ shape = SubResource("CapsuleShape2D_43gw1")
 position = Vector2(11, -37)
 scale = Vector2(1.4733332, 1.5583333)
 texture = ExtResource("1_l08bg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1589888907]
 
 [connection signal="body_entered" from="Area2D" to="." method="_melee_damage"]

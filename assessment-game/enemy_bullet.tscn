@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://du623gm5mtsx3"]
+
+[ext_resource type="Script" uid="uid://dg7jiedhp1w1q" path="res://enemy_bullet.gd" id="1_1xapl"]
+[ext_resource type="Texture2D" uid="uid://e3vjrkdknlas" path="res://images/fireball-removebg-preview (1).png" id="2_gl7bs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mgp66"]
+radius = 7.0
+
+[node name="Enemy_Bullet" type="Area2D" unique_id=782878298]
+script = ExtResource("1_1xapl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909484062]
+shape = SubResource("CircleShape2D_mgp66")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=599386115]
+enable_node_path = NodePath("../CollisionShape2D")
+
+[node name="Fireball" type="Sprite2D" parent="." unique_id=80860551]
+position = Vector2(0, -1)
+scale = Vector2(0.029, 0.028482713)
+texture = ExtResource("2_gl7bs")
