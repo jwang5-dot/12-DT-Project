@@ -66,4 +66,6 @@ position = Vector2(-615, -298)
 position = Vector2(616, 299)
 shape = SubResource("CapsuleShape2D_nhns0")
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1280939447]
+
 [connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
