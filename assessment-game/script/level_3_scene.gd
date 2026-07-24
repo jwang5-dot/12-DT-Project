@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _level_3_portal(body: Node2D) -> void:
+	if body.is_in_group("player"):
 		get_tree().change_scene_to_file("res://scene/Level 4.tscn")

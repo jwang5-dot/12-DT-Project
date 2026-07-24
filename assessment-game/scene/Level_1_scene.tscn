@@ -38,7 +38,7 @@ position = Vector2(-99, 428.5)
 shape = SubResource("RectangleShape2D_affpu")
 
 [node name="CharacterBody2D2" parent="." unique_id=967582635 instance=ExtResource("4_u8ckq")]
-position = Vector2(1080, 606)
+position = Vector2(1138, 639)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1327571509]
 
