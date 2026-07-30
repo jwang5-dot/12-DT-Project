@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8g5meyobi3m7"]
 
 [ext_resource type="Script" uid="uid://22oru3imdu3t" path="res://scripts/enemy_rc.gd" id="1_252ky"]
+[ext_resource type="PackedScene" uid="uid://du623gm5mtsx3" path="res://scene/enemy_bullet.tscn" id="2_uxm6x"]
 [ext_resource type="Texture2D" uid="uid://oejmdi3ecsx5" path="res://images/Red Crow.png" id="2_wew88"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_252ky"]
@@ -27,11 +28,13 @@ corner_detail = 6
 radius = 83.0
 height = 232.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277688742 node_paths=PackedStringArray("health_ui", "sprite") groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277688742 node_paths=PackedStringArray("health_ui", "sprite", "bullet_spawn") groups=["enemy"]]
 rotation = -1.9966567
 script = ExtResource("1_252ky")
 health_ui = NodePath("Node2D/ProgressBar")
 sprite = NodePath("RedCrow")
+bullet_scene = ExtResource("2_uxm6x")
+bullet_spawn = NodePath("Marker2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1109315571]
 position = Vector2(0, -1)

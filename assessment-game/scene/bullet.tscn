@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bt2ceesck031k" path="res://images/Player 1 Attack.png" id="2_m2l4i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwydi"]
-radius = 25.079872
+radius = 30.0
 
 [node name="Bullet" type="Area2D" unique_id=856501910]
 script = ExtResource("1_xw300")
@@ -13,11 +13,12 @@ script = ExtResource("1_xw300")
 shape = SubResource("CircleShape2D_qwydi")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1274225627]
-position = Vector2(-40, -36)
-rect = Rect2(-10, -10, 100, 100)
+position = Vector2(-29, -29)
+rect = Rect2(-1, -2, 60, 62)
 
 [node name="Player1Attack" type="Sprite2D" parent="." unique_id=148059401]
-scale = Vector2(0.19291669, 0.1866667)
+position = Vector2(0.7822241, -0.46875274)
+scale = Vector2(0.22811845, 0.22979167)
 texture = ExtResource("2_m2l4i")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
