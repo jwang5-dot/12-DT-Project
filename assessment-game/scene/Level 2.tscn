@@ -31,8 +31,10 @@ position = Vector2(114, 523)
 position = Vector2(571, 709)
 shape = SubResource("RectangleShape2D_y32ns")
 
-[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_h7in3")]
+[node name="CharacterBody2D2" parent="." unique_id=1653680679 node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("4_h7in3")]
 position = Vector2(1020.00006, 145.99997)
+point_a = NodePath("../Marker2D")
+point_b = NodePath("../Marker2D2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=784893877]
 
@@ -55,5 +57,11 @@ patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1430021390]
+position = Vector2(432, 119)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=459738990]
+position = Vector2(1014, 301)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
