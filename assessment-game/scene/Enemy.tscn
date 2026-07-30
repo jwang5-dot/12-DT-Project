@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfx1je1i5qblu" path="res://scripts/enemy.gd" id="1_dregr"]
 [ext_resource type="Texture2D" uid="uid://c0rpsd2d8to4" path="res://images/Enemy.png" id="1_uramm"]
+[ext_resource type="PackedScene" uid="uid://du623gm5mtsx3" path="res://scene/enemy_bullet.tscn" id="2_sja4v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dregr"]
 radius = 73.0
@@ -27,11 +28,13 @@ corner_detail = 6
 radius = 74.0
 height = 204.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui", "sprite") groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui", "sprite", "bullet_spawn") groups=["enemy"]]
 rotation = -1.9966567
 script = ExtResource("1_dregr")
 health_ui = NodePath("Node2D/ProgressBar")
 sprite = NodePath("BlackEnemy")
+bullet_scene = ExtResource("2_sja4v")
+bullet_spawn = NodePath("Marker2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045443720]
 position = Vector2(-1.5, -2)
@@ -64,5 +67,7 @@ position = Vector2(-573, -299)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1720319297]
 position = Vector2(572, 300)
 shape = SubResource("CapsuleShape2D_sja4v")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=949953350]
 
 [connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
