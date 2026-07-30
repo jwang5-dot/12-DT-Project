@@ -2,24 +2,16 @@ class_name Melee_Enemy
 extends CharacterBody2D
 
 const SPEED = 200.0
-const DAMAGE_INTERVAL := 0.5
+const MOVE_LEFT: float = -1.0
+const MOVE_RIGHT: float = 1.0
+const STOP: float = 0.0
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
 
 var health: int = 100
 var player: CharacterBody2D
-var damage_timer := 0.0
-var Player: Player_2 = null
-
-func _physics_process(delta: float) -> void:
-	if Player == null:
-		return
-	damage_timer -= delta
-
-	if damage_timer <= 0:
-		Player.take_damage()
-		damage_timer = DAMAGE_INTERVAL
+var direction = STOP
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
@@ -28,12 +20,14 @@ func _ready() -> void:
 	health_ui.value = health
 
 func _process(delta: float) -> void:
-		if not player == null:
-			look_at(player.global_position)
-			velocity = Vector2(1, 0).rotated(rotation) * SPEED
-			move_and_slide()
-		health_ui.get_parent().rotation = -rotation
-		sprite.global_rotation = 0
+		if player == null:
+			return
+		if player.global_position.x > global_position.x:
+			direction = MOVE_RIGHT
+		elif player.global_position.x < global_position.x:
+			direction = MOVE_LEFT
+		velocity = Vector2(direction * SPEED, 1.0)
+		move_and_slide()
 
 func take_damage() -> void:
 	if health > 1:
@@ -43,7 +37,5 @@ func take_damage() -> void:
 		get_tree().call_deferred("reload_current_scene")
 
 func _take_damage(body: Node2D) -> void:
-	if body is Player_2:
-		player = body
 	if body is Player_2:
 		body.take_damage()
