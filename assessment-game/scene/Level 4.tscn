@@ -29,8 +29,10 @@ position = Vector2(-423, 190)
 position = Vector2(998, 533)
 shape = SubResource("RectangleShape2D_16vqg")
 
-[node name="CharacterBody2D2" parent="." unique_id=1277688742 instance=ExtResource("4_yavb0")]
+[node name="CharacterBody2D2" parent="." unique_id=1277688742 node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("4_yavb0")]
 position = Vector2(1026, 173)
+point_a = NodePath("../Marker2D")
+point_b = NodePath("../Marker2D2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1816056417]
 
@@ -42,5 +44,11 @@ shape = SubResource("CapsuleShape2D_wjxe6")
 position = Vector2(1063.2501, 591.75)
 scale = Vector2(0.21562515, 0.2475586)
 texture = ExtResource("4_g46qk")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1913609174]
+position = Vector2(379, 102)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1759816914]
+position = Vector2(1022, 311)
 
 [connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]

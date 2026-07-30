@@ -8,6 +8,11 @@ var health: int = 100
 @export var health_ui: ProgressBar
 @export var sprite: Sprite2D
 
+@export var point_a: Marker2D
+@export var point_b: Marker2D
+
+var target_position: Vector2
+
 # Shooting
 @export var bullet_scene: PackedScene
 @export var bullet_spawn: Marker2D
@@ -22,19 +27,37 @@ func _ready() -> void:
 		health_ui.max_value = health
 		health_ui.value = health
 
+	pick_random_point()
+
+
+func pick_random_point() -> void:
+	if point_a == null or point_b == null:
+		return
+
+	target_position = Vector2(
+		randf_range(point_a.global_position.x, point_b.global_position.x),
+		randf_range(point_a.global_position.y, point_b.global_position.y)
+	)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not player == null:
+	if global_position.distance_to(target_position) < 10:
+		pick_random_point()
+
+	velocity = (target_position - global_position).normalized() * speed
+	move_and_slide()
+
+	if player:
 		look_at(player.global_position)
-		velocity = Vector2(1, 0).rotated(rotation) * speed
-		move_and_slide()
 
 		if can_shoot:
 			_shoot()
 
-	health_ui.get_parent().rotation = -rotation
-	sprite.global_rotation = 0
+	if health_ui:
+		health_ui.get_parent().rotation = -rotation
+
+	if sprite:
+		sprite.global_rotation = 0
 
 
 func take_damage() -> void:
