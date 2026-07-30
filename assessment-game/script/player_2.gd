@@ -3,12 +3,15 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
-const GRAVITY = 1200.0  # Define your own gravity
+const GRAVITY = 1200.0  
+const Continuous_Damage_Timer: float = 0.5
 
 var health: int = 100
-var double_jump = true  # Track double jump
-var player = CharacterBody2D
+var double_jump: bool = true 
+var enemy: Melee_Enemy
 var teleport_count: int = 0
+var enemy_range: bool = false
+var damage_timer = Continuous_Damage_Timer
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -18,11 +21,15 @@ func _ready() -> void:
 	health_ui.value = health
 
 func _physics_process(delta: float) -> void:
-# Apply gravity
+	if enemy_range:
+		damage_timer -= delta
+	if damage_timer < 0:
+		enemy.take_damage()
+		damage_timer = Continuous_Damage_Timer
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
-		double_jump = true  # Reset double jump when touching the floor
+		double_jump = true  
 
 # Handle jump
 	if Input.is_action_just_pressed("ui_accept"):
@@ -53,7 +60,8 @@ func take_damage() -> void:
 
 func _attack(body: Node2D) -> void:
 	if body is Melee_Enemy:
-		body.take_damage()
+		enemy = body 
+		enemy_range = true
 
 
 func _portal(area: Area2D) -> void:
