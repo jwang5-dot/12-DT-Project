@@ -5,6 +5,7 @@ var speed: float = 200.0
 var player: CharacterBody2D
 var health: int = 100
 
+
 @export var health_ui: ProgressBar
 @export var sprite: Sprite2D
 
