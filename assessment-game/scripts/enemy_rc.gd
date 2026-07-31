@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 
 func take_damage() -> void:
 	if health > 1:
-		health -= 5
+		health -= 3
 		health_ui.value = health
 	else: 
 		queue_free()

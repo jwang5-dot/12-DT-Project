@@ -83,7 +83,7 @@ func _shoot() -> void:
 
 func take_damage() -> void:
 	if health > 1:
-		health -= 5
+		health -= 30
 		health_ui.value = health
 	else:	
 		get_tree().reload_current_scene()

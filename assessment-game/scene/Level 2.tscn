@@ -10,6 +10,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
 size = Vector2(1148, 24.249994)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brqh1"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7in3"]
+size = Vector2(8.5, 732.5)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p7nl"]
 radius = 55.0
 height = 164.0
@@ -30,6 +36,14 @@ position = Vector2(114, 523)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
 position = Vector2(571, 709)
 shape = SubResource("RectangleShape2D_y32ns")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1847639150]
+position = Vector2(-9, 359)
+shape = SubResource("RectangleShape2D_brqh1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=75531789]
+position = Vector2(1155.75, 367.25)
+shape = SubResource("RectangleShape2D_h7in3")
 
 [node name="CharacterBody2D2" parent="." unique_id=1653680679 node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("4_h7in3")]
 position = Vector2(1020.00006, 145.99997)

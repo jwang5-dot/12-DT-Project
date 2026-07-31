@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://dg7jiedhp1w1q" path="res://scripts/enemy_bullet.gd" id="1_uy161"]
 [ext_resource type="Texture2D" uid="uid://e3vjrkdknlas" path="res://images/fireball-removebg-preview (1).png" id="2_jiqoc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mgp66"]
-radius = 78.00641
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy161"]
+size = Vector2(150, 62)
 
 [node name="Enemy_Bullet" type="Area2D" unique_id=782878298]
 script = ExtResource("1_uy161")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909484062]
-shape = SubResource("CircleShape2D_mgp66")
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_uy161")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=599386115]
 position = Vector2(-69, -37)
