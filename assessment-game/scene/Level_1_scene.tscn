@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://images/Leve_1_Background.png" id="1_w17ck"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_affpu"]
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://scene/Melee_Enemy.tscn" id="4_u8ckq"]
+[ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="5_i458t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
 size = Vector2(1764, 160)
@@ -12,7 +13,10 @@ size = Vector2(1764, 160)
 size = Vector2(194, 867)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i458t"]
-size = Vector2(238, 950.5)
+size = Vector2(168.5, 244.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxig"]
+size = Vector2(236.5, 969.5)
 
 [node name="Node2D" type="Node2D" unique_id=252982734]
 script = ExtResource("1_aoa7p")
@@ -38,12 +42,23 @@ position = Vector2(-99, 428.5)
 shape = SubResource("RectangleShape2D_affpu")
 
 [node name="CharacterBody2D2" parent="." unique_id=967582635 instance=ExtResource("4_u8ckq")]
-position = Vector2(1180, 691)
+position = Vector2(1107, 691)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1327571509]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=455171521]
-position = Vector2(1445, 467)
+position = Vector2(1215, 669)
 shape = SubResource("RectangleShape2D_i458t")
+
+[node name="Portall555" type="Sprite2D" parent="Area2D" unique_id=841032813]
+position = Vector2(1227, 674.00006)
+scale = Vector2(0.25625, 0.28857422)
+texture = ExtResource("5_i458t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1293459338]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2066143630]
+position = Vector2(1449.75, 464.25)
+shape = SubResource("RectangleShape2D_ecxig")
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
