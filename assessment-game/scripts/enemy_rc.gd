@@ -80,6 +80,7 @@ func _shoot() -> void:
 		return
 
 	var bullet = bullet_scene.instantiate()
+	bullet.damage = 30
 	print("Bullet created:", bullet)
 
 	bullet.global_position = bullet_spawn.global_position

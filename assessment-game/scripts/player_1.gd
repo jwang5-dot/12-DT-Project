@@ -81,11 +81,11 @@ func _shoot() -> void:
 	await get_tree().create_timer(0.2).timeout
 	can_shoot = true
 
-func take_damage() -> void:
-	if health > 1:
-		health -= 30
+func take_damage(amount: int) -> void:
+	if health > amount:
+		health -= amount
 		health_ui.value = health
-	else:	
+	else:
 		get_tree().reload_current_scene()
 		
 func _melee_damage(body: Node2D) -> void:
