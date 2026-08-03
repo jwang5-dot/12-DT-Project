@@ -74,7 +74,6 @@ func _take_damage(body: Node2D) -> void:
 
 
 func _shoot() -> void:
-	print("Enemy shooting")
 
 	if bullet_scene == null or bullet_spawn == null:
 		return
