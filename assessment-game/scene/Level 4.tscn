@@ -116,6 +116,6 @@ scale = Vector2(5, 5.224)
 sprite_frames = SubResource("SpriteFrames_s4evf")
 animation = &"portal1"
 autoplay = "portal1"
-frame_progress = 0.8936882
+frame_progress = 0.70670766
 
 [connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
