@@ -5,7 +5,7 @@ const SPEED = 200.0
 const MOVE_LEFT: float = -1
 const MOVE_RIGHT: float = 1
 const STOP: float = 0
-const Continuous_Damage_Timer: float = 0.5
+const CONTINUOUS_DAMAGE_TIMER: float = 0.5
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -13,16 +13,15 @@ const Continuous_Damage_Timer: float = 0.5
 var health: int = 100
 var player: CharacterBody2D
 var direction = STOP
-var damage_timer = Continuous_Damage_Timer
+var continuous_damage_count_down = 0.5
 var player_range: bool = false
 
-func _physics_process(delta: float) -> void:
-	if player_range:
-		damage_timer -= delta
-	if damage_timer < 0:
-		player.take_damage()
-		damage_timer = Continuous_Damage_Timer 
-
+#func _physics_process(delta: float) -> void:
+	#if player_range == true:
+		#continuous_damage_count_down -= delta
+	#elif continuous_damage_count_down < 0:
+		#player.take_damage()
+		#continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
@@ -50,4 +49,4 @@ func take_damage() -> void:
 func _take_damage(body: Node2D) -> void:
 	if body is Player_2:
 		body.take_damage()
-		player_range = true
+		player_range == true

@@ -8,8 +8,8 @@ radius = 113.0
 height = 226.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eph0u"]
-radius = 175.0
-height = 350.0
+radius = 132.0
+height = 284.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eph0u"]
 bg_color = Color(1, 0, 0, 1)

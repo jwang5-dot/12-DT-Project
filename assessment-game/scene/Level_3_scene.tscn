@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://eyauyj5odw4h" path="res://images/Level_3_Background.png" id="2_se1ga"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_p1biq"]
 [ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="4_ch6ki"]
+[ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://scene/Melee_Enemy.tscn" id="5_60oou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se1ga"]
 size = Vector2(236, 1020.5)
@@ -12,7 +13,7 @@ size = Vector2(236, 1020.5)
 size = Vector2(1426.25, 151.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6ki"]
-size = Vector2(205.1211, 222.34375)
+size = Vector2(205.1211, 255.58594)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60oou"]
 size = Vector2(283, 894)
@@ -34,20 +35,20 @@ shape = SubResource("RectangleShape2D_se1ga")
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1570798690]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=470069976]
-position = Vector2(695, 761)
+position = Vector2(681, 833)
 shape = SubResource("RectangleShape2D_p1biq")
 
 [node name="CharacterBody2D" parent="StaticBody2D2" unique_id=658715563 instance=ExtResource("3_p1biq")]
-position = Vector2(152, 570)
+position = Vector2(75, 647)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1454988149]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=715733648]
-position = Vector2(1228, 573)
+position = Vector2(1228, 630.79297)
 shape = SubResource("RectangleShape2D_ch6ki")
 
 [node name="Portall555" type="Sprite2D" parent="Area2D" unique_id=155045733]
-position = Vector2(1239.5, 592.625)
+position = Vector2(1238, 639)
 scale = Vector2(0.25208333, 0.26293954)
 texture = ExtResource("4_ch6ki")
 
@@ -56,5 +57,8 @@ texture = ExtResource("4_ch6ki")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1048867138]
 position = Vector2(1472.5, 418)
 shape = SubResource("RectangleShape2D_60oou")
+
+[node name="CharacterBody2D" parent="." unique_id=967582635 instance=ExtResource("5_60oou")]
+position = Vector2(1169, 597)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_3_portal"]

@@ -15,6 +15,7 @@ var damage_timer = Continuous_Damage_Timer
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
+@export var level_number = 1
 
 func _ready() -> void:
 	health_ui.max_value = health
@@ -65,9 +66,22 @@ func _attack(body: Node2D) -> void:
 
 
 func _portal(area: Area2D) -> void:
-	if area.is_in_group("Portal"):
-		position.x = 61
-		position.y = 598
-		teleport_count += 1
-		if teleport_count >= 2:
-			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
+	if area.is_in_group("Portal"): 
+		
+	
+	
+	
+	
+	
+	
+	#if area.is_in_group("Portal"):
+		#position.x = 61
+		#position.y = 598
+		#teleport_count += 1
+		#if teleport_count >= 2:
+			#get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
+
+
+func _exit_body(body: Node2D) -> void:
+	enemy_range = false
+	
