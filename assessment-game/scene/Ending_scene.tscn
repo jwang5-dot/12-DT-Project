@@ -5,46 +5,46 @@
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="4_u8t5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8t5q"]
-size = Vector2(1355.5, 134)
+size = Vector2(1514, 249)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cogn0"]
-size = Vector2(248.25, 851.25)
+size = Vector2(186.125, 851.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lr76"]
-size = Vector2(167.5, 936)
+size = Vector2(167.5, 847)
 
 [node name="Node2D" type="Node2D" unique_id=91584699]
 position = Vector2(0, 1)
 script = ExtResource("1_vjpgg")
 
 [node name="EndingSceneDoorWalking" type="Sprite2D" parent="." unique_id=2057187375]
-position = Vector2(673, 472.00003)
-scale = Vector2(0.92721355, 0.9121093)
+position = Vector2(581.2031, 379.00003)
+scale = Vector2(0.79971796, 0.7304687)
 texture = ExtResource("2_cogn0")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1398005504]
 position = Vector2(-2, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1697011624]
-position = Vector2(670, 766)
+position = Vector2(567, 708)
 shape = SubResource("RectangleShape2D_u8t5q")
 
 [node name="Right" type="Area2D" parent="." unique_id=998735698]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=666362084]
-position = Vector2(-130, 431)
+position = Vector2(-97, 416.1875)
 shape = SubResource("RectangleShape2D_cogn0")
 
 [node name="Marker2D" type="Marker2D" parent="Right" unique_id=464493378]
 position = Vector2(4, 3)
 
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(61, 598)
+position = Vector2(87, 480)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1335190959 groups=["Portal"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=686610100 groups=["Portal"]]
-position = Vector2(1418.25, 473)
+position = Vector2(1237, 420.5)
 shape = SubResource("RectangleShape2D_5lr76")
 
 [connection signal="body_entered" from="Right" to="Right" method="_on_body_entered"]
