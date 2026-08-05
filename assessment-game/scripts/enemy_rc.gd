@@ -4,6 +4,7 @@ extends CharacterBody2D
 var speed: float = 200.0
 var player: CharacterBody2D
 var health: int = 100
+var damage_contact: int = 5
 
 @export var health_ui: ProgressBar
 @export var sprite: Sprite2D
@@ -70,7 +71,7 @@ func take_damage() -> void:
 
 func _take_damage(body: Node2D) -> void:
 	if body is Player_1:
-		body.take_damage()
+		body.take_damage(damage_contact)
 
 
 func _shoot() -> void:
