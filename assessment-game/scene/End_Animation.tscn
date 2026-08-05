@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dox54nl3iwreq" path="res://images/Ending_Scene_Door_9.png" id="12_1reuw"]
 [ext_resource type="Texture2D" uid="uid://bab0w26704iek" path="res://images/Ending_Scene_Door_10.png" id="13_ln4fs"]
 [ext_resource type="Texture2D" uid="uid://drshu2mb4pb1q" path="res://images/Ending_Scene_Door_Hand.png" id="14_gmw4g"]
+[ext_resource type="Texture2D" uid="uid://jekrtcpg7v63" path="res://images/Ending_Scene_Door_Hand_5.png" id="15_0d8lw"]
 [ext_resource type="Texture2D" uid="uid://cx7v3h61d0k5u" path="res://images/Ending_Scene_Door_Hand_3.png" id="15_it54i"]
 [ext_resource type="Texture2D" uid="uid://cfvan3jxs3var" path="res://images/Jump_scare.png" id="17_4gvpg"]
 
@@ -161,6 +162,69 @@ animations = [{
 "texture": SubResource("CompressedTexture2D_tdo3r")
 }, {
 "duration": 1.0,
+"texture": ExtResource("15_0d8lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0d8lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0d8lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0d8lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0d8lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ln4fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4gvpg")
+}, {
+"duration": 1.0,
 "texture": ExtResource("17_4gvpg")
 }],
 "loop": false,
@@ -176,3 +240,5 @@ position = Vector2(666.49994, 468)
 scale = Vector2(0.9201389, 0.91015625)
 sprite_frames = SubResource("SpriteFrames_vf5bg")
 autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_animation_finished"]
