@@ -2,38 +2,63 @@
 
 [ext_resource type="Script" uid="uid://cgjbo8w4gl8pg" path="res://script/level_3_scene.gd" id="1_j0ctk"]
 [ext_resource type="Texture2D" uid="uid://eyauyj5odw4h" path="res://images/Level_3_Background.png" id="2_se1ga"]
+[ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_p1biq"]
+[ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="4_ch6ki"]
+[ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://scene/Melee_Enemy.tscn" id="5_60oou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se1ga"]
-size = Vector2(170, 675)
+size = Vector2(236, 1020.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1biq"]
-size = Vector2(1176.5, 111)
+size = Vector2(1426.25, 151.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6ki"]
-size = Vector2(209.5, 712)
+size = Vector2(205.1211, 255.58594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60oou"]
+size = Vector2(283, 894)
 
 [node name="Node2D" type="Node2D" unique_id=162205046]
 script = ExtResource("1_j0ctk")
 
 [node name="Level3Background" type="Sprite2D" parent="." unique_id=1201361468]
-position = Vector2(578.50006, 325.49997)
-scale = Vector2(0.80625, 0.62988275)
+position = Vector2(665.5, 471)
+scale = Vector2(0.9270832, 0.9140625)
 texture = ExtResource("2_se1ga")
+
+[node name="CharacterBody2D" parent="." unique_id=967582635 instance=ExtResource("5_60oou")]
+position = Vector2(1176, 648)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1541403026]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1957169533]
-position = Vector2(-89, 321)
+position = Vector2(-122, 493.75)
 shape = SubResource("RectangleShape2D_se1ga")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1570798690]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=470069976]
-position = Vector2(581.75, 699.5)
+position = Vector2(681, 833)
 shape = SubResource("RectangleShape2D_p1biq")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=754322923]
+[node name="CharacterBody2D" parent="StaticBody2D2" unique_id=658715563 instance=ExtResource("3_p1biq")]
+position = Vector2(75, 647)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=715733648]
-position = Vector2(1264, 349)
+[node name="Area2D" type="Area2D" parent="." unique_id=1454988149]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=715733648]
+position = Vector2(1228, 630.79297)
 shape = SubResource("RectangleShape2D_ch6ki")
+
+[node name="Portall555" type="Sprite2D" parent="Area2D" unique_id=155045733]
+position = Vector2(1238, 639)
+scale = Vector2(0.25208333, 0.26293954)
+texture = ExtResource("4_ch6ki")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2134798565]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1048867138]
+position = Vector2(1472.5, 418)
+shape = SubResource("RectangleShape2D_60oou")
+
+[connection signal="body_entered" from="Area2D" to="." method="_level_3_portal"]

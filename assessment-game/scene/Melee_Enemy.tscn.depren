@@ -1,15 +1,7 @@
 [gd_scene format=3 uid="uid://blbmko3orl7nl"]
 
-[ext_resource type="Script" uid="uid://bfrnwgdugfixq" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
+[ext_resource type="Script" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
 [ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://images/ME.png" id="2_584gp"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
-radius = 113.0
-height = 226.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eph0u"]
-radius = 132.0
-height = 284.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eph0u"]
 bg_color = Color(1, 0, 0, 1)
@@ -25,10 +17,25 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("sprite", "health_ui")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
+radius = 113.0
+height = 226.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eph0u"]
+radius = 175.0
+height = 350.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("health_ui")]
 script = ExtResource("1_eph0u")
-sprite = NodePath("Me")
-health_ui = NodePath("Node2D/ProgressBar")
+health_ui = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1290858401]
+offset_left = -87.0
+offset_top = -127.0
+offset_right = 106.0
+offset_bottom = -100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_eph0u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_584gp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=970804352]
 shape = SubResource("CapsuleShape2D_qoxbp")
@@ -43,15 +50,4 @@ texture = ExtResource("2_584gp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=118082940]
 shape = SubResource("CapsuleShape2D_eph0u")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=133209613]
-
-[node name="ProgressBar" type="ProgressBar" parent="Node2D" unique_id=1290858401]
-offset_left = -87.0
-offset_top = -127.0
-offset_right = 106.0
-offset_bottom = -100.0
-theme_override_styles/background = SubResource("StyleBoxFlat_eph0u")
-theme_override_styles/fill = SubResource("StyleBoxFlat_584gp")
-
 [connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
-[connection signal="body_exited" from="Area2D" to="." method="_exit_body"]

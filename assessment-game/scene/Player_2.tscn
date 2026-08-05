@@ -11,23 +11,25 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mepv0"]
-bg_color = Color(4.813075e-07, 0.64129114, 0.43978617, 1)
+bg_color = Color(0, 0.5555938, 0.8677071, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03o14"]
-radius = 40.0
+radius = 49.0
 height = 184.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv3h5"]
-radius = 40.0
+radius = 48.0
 height = 182.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563 node_paths=PackedStringArray("health_ui") groups=["player"]]
 script = ExtResource("1_03o14")
 health_ui = NodePath("ProgressBar")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1069805923]
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1355321709]
 offset_left = -78.0
@@ -51,4 +53,6 @@ shape = SubResource("CapsuleShape2D_03o14")
 shape = SubResource("CapsuleShape2D_bv3h5")
 one_way_collision = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_portal"]
 [connection signal="body_entered" from="Area2D" to="." method="_attack"]
+[connection signal="body_exited" from="Area2D" to="." method="_exit_body"]
