@@ -26,6 +26,9 @@ position = Vector2(665.5, 471)
 scale = Vector2(0.9270832, 0.9140625)
 texture = ExtResource("2_se1ga")
 
+[node name="CharacterBody2D" parent="." unique_id=967582635 instance=ExtResource("5_60oou")]
+position = Vector2(1176, 648)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1541403026]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1957169533]
@@ -57,8 +60,5 @@ texture = ExtResource("4_ch6ki")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1048867138]
 position = Vector2(1472.5, 418)
 shape = SubResource("RectangleShape2D_60oou")
-
-[node name="CharacterBody2D" parent="." unique_id=967582635 instance=ExtResource("5_60oou")]
-position = Vector2(1169, 597)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_3_portal"]

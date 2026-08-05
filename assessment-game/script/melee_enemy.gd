@@ -16,12 +16,12 @@ var direction = STOP
 var continuous_damage_count_down = 0.5
 var player_range: bool = false
 
-#func _physics_process(delta: float) -> void:
-	#if player_range == true:
-		#continuous_damage_count_down -= delta
-	#elif continuous_damage_count_down < 0:
-		#player.take_damage()
-		#continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
+func _physics_process(delta: float) -> void:
+	if player_range == true:
+		continuous_damage_count_down -= delta
+	if continuous_damage_count_down < 0:
+		player.take_damage()
+		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
@@ -44,9 +44,13 @@ func take_damage() -> void:
 		health -= 10
 		health_ui.value = health
 	else:
-		get_tree().call_deferred("reload_current_scene")
+		queue_free()
 
 func _take_damage(body: Node2D) -> void:
 	if body is Player_2:
 		body.take_damage()
-		player_range == true
+		player_range = true
+
+
+func _exit_body(body: Node2D) -> void:
+	player_range = false

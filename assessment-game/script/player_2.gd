@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage() -> void:
 	if health > 1:
-		health -= 10
+		health -= 5
 		health_ui.value = health
 	else:
 		get_tree().call_deferred("reload_current_scene")
@@ -66,20 +66,12 @@ func _attack(body: Node2D) -> void:
 
 
 func _portal(area: Area2D) -> void:
-	if area.is_in_group("Portal"): 
-		
-	
-	
-	
-	
-	
-	
-	#if area.is_in_group("Portal"):
-		#position.x = 61
-		#position.y = 598
-		#teleport_count += 1
-		#if teleport_count >= 2:
-			#get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
+	if area.is_in_group("Portal"):
+		position.x = 61
+		position.y = 598
+		teleport_count += 1
+		if teleport_count >= 2:
+			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
 
 
 func _exit_body(body: Node2D) -> void:

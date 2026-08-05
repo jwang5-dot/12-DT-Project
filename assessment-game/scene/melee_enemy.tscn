@@ -54,3 +54,4 @@ theme_override_styles/background = SubResource("StyleBoxFlat_eph0u")
 theme_override_styles/fill = SubResource("StyleBoxFlat_584gp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
+[connection signal="body_exited" from="Area2D" to="." method="_exit_body"]
