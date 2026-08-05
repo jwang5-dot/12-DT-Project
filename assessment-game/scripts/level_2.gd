@@ -17,4 +17,4 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://scene/Level 3.tscn")
+	get_tree().change_scene_to_file("res://scene/Level_3_scene.tscn")
