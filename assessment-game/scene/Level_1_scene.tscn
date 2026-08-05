@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://b7arabluyk84g" path="res://script/level_1_scene.gd" id="1_aoa7p"]
 [ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://images/Leve_1_Background.png" id="1_w17ck"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_affpu"]
-[ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://scene/Melee_Enemy.tscn" id="4_u8ckq"]
+[ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="4_u8ckq"]
 [ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="5_i458t"]
+[ext_resource type="Script" uid="uid://drteoejtfxety" path="res://scene/enemy_spawn.gd" id="6_ecxig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
 size = Vector2(1764, 160)
@@ -60,5 +61,12 @@ texture = ExtResource("5_i458t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2066143630]
 position = Vector2(1449.75, 464.25)
 shape = SubResource("RectangleShape2D_ecxig")
+
+[node name="enemy_spawn" type="Node2D" parent="." unique_id=498378290]
+script = ExtResource("6_ecxig")
+
+[node name="Marker2D" type="Marker2D" parent="enemy_spawn" unique_id=699872416]
+
+[node name="Timer" type="Timer" parent="enemy_spawn" unique_id=398854253]
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
