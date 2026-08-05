@@ -1,9 +1,10 @@
-class_name Enemy_Black
+class_name Enemy_Red
 extends CharacterBody2D
 
 var speed: float = 200.0
 var player: CharacterBody2D
 var health: int = 100
+var damage_contact: int = 5
 
 @export var health_ui: ProgressBar
 @export var sprite: Sprite2D
@@ -62,7 +63,7 @@ func _process(delta: float) -> void:
 
 func take_damage() -> void:
 	if health > 1:
-		health -= 5
+		health -= 3
 		health_ui.value = health
 	else: 
 		queue_free()
@@ -70,18 +71,16 @@ func take_damage() -> void:
 
 func _take_damage(body: Node2D) -> void:
 	if body is Player_1:
-		body.take_damage()
+		body.take_damage(damage_contact)
 
 
 func _shoot() -> void:
-	print("Enemy shooting")
 
 	if bullet_scene == null or bullet_spawn == null:
 		return
 
 	var bullet = bullet_scene.instantiate()
-	bullet.damage = 10
-	print("Bullet created:", bullet)
+	bullet.damage = 30
 
 	bullet.global_position = bullet_spawn.global_position
 	bullet.rotation = rotation

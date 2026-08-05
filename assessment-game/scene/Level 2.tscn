@@ -1,39 +1,134 @@
 [gd_scene format=3 uid="uid://dv2nciv14o138"]
 
+[ext_resource type="Script" uid="uid://gh61jfginn33" path="res://scripts/level_2.gd" id="1_2p7nl"]
 [ext_resource type="Texture2D" uid="uid://cpco8di3lulvi" path="res://images/Ancient China.png" id="1_2w6kw"]
 [ext_resource type="Texture2D" uid="uid://bbp32viflnjmt" path="res://images/Box.png" id="2_2p7nl"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_brqh1"]
-[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="4_h7in3"]
+[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://scene/Enemy.tscn" id="4_h7in3"]
+[ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="6_brqh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
-size = Vector2(1148, 28.249989)
+size = Vector2(1148, 24.249994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brqh1"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7in3"]
+size = Vector2(8.5, 732.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p7nl"]
+radius = 38.374878
+height = 164.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7in3"]
+atlas = ExtResource("6_brqh1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h12u"]
+atlas = ExtResource("6_brqh1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aksa2"]
+atlas = ExtResource("6_brqh1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2jkd"]
+atlas = ExtResource("6_brqh1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o5p8"]
+atlas = ExtResource("6_brqh1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywplf"]
+atlas = ExtResource("6_brqh1")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmhx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7in3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h12u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aksa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2jkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o5p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywplf")
+}],
+"loop": true,
+"name": &"portal1",
+"speed": 5.0
+}]
 
 [node name="Level 2" type="Node2D" unique_id=117724919]
+script = ExtResource("1_2p7nl")
 
 [node name="AncientChina" type="Sprite2D" parent="." unique_id=1820799256]
-position = Vector2(577.50006, 329)
-scale = Vector2(0.8192858, 0.6347656)
+position = Vector2(576.5, 369.00003)
+scale = Vector2(0.8207143, 0.7207031)
 texture = ExtResource("1_2w6kw")
 
+[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_brqh1")]
+position = Vector2(114, 523)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=272474380]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
+position = Vector2(571, 709)
+shape = SubResource("RectangleShape2D_y32ns")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1847639150]
+position = Vector2(-9, 359)
+shape = SubResource("RectangleShape2D_brqh1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=75531789]
+position = Vector2(1155.75, 367.25)
+shape = SubResource("RectangleShape2D_h7in3")
+
+[node name="CharacterBody2D2" parent="." unique_id=1653680679 node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("4_h7in3")]
+position = Vector2(1020.00006, 145.99997)
+point_a = NodePath("../Marker2D")
+point_b = NodePath("../Marker2D2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=784893877]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1643291848]
+position = Vector2(1067.6251, 597.375)
+shape = SubResource("CapsuleShape2D_2p7nl")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1289578008]
-offset_left = 3.0
-offset_top = 607.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 4.0
+offset_top = 695.0
+offset_right = 1153.0
+offset_bottom = 731.0
 texture = ExtResource("2_2p7nl")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_brqh1")]
-position = Vector2(-420, 194)
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1430021390]
+position = Vector2(432, 119)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=272474380]
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=459738990]
+position = Vector2(1014, 301)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
-position = Vector2(575, 626.125)
-shape = SubResource("RectangleShape2D_y32ns")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1286167650]
+position = Vector2(1061.9999, 599.00006)
+scale = Vector2(5, 5.224)
+sprite_frames = SubResource("SpriteFrames_bmhx4")
+animation = &"portal1"
+autoplay = "portal1"
+frame_progress = 0.9497368
 
-[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_h7in3")]
-position = Vector2(458, -184)
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

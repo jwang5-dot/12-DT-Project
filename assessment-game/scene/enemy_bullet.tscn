@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://du623gm5mtsx3"]
+
+[ext_resource type="Script" uid="uid://dg7jiedhp1w1q" path="res://scripts/enemy_bullet.gd" id="1_uy161"]
+[ext_resource type="Texture2D" uid="uid://e3vjrkdknlas" path="res://images/fireball-removebg-preview (1).png" id="2_jiqoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy161"]
+size = Vector2(150, 62)
+
+[node name="Enemy_Bullet" type="Area2D" unique_id=782878298]
+script = ExtResource("1_uy161")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909484062]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_uy161")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=599386115]
+position = Vector2(-69, -37)
+rect = Rect2(-10, -42, 159, 156)
+enable_node_path = NodePath("../CollisionShape2D")
+
+[node name="Fireball" type="Sprite2D" parent="." unique_id=80860551]
+rotation = 3.9933133
+scale = Vector2(0.27103865, 0.2967221)
+texture = ExtResource("2_jiqoc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

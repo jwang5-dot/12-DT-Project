@@ -1,3 +1,4 @@
+class_name Player_1
 extends CharacterBody2D
 
 # Movement
@@ -8,7 +9,7 @@ const GRAVITY = 1200.0
 var double_jump = true
 
 # Health
-var health: int = 10
+var health: int = 100
 
 # Score
 var score: int = 0
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		double_jump = true
 
 	# Jumping
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_W"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif double_jump:
@@ -48,7 +49,7 @@ func _physics_process(delta: float) -> void:
 			double_jump = false
 
 	# Horizontal movement
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("ui_A", "ui_D")
 
 	if direction:
 		velocity.x = direction * SPEED
@@ -77,22 +78,16 @@ func _shoot() -> void:
 
 	can_shoot = false
 
-func _bullet_cooldown() -> void:
+	await get_tree().create_timer(0.2).timeout
 	can_shoot = true
 
-func take_damage() -> void:
-	if health > 1:
-		health -= 1
-
-		if health_ui:
-			health_ui.value = health
+func take_damage(amount: int) -> void:
+	if health > amount:
+		health -= amount
+		health_ui.value = health
 	else:
 		get_tree().reload_current_scene()
-
-func add_score(amount: int) -> void:
-	score += amount
-
-	if score_label:
-		score_label.text = "SCORE: " + str(score)
-
-	print("Score:", score)
+		
+func _melee_damage(body: Node2D) -> void:
+	if body is Enemy_Red:
+		body.take_damage()

@@ -1,30 +1,121 @@
 [gd_scene format=3 uid="uid://igvw8tb6gqr0"]
 
-[ext_resource type="Script" uid="uid://dmw6xjr06nrwi" path="res://scripts/manager.gd" id="1_yavb0"]
 [ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://images/Space1.png" id="2_g46qk"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_s4evf"]
-[ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="4_cr61s"]
+[ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="4_g46qk"]
+[ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://scene/EnemyRC.tscn" id="4_yavb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vqg"]
 size = Vector2(1175, 29)
 
-[node name="Level 2" type="Node2D" unique_id=341672757]
-script = ExtResource("1_yavb0")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yavb0"]
+size = Vector2(24, 755)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g46qk"]
+size = Vector2(29, 742.375)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjxe6"]
+radius = 43.749878
+height = 222.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7in3"]
+atlas = ExtResource("4_g46qk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h12u"]
+atlas = ExtResource("4_g46qk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aksa2"]
+atlas = ExtResource("4_g46qk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2jkd"]
+atlas = ExtResource("4_g46qk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o5p8"]
+atlas = ExtResource("4_g46qk")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywplf"]
+atlas = ExtResource("4_g46qk")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4evf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7in3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h12u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aksa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2jkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o5p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywplf")
+}],
+"loop": true,
+"name": &"portal1",
+"speed": 5.0
+}]
+
+[node name="Level 4" type="Node2D" unique_id=341672757]
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
-position = Vector2(576.50006, 294.00003)
+position = Vector2(580.00006, 372.00003)
 scale = Vector2(0.8034722, 0.73901373)
 texture = ExtResource("2_g46qk")
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_s4evf")]
-position = Vector2(-419, 189)
+position = Vector2(136, 607)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=723386610]
 position = Vector2(-423, 190)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=48585223]
-position = Vector2(997.5, 437.5)
+position = Vector2(998, 533)
 shape = SubResource("RectangleShape2D_16vqg")
 
-[node name="CharacterBody2D2" parent="." unique_id=1653680679 instance=ExtResource("4_cr61s")]
-position = Vector2(469, -173)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1588617861]
+position = Vector2(408, 184.5)
+shape = SubResource("RectangleShape2D_yavb0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1530044474]
+position = Vector2(1596.5, 181)
+shape = SubResource("RectangleShape2D_g46qk")
+
+[node name="CharacterBody2D2" parent="." unique_id=1277688742 node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("4_yavb0")]
+position = Vector2(1026, 173)
+point_a = NodePath("../Marker2D")
+point_b = NodePath("../Marker2D2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1816056417]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932510721]
+position = Vector2(1057.2501, 582.75)
+shape = SubResource("CapsuleShape2D_wjxe6")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1913609174]
+position = Vector2(379, 102)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1759816914]
+position = Vector2(1022, 311)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1620348590]
+position = Vector2(1051, 585)
+scale = Vector2(5, 5.224)
+sprite_frames = SubResource("SpriteFrames_s4evf")
+animation = &"portal1"
+autoplay = "portal1"
+frame_progress = 0.110249065
+
+[connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]

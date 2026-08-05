@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b8g5meyobi3m7"]
+
+[ext_resource type="Script" uid="uid://22oru3imdu3t" path="res://scripts/enemy_rc.gd" id="1_252ky"]
+[ext_resource type="PackedScene" uid="uid://du623gm5mtsx3" path="res://scene/enemy_bullet.tscn" id="2_uxm6x"]
+[ext_resource type="Texture2D" uid="uid://oejmdi3ecsx5" path="res://images/Red Crow.png" id="2_wew88"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_252ky"]
+radius = 80.0
+height = 226.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_252ky"]
+bg_color = Color(0.9647059, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wew88"]
+bg_color = Color(0.019607844, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhns0"]
+radius = 83.0
+height = 232.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277688742 node_paths=PackedStringArray("health_ui", "sprite", "bullet_spawn") groups=["enemy"]]
+rotation = -1.9966567
+script = ExtResource("1_252ky")
+health_ui = NodePath("Node2D/ProgressBar")
+sprite = NodePath("RedCrow")
+bullet_scene = ExtResource("2_uxm6x")
+bullet_spawn = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1109315571]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_252ky")
+
+[node name="RedCrow" type="Sprite2D" parent="." unique_id=180294512]
+position = Vector2(-3.000062, 9.999966)
+rotation = 1.8797196
+scale = Vector2(0.86000013, 0.87000006)
+texture = ExtResource("2_wew88")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=379764626]
+rotation = 1.9966567
+
+[node name="ProgressBar" type="ProgressBar" parent="Node2D" unique_id=1700341769]
+offset_left = -71.0
+offset_top = -152.0
+offset_right = 66.0
+offset_bottom = -129.0
+theme_override_styles/background = SubResource("StyleBoxFlat_252ky")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wew88")
+max_value = 10.0
+step = 1.0
+value = 7.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D/ProgressBar" unique_id=78874855]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=595870994]
+position = Vector2(-615, -298)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1706283920]
+position = Vector2(616, 299)
+shape = SubResource("CapsuleShape2D_nhns0")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1280939447]
+
+[connection signal="body_entered" from="Area2D" to="." method="_take_damage"]
