@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_p1biq"]
 [ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="4_ch6ki"]
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="5_60oou"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="6_gjxs8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se1ga"]
 size = Vector2(236, 763.25)
@@ -60,5 +61,8 @@ texture = ExtResource("4_ch6ki")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1048867138]
 position = Vector2(1282, 377.5)
 shape = SubResource("RectangleShape2D_60oou")
+
+[node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("6_gjxs8")]
+position = Vector2(211, 488)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_3_portal"]

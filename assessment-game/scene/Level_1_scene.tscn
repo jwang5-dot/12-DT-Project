@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_affpu"]
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="4_u8ckq"]
 [ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="5_i458t"]
-[ext_resource type="Script" uid="uid://drteoejtfxety" path="res://scene/enemy_spawn.gd" id="6_ecxig"]
+[ext_resource type="Script" uid="uid://drteoejtfxety" path="res://script/enemy_spawn.gd" id="6_ecxig"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="7_ddlbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
 size = Vector2(1588, 160)
@@ -18,6 +19,8 @@ size = Vector2(168.5, 244.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxig"]
 size = Vector2(236.5, 807.75)
+
+[sub_resource type="PackedScene" id="PackedScene_ddlbp"]
 
 [node name="Node2D" type="Node2D" unique_id=252982734]
 script = ExtResource("1_aoa7p")
@@ -62,11 +65,18 @@ texture = ExtResource("5_i458t")
 position = Vector2(1268, 378.125)
 shape = SubResource("RectangleShape2D_ecxig")
 
-[node name="enemy_spawn" type="Node2D" parent="." unique_id=498378290]
+[node name="enemy_spawn" type="Node2D" parent="." unique_id=498378290 node_paths=PackedStringArray("spawn_point", "spawn_timer")]
 script = ExtResource("6_ecxig")
+enemy_scene = SubResource("PackedScene_ddlbp")
+spawn_point = NodePath("Marker2D")
+spawn_timer = NodePath("Timer")
 
 [node name="Marker2D" type="Marker2D" parent="enemy_spawn" unique_id=699872416]
 
 [node name="Timer" type="Timer" parent="enemy_spawn" unique_id=398854253]
 
+[node name="CharacterBody2D3" parent="." unique_id=516776377 instance=ExtResource("7_ddlbp")]
+position = Vector2(221, 522)
+
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
+[connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]

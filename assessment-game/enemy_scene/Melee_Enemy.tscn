@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blbmko3orl7nl"]
 
-[ext_resource type="Script" uid="uid://bfrnwgdugfixq" path="res://script/Melee_Enemy.gd" id="1_eph0u"]
+[ext_resource type="Script" uid="uid://bfrnwgdugfixq" path="res://script/melee_enemy.gd" id="1_eph0u"]
 [ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://images/ME.png" id="2_584gp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
@@ -25,7 +25,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("sprite", "health_ui")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=967582635 node_paths=PackedStringArray("sprite", "health_ui") groups=["enemy"]]
 script = ExtResource("1_eph0u")
 sprite = NodePath("Me")
 health_ui = NodePath("Node2D/ProgressBar")

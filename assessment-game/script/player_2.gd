@@ -51,16 +51,16 @@ func _physics_process(delta: float) -> void:
 # Move the character
 	move_and_slide()
 	
-func take_damage() -> void:
+func take_damage(damage: int) -> void:
 	if health > 1:
-		health -= 5
+		health -= damage
 		health_ui.value = health
 	else:
 		get_tree().call_deferred("reload_current_scene")
 
 
 func _attack(body: Node2D) -> void:
-	if body is Melee_Enemy:
+	if body.is_in_group("enemy"):
 		enemy = body 
 		enemy_range = true
 
