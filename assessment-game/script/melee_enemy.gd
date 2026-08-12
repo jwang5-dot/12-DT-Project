@@ -43,7 +43,7 @@ func take_damage() -> void:
 	if health > 1:
 		health -= 10
 		health_ui.value = health
-	else:
+	else: 
 		queue_free()
 
 func _take_damage(body: Node2D) -> void:

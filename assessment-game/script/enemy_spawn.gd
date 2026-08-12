@@ -3,7 +3,7 @@ extends Node2D
 const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 4
 
-@export var enemy_scene: PackedScene
+@export var enemy_scene: Array[PackedScene]
 @export var spawn_point: Marker2D
 @export var spawn_timer: Timer
 
@@ -26,7 +26,7 @@ func _timer_countdown() -> void:
 		spawn_timer.stop()
 		
 func spawn_enemy() -> void:
-	var enemy = enemy_scene.instantiate()
+	var enemy = enemy_scene[1].instantiate()
 	enemy.global_position = spawn_point.global_position
 	get_parent().add_child(enemy)
 		
