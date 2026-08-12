@@ -80,6 +80,7 @@ func _shoot() -> void:
 
 	await get_tree().create_timer(0.2).timeout
 	can_shoot = true
+	
 
 func take_damage(amount: int) -> void:
 	if health > amount:

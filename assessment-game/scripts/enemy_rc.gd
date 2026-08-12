@@ -70,7 +70,7 @@ func take_damage() -> void:
 
 
 func _take_damage(body: Node2D) -> void:
-	if body is Player_1:
+	if body is Player_1 or body is Player_2:
 		body.take_damage(damage_contact)
 
 
