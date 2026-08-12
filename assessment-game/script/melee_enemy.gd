@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if player_range == true:
 		continuous_damage_count_down -= delta
 	if continuous_damage_count_down < 0:
-		player.take_damage()
+		player.take_damage(1)
 		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
 
 func _ready() -> void:
@@ -43,12 +43,12 @@ func take_damage() -> void:
 	if health > 1:
 		health -= 10
 		health_ui.value = health
-	else:
+	else: 
 		queue_free()
 
 func _take_damage(body: Node2D) -> void:
-	if body is Player_2:
-		body.take_damage()
+	if body is Player_2 or body is Player_1:
+		body.take_damage(5)
 		player_range = true
 
 
