@@ -74,14 +74,12 @@ func _take_damage(body: Node2D) -> void:
 
 
 func _shoot() -> void:
-	print("Enemy shooting")
 
 	if bullet_scene == null or bullet_spawn == null:
 		return
 
 	var bullet = bullet_scene.instantiate()
 	bullet.damage = 10
-	print("Bullet created:", bullet)
 
 	bullet.global_position = bullet_spawn.global_position
 	bullet.rotation = rotation
