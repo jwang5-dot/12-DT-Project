@@ -8,14 +8,14 @@ const Continuous_Damage_Timer: float = 0.5
 
 var health: int = 100
 var double_jump: bool = true 
-var enemy: Melee_Enemy
+var enemy: CharacterBody2D
 var teleport_count: int = 0
 var enemy_range: bool = false
 var damage_timer = Continuous_Damage_Timer
+var shielding: bool = false
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
-@export var level_number = 1
 
 func _ready() -> void:
 	health_ui.max_value = health
@@ -31,7 +31,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y += GRAVITY * delta
 	else:
 		double_jump = true  
-
+	if Input.is_action_pressed("ui_shield"):
+		shielding = true
+	else:
+		shielding = false
 # Handle jump
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
@@ -52,11 +55,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damage: int) -> void:
-	if health > 1:
+	if shielding == true:
+		return
+	elif health <= 0:
+		get_tree().call_deferred("reload_current_scene")
+	else:
 		health -= damage
 		health_ui.value = health
-	else:
-		get_tree().call_deferred("reload_current_scene")
 
 
 func _attack(body: Node2D) -> void:

@@ -15,7 +15,6 @@ var player: CharacterBody2D
 var direction = STOP
 var continuous_damage_count_down = 0.5
 var player_range: bool = false
-var shielding: bool = false
 
 func _physics_process(delta: float) -> void:
 	if player_range == true:
@@ -23,12 +22,6 @@ func _physics_process(delta: float) -> void:
 	if continuous_damage_count_down < 0:
 		player.take_damage(1)
 		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
-	if Input.is_action_pressed("ui_shield"):
-		shielding = true
-		player_range = false
-	else:
-		shielding = false
-		player_range = true
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):

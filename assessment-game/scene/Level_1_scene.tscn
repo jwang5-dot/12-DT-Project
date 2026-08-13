@@ -125,5 +125,11 @@ sprite_frames = SubResource("SpriteFrames_jc7q2")
 animation = &"portal1"
 autoplay = "portal1"
 
+[node name="enemy_point_A" type="Marker2D" parent="." unique_id=542621521]
+position = Vector2(658, 98)
+
+[node name="enemy_point_B" type="Marker2D" parent="." unique_id=1865987787]
+position = Vector2(991, 233)
+
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]

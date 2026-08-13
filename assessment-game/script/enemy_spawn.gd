@@ -28,7 +28,8 @@ func _timer_countdown() -> void:
 		spawn_timer.stop()
 		
 func spawn_enemy() -> void:
-	var enemy = enemy_scene[0].instantiate()
+	var random_spawn = randi_range(0, 2)
+	var enemy = enemy_scene[random_spawn].instantiate()
 	enemy.global_position = spawn_point.global_position
 	get_parent().add_child(enemy)
 		
