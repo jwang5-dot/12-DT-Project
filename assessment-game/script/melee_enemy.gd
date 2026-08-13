@@ -23,6 +23,12 @@ func _physics_process(delta: float) -> void:
 	if continuous_damage_count_down < 0:
 		player.take_damage(1)
 		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
+	if Input.is_action_pressed("ui_shield"):
+		shielding = true
+		player_range = false
+	else:
+		shielding = false
+		player_range = true
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
@@ -51,8 +57,6 @@ func _take_damage(body: Node2D) -> void:
 	if body is Player_2 or body is Player_1:
 		body.take_damage(5)
 		player_range = true
-	if Input.is_action_just_pressed("ui_shield"):
-			shielding = true
 
 
 func _exit_body(body: Node2D) -> void:
