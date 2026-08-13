@@ -23,6 +23,12 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
 		player = node
 
+	if point_a == null:
+		point_a = get_tree().current_scene.find_child("enemy_pointA", true, false)
+
+	if point_b == null:
+		point_b = get_tree().current_scene.find_child("enemy_pointB", true, false)
+
 	if health_ui:
 		health_ui.max_value = health
 		health_ui.value = health
@@ -90,3 +96,4 @@ func _shoot() -> void:
 
 	await get_tree().create_timer(2.0).timeout
 	can_shoot = true
+	

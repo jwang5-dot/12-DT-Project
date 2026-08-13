@@ -104,6 +104,7 @@ offset_left = 446.0
 offset_top = 489.0
 offset_right = 725.0
 offset_bottom = 566.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_h8uk4")
 text = "CONTROLS"
