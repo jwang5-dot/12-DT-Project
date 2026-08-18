@@ -177,10 +177,7 @@ animations = [{
 "texture": ExtResource("15_0d8lw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ln4fs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_ln4fs")
+"texture": ExtResource("15_0d8lw")
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_ln4fs")
