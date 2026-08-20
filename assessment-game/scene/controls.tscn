@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dl6md8ve5xsx2"]
 
-[ext_resource type="Script" uid="uid://byry3owyavi5p" path="res://controls.gd" id="1_gpdjo"]
+[ext_resource type="Script" uid="uid://byry3owyavi5p" path="res://controls.gd" id="1_pmc0d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vqr3"]
 bg_color = Color(0.39624205, 0.26385605, 0.08527156, 1)
@@ -23,7 +23,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1155.0
 offset_bottom = 749.0
-script = ExtResource("1_gpdjo")
+script = ExtResource("1_pmc0d")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1287353916]
 layout_mode = 0

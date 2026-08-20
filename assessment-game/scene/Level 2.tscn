@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpco8di3lulvi" path="res://images/Ancient China.png" id="1_2w6kw"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_brqh1"]
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="4_h7in3"]
+[ext_resource type="PackedScene" uid="uid://dq75qppuku8o4" path="res://scene/enemy_bulletl2.tscn" id="5_7h12u"]
 [ext_resource type="Texture2D" uid="uid://dgh27hrv26hi4" path="res://images/image-removebg-preview (7).png" id="5_h7in3"]
 [ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="6_brqh1"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="7_h7in3"]
@@ -100,6 +101,7 @@ shape = SubResource("RectangleShape2D_h7in3")
 position = Vector2(1020.00006, 145.99997)
 point_a = NodePath("../Marker2D")
 point_b = NodePath("../Marker2D2")
+bullet_scene = ExtResource("5_7h12u")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=784893877]
 
