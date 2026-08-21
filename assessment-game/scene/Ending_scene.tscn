@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbmrgiu1r4d2u" path="res://script/ending_scene.gd" id="1_vjpgg"]
 [ext_resource type="Texture2D" uid="uid://cv2vdveaqj01r" path="res://images/Ending_Scene_Door_Walking.png" id="2_cogn0"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="4_5lr76"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="4_u8t5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8t5q"]
@@ -22,6 +23,16 @@ position = Vector2(581.2031, 379.00003)
 scale = Vector2(0.79971796, 0.7304687)
 texture = ExtResource("2_cogn0")
 
+[node name="EndingSceneDoorWalking" type="Sprite2D" parent="EndingSceneDoorWalking" unique_id=309243332]
+position = Vector2(1377.7319, -2.7380104)
+scale = Vector2(0.9217444, 1.0288739)
+texture = ExtResource("2_cogn0")
+
+[node name="EndingSceneDoorWalking" type="Sprite2D" parent="EndingSceneDoorWalking/EndingSceneDoorWalking" unique_id=1865204101]
+position = Vector2(-2938.4014, -7.983405)
+scale = Vector2(0.9217444, 1.0288739)
+texture = ExtResource("2_cogn0")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1398005504]
 position = Vector2(-2, 4)
 
@@ -39,7 +50,14 @@ shape = SubResource("RectangleShape2D_cogn0")
 position = Vector2(4, 3)
 
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(87, 480)
+position = Vector2(160, 482)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=226849814]
+position = Vector2(24, -100)
+zoom = Vector2(1.5, 1.5)
+
+[node name="CharacterBody2D" parent="CharacterBody2D" unique_id=516776377 instance=ExtResource("4_5lr76")]
+position = Vector2(172, 2)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1335190959 groups=["Portal"]]
 
