@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://evrvhhtmadqi"]
 
+[ext_resource type="Script" uid="uid://ccb5rtly22rlp" path="res://transition.gd" id="1_24hux"]
+
 [sub_resource type="Animation" id="Animation_ws5yv"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,6 +57,7 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=188072152]
+script = ExtResource("1_24hux")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=500530293]
 anchors_preset = 15
