@@ -2,6 +2,7 @@ extends Node2D
 
 const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 1
+const ENEMY_WAVES: int = 2
 
 @export var enemy_scene: Array[PackedScene]
 @export var spawn_point: Marker2D
@@ -9,6 +10,7 @@ const ENEMY_NUMBER: int = 1
 
 var enemy_spawned: int = 0
 var enemy_increased: int = 1
+var enemy_wave: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
