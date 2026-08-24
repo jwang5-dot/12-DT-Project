@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dl6md8ve5xsx2"]
+
+[ext_resource type="Script" uid="uid://byry3owyavi5p" path="res://controls.gd" id="1_pmc0d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vqr3"]
+bg_color = Color(0.39624205, 0.26385605, 0.08527156, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vqr3"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpdjo"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_qo8cm"]
+font_size = 30
+
+[node name="Control" type="Control" unique_id=1426118785]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 749.0
+script = ExtResource("1_pmc0d")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1287353916]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 51.0
+offset_right = 895.0
+offset_bottom = 700.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vqr3")
+
+[node name="Label" type="Label" parent="." unique_id=739599958]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 73.0
+offset_right = 732.0
+offset_bottom = 142.0
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_4vqr3")
+
+[node name="Label2" type="Label" parent="." unique_id=1617642199]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 171.0
+offset_right = 864.0
+offset_bottom = 348.0
+text = "Player 1: Aura Farmer
+
+Movement: W,A,S,D
+Ability: Plasma ball (Tap or Hold V)"
+label_settings = SubResource("LabelSettings_gpdjo")
+
+[node name="Label3" type="Label" parent="." unique_id=567578953]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 413.0
+offset_right = 820.0
+offset_bottom = 590.0
+text = "Player 2: Cop
+
+Movement: Arrow Keys
+Ability: Shielding (Tap or Hold Shift)"
+label_settings = SubResource("LabelSettings_qo8cm")
+
+[node name="Button" type="Button" parent="." unique_id=965429831]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 631.0
+offset_right = 451.0
+offset_bottom = 671.0
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

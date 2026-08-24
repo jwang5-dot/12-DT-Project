@@ -80,6 +80,7 @@ func _shoot() -> void:
 
 	await get_tree().create_timer(0.2).timeout
 	can_shoot = true
+	
 
 func take_damage(amount: int) -> void:
 	if health > amount:
@@ -91,3 +92,7 @@ func take_damage(amount: int) -> void:
 func _melee_damage(body: Node2D) -> void:
 	if body is Enemy_Red:
 		body.take_damage()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")

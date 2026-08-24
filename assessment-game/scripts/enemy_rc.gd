@@ -66,11 +66,11 @@ func take_damage() -> void:
 		health -= 3
 		health_ui.value = health
 	else: 
-		queue_free()
+		queue_free()		
 
 
 func _take_damage(body: Node2D) -> void:
-	if body is Player_1:
+	if body is Player_1 or body is Player_2:
 		body.take_damage(damage_contact)
 
 
