@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://b7arabluyk84g" path="res://script/level_1_scene.gd" id="1_aoa7p"]
 [ext_resource type="Texture2D" uid="uid://c7nleoafxx0ux" path="res://images/Leve_1_Background.png" id="1_w17ck"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="3_affpu"]
-[ext_resource type="Texture2D" uid="uid://bk60y1uudktwg" path="res://images/portall555.png" id="5_i458t"]
 [ext_resource type="Script" uid="uid://drteoejtfxety" path="res://script/enemy_spawn.gd" id="6_ecxig"]
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="6_jc7q2"]
-[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="7_ddlbp"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://enemy_scene/EnemyRC.tscn" id="7_iduot"]
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="8_4ebvl"]
+[ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="8_txcqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
 size = Vector2(1588, 160)
@@ -21,6 +20,56 @@ size = Vector2(168.5, 244.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxig"]
 size = Vector2(236.5, 807.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7in3"]
+atlas = ExtResource("8_txcqp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h12u"]
+atlas = ExtResource("8_txcqp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aksa2"]
+atlas = ExtResource("8_txcqp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2jkd"]
+atlas = ExtResource("8_txcqp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o5p8"]
+atlas = ExtResource("8_txcqp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywplf"]
+atlas = ExtResource("8_txcqp")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jc7q2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7in3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h12u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aksa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2jkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o5p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywplf")
+}],
+"loop": true,
+"name": &"portal1",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=252982734]
 script = ExtResource("1_aoa7p")
@@ -51,11 +100,6 @@ shape = SubResource("RectangleShape2D_affpu")
 position = Vector2(1057, 515)
 shape = SubResource("RectangleShape2D_i458t")
 
-[node name="Portall555" type="Sprite2D" parent="Area2D" unique_id=841032813]
-position = Vector2(1057, 528)
-scale = Vector2(0.25625, 0.28857422)
-texture = ExtResource("5_i458t")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1293459338]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2066143630]
@@ -63,18 +107,29 @@ position = Vector2(1268, 378.125)
 shape = SubResource("RectangleShape2D_ecxig")
 
 [node name="enemy_spawn" type="Node2D" parent="." unique_id=498378290 node_paths=PackedStringArray("spawn_point", "spawn_timer")]
+position = Vector2(1045, 510)
 script = ExtResource("6_ecxig")
 enemy_scene = Array[PackedScene]([ExtResource("6_jc7q2"), ExtResource("7_iduot"), ExtResource("8_4ebvl")])
 spawn_point = NodePath("Marker2D")
 spawn_timer = NodePath("Timer")
 
 [node name="Marker2D" type="Marker2D" parent="enemy_spawn" unique_id=699872416]
-position = Vector2(1060, 524)
+position = Vector2(6, 12)
 
 [node name="Timer" type="Timer" parent="enemy_spawn" unique_id=398854253]
 
-[node name="CharacterBody2D3" parent="." unique_id=516776377 instance=ExtResource("7_ddlbp")]
-position = Vector2(-306, -535)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1682121210]
+position = Vector2(1049, 522)
+scale = Vector2(7.96875, 8.237)
+sprite_frames = SubResource("SpriteFrames_jc7q2")
+animation = &"portal1"
+autoplay = "portal1"
+
+[node name="enemy_point_A" type="Marker2D" parent="." unique_id=542621521]
+position = Vector2(658, 98)
+
+[node name="enemy_point_B" type="Marker2D" parent="." unique_id=1865987787]
+position = Vector2(991, 233)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
