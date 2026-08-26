@@ -128,10 +128,10 @@ animation = &"portal1"
 autoplay = "portal1"
 
 [node name="enemy_point_A" type="Marker2D" parent="." unique_id=542621521 groups=["point_a"]]
-position = Vector2(489, 116)
+position = Vector2(412, 61)
 
 [node name="enemy_point_B" type="Marker2D" parent="." unique_id=1865987787 groups=["point_b"]]
-position = Vector2(1085, 270)
+position = Vector2(1098, 322)
 
 [node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("9_jc7q2")]
 position = Vector2(227, 517)
