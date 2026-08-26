@@ -107,12 +107,13 @@ shape = SubResource("RectangleShape2D_i458t")
 position = Vector2(1268, 378.125)
 shape = SubResource("RectangleShape2D_ecxig")
 
-[node name="enemy_spawn" type="Node2D" parent="." unique_id=498378290 node_paths=PackedStringArray("spawn_point", "spawn_timer")]
+[node name="enemy_spawn" type="Node2D" parent="." unique_id=498378290 node_paths=PackedStringArray("spawn_point", "spawn_timer", "wave_timer")]
 position = Vector2(1045, 510)
 script = ExtResource("6_ecxig")
 enemy_scene = Array[PackedScene]([ExtResource("6_jc7q2"), ExtResource("7_iduot"), ExtResource("8_4ebvl")])
 spawn_point = NodePath("Marker2D")
 spawn_timer = NodePath("Timer")
+wave_timer = NodePath("Timer")
 
 [node name="Marker2D" type="Marker2D" parent="enemy_spawn" unique_id=699872416]
 position = Vector2(6, 12)
