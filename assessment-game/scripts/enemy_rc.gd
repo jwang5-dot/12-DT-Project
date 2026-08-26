@@ -24,6 +24,12 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
 		player = node
 
+	if point_a == null:
+		point_a = get_tree().get_first_node_in_group('point_a')
+
+	if point_b == null:
+		point_b = get_tree().get_first_node_in_group('point_b')
+
 	if health_ui:
 		health_ui.max_value = health
 		health_ui.value = health
