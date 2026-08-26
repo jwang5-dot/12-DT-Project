@@ -112,6 +112,7 @@ position = Vector2(379, 102)
 position = Vector2(1022, 311)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1620348590]
+texture_filter = 1
 position = Vector2(1051, 585)
 scale = Vector2(5, 5.224)
 sprite_frames = SubResource("SpriteFrames_s4evf")

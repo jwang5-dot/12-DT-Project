@@ -73,6 +73,7 @@ animations = [{
 }]
 
 [node name="Level 2" type="Node2D" unique_id=117724919]
+texture_filter = 1
 script = ExtResource("1_2p7nl")
 
 [node name="AncientChina" type="Sprite2D" parent="." unique_id=1820799256]
