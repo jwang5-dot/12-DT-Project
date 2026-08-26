@@ -2,7 +2,7 @@ extends Node2D
 
 const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 1
-const ENEMY_WAVES: int = 2
+const ENEMY_WAVES: int = 3
 
 @export var enemy_scene: Array[PackedScene]
 @export var spawn_point: Marker2D
