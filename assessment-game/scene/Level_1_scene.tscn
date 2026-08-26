@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://enemy_scene/EnemyRC.tscn" id="7_iduot"]
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="8_4ebvl"]
 [ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="8_txcqp"]
+[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="9_jc7q2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ckq"]
 size = Vector2(1588, 160)
@@ -119,6 +120,7 @@ position = Vector2(6, 12)
 [node name="Timer" type="Timer" parent="enemy_spawn" unique_id=398854253]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1682121210]
+texture_filter = 1
 position = Vector2(1049, 522)
 scale = Vector2(7.96875, 8.237)
 sprite_frames = SubResource("SpriteFrames_jc7q2")
@@ -130,6 +132,9 @@ position = Vector2(658, 98)
 
 [node name="enemy_point_B" type="Marker2D" parent="." unique_id=1865987787]
 position = Vector2(991, 233)
+
+[node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("9_jc7q2")]
+position = Vector2(227, 517)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
