@@ -20,7 +20,7 @@ size = Vector2(8.5, 732.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p7nl"]
 radius = 38.374878
-height = 164.0
+height = 215.25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7in3"]
 atlas = ExtResource("6_brqh1")
@@ -129,8 +129,8 @@ position = Vector2(1014, 301)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1286167650]
 texture_filter = 1
-position = Vector2(1061.9999, 599.00006)
-scale = Vector2(5, 5.224)
+position = Vector2(1062, 595)
+scale = Vector2(6.124997, 6.4245014)
 sprite_frames = SubResource("SpriteFrames_bmhx4")
 animation = &"portal1"
 autoplay = "portal1"
