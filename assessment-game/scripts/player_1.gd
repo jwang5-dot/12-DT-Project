@@ -29,8 +29,6 @@ func _ready() -> void:
 		health_ui.max_value = health
 		health_ui.value = health
 
-	if score_label:
-		score_label.text = "SCORE: " + str(score)
 
 func _physics_process(delta: float) -> void:
 
