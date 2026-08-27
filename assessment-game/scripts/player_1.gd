@@ -11,8 +11,7 @@ var double_jump = true
 # Health
 var health: int = 100
 
-# Score
-var score: int = 0
+var teleport_count: int = 0
 
 # Shooting
 var can_shoot: bool = true
@@ -90,7 +89,16 @@ func take_damage(amount: int) -> void:
 func _melee_damage(body: Node2D) -> void:
 	if body is Enemy_Red:
 		body.take_damage()
-
+			
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
+		
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Portal"):
+		position.x = 61
+		position.y = 598
+		teleport_count += 1
+		if teleport_count >= 2:
+			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
