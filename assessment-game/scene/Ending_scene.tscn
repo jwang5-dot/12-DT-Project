@@ -50,19 +50,15 @@ shape = SubResource("RectangleShape2D_cogn0")
 position = Vector2(4, 3)
 
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(160, 482)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=226849814]
-position = Vector2(24, -100)
-zoom = Vector2(1.5, 1.5)
-
-[node name="CharacterBody2D" parent="CharacterBody2D" unique_id=516776377 instance=ExtResource("4_5lr76")]
-position = Vector2(172, 2)
+position = Vector2(101, 483)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1335190959 groups=["Portal"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=686610100 groups=["Portal"]]
 position = Vector2(1237, 420.5)
 shape = SubResource("RectangleShape2D_5lr76")
+
+[node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("4_5lr76")]
+position = Vector2(252, 487)
 
 [connection signal="body_entered" from="Right" to="Right" method="_on_body_entered"]
