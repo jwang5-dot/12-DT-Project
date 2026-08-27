@@ -74,7 +74,7 @@ scale = Vector2(0.79479164, 0.734375)
 texture = ExtResource("1_w17ck")
 
 [node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("3_affpu")]
-position = Vector2(86, 514)
+position = Vector2(197, 538)
 
 [node name="Player_Platform" type="StaticBody2D" parent="." unique_id=2016147382]
 
@@ -131,7 +131,7 @@ position = Vector2(1111, 116)
 position = Vector2(562, 52)
 
 [node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("9_jc7q2")]
-position = Vector2(235, 523)
+position = Vector2(67, 532)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
