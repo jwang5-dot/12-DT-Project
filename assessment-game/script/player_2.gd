@@ -16,10 +16,12 @@ var shielding: bool = false
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
+@export var show_shielding: Sprite2D
 
 func _ready() -> void:
 	health_ui.max_value = health
-	health_ui.value = health
+	health_ui.value = health 
+	show_shielding.visible = false
 
 func _physics_process(delta: float) -> void:
 	if enemy_range:
@@ -33,8 +35,11 @@ func _physics_process(delta: float) -> void:
 		double_jump = true  
 	if Input.is_action_pressed("ui_shield"):
 		shielding = true
+		show_shielding.visible = true
 	else:
 		shielding = false
+		show_shielding.visible = false
+		
 # Handle jump
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():

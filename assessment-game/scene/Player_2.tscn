@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8e00r45lc8wo" path="res://script/player_2.gd" id="1_03o14"]
 [ext_resource type="Texture2D" uid="uid://crfkjt70py4pv" path="res://images/Player_2_basic_design.png" id="2_mepv0"]
+[ext_resource type="Texture2D" uid="uid://b4sxcykvh3gia" path="res://images/Player_2_basic_design_shield.png" id="3_mepv0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03o14"]
 bg_color = Color(0.99999994, 0.35267124, 0.072142385, 1)
@@ -25,9 +26,10 @@ height = 184.0
 radius = 48.0
 height = 182.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563 node_paths=PackedStringArray("health_ui") groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=658715563 node_paths=PackedStringArray("health_ui", "show_shielding") groups=["player"]]
 script = ExtResource("1_03o14")
 health_ui = NodePath("ProgressBar")
+show_shielding = NodePath("Player2BasicDesignShield")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1069805923]
 
@@ -52,6 +54,10 @@ shape = SubResource("CapsuleShape2D_03o14")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368636899]
 shape = SubResource("CapsuleShape2D_bv3h5")
 one_way_collision = true
+
+[node name="Player2BasicDesignShield" type="Sprite2D" parent="." unique_id=743326726]
+position = Vector2(0, -25)
+texture = ExtResource("3_mepv0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_portal"]
 [connection signal="body_entered" from="Area2D" to="." method="_attack"]
