@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blbmko3orl7nl"]
 
-[ext_resource type="Script" uid="uid://bfrnwgdugfixq" path="res://script/melee_enemy.gd" id="1_eph0u"]
+[ext_resource type="Script" uid="uid://cv6chi15cbxjn" path="res://script/melee_enemy.gd" id="1_eph0u"]
 [ext_resource type="Texture2D" uid="uid://cwpe6ynu2xdei" path="res://images/ME.png" id="2_584gp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoxbp"]
