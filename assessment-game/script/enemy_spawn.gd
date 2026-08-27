@@ -3,7 +3,7 @@ extends Node2D
 const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 1
 const ENEMY_WAVES: int = 3
-const WAVE_TIME: int = 8
+const WAVE_TIME: int = 10
 
 @export var enemy_scene: Array[PackedScene]
 @export var spawn_point: Marker2D
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 
 
 func _timer_countdown() -> void:
-	if enemy_spawned <= ENEMY_NUMBER:
+	if enemy_spawned <= ENEMY_NUMBER and enemy_wave < 2:
 		spawn_enemy()
 		enemy_spawned += enemy_increased
 	else:

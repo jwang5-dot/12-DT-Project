@@ -22,10 +22,6 @@ size = Vector2(168.5, 244.125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxig"]
 size = Vector2(236.5, 807.75)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7in3"]
-atlas = ExtResource("8_txcqp")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h12u"]
 atlas = ExtResource("8_txcqp")
 region = Rect2(32, 0, 32, 32)
@@ -49,9 +45,6 @@ region = Rect2(64, 32, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_jc7q2"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h7in3")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7h12u")
 }, {
@@ -122,20 +115,23 @@ position = Vector2(6, 12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1682121210]
 texture_filter = 1
-position = Vector2(1049, 522)
+position = Vector2(1058.0001, 512)
 scale = Vector2(7.96875, 8.237)
 sprite_frames = SubResource("SpriteFrames_jc7q2")
 animation = &"portal1"
 autoplay = "portal1"
 
 [node name="enemy_point_A" type="Marker2D" parent="." unique_id=542621521 groups=["point_a"]]
-position = Vector2(412, 61)
+position = Vector2(337, 74)
 
 [node name="enemy_point_B" type="Marker2D" parent="." unique_id=1865987787 groups=["point_b"]]
-position = Vector2(1098, 322)
+position = Vector2(1098, 345)
+
+[node name="enemy_point_c" type="Marker2D" parent="." unique_id=1836990560 groups=["point_c"]]
+position = Vector2(1, 0)
 
 [node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("9_jc7q2")]
-position = Vector2(227, 517)
+position = Vector2(235, 523)
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
