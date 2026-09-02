@@ -72,6 +72,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nwvo"]
+size = Vector2(1237, 148)
+
 [node name="Node2D" type="Node2D" unique_id=162205046]
 script = ExtResource("1_j0ctk")
 
@@ -135,13 +138,19 @@ position = Vector2(6, 12)
 position = Vector2(571, 149)
 
 [node name="enemy_point_B" type="Marker2D" parent="." unique_id=444528549 groups=["point_b"]]
-position = Vector2(1078, 165)
+position = Vector2(1025, 165)
 
 [node name="enemy_point_A" type="Marker2D" parent="." unique_id=197426097 groups=["point_a"]]
-position = Vector2(68, 139.99997)
+position = Vector2(200.99998, 146)
 rotation = -0.044322547
 scale = Vector2(0.7902867, 0.79491293)
 skew = 0.0005156994
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1681379789]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1947217752]
+position = Vector2(608.5, -22)
+shape = SubResource("RectangleShape2D_7nwvo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_3_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
