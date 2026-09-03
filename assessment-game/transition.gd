@@ -9,7 +9,7 @@ func transition_to(scene_path: String) -> void:
 	if transitioning:
 		return
 
-	transitioning = true
+	transitioning = true	
 
 	# Fade to black
 	animation_player.play("fade_out")

@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://dl6md8ve5xsx2"]
 
 [ext_resource type="Script" uid="uid://byry3owyavi5p" path="res://controls.gd" id="1_pmc0d"]
+[ext_resource type="Texture2D" uid="uid://c11yjipmwbjov" path="res://images/Controls and Credits BG.png" id="2_rwjmd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vqr3"]
-bg_color = Color(0.39624205, 0.26385605, 0.08527156, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n156t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4vqr3"]
 font_size = 50
@@ -25,29 +21,33 @@ offset_right = 1155.0
 offset_bottom = 749.0
 script = ExtResource("1_pmc0d")
 
+[node name="ControlsAndCreditsBg" type="Sprite2D" parent="." unique_id=1882395604]
+position = Vector2(578, 376.5)
+scale = Vector2(0.7955801, 0.68968695)
+texture = ExtResource("2_rwjmd")
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1287353916]
 layout_mode = 0
-offset_left = 275.0
-offset_top = 51.0
-offset_right = 895.0
-offset_bottom = 700.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4vqr3")
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 750.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n156t")
 
 [node name="Label" type="Label" parent="." unique_id=739599958]
 layout_mode = 0
-offset_left = 454.0
-offset_top = 73.0
-offset_right = 732.0
-offset_bottom = 142.0
+offset_left = 422.0
+offset_top = 39.0
+offset_right = 700.0
+offset_bottom = 108.0
 text = "CONTROLS"
 label_settings = SubResource("LabelSettings_4vqr3")
 
 [node name="Label2" type="Label" parent="." unique_id=1617642199]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 171.0
-offset_right = 864.0
-offset_bottom = 348.0
+offset_left = 59.0
+offset_top = 296.0
+offset_right = 610.0
+offset_bottom = 518.0
 text = "Player 1: Aura Farmer
 
 Movement: W,A,S,D
@@ -56,10 +56,10 @@ label_settings = SubResource("LabelSettings_gpdjo")
 
 [node name="Label3" type="Label" parent="." unique_id=567578953]
 layout_mode = 0
-offset_left = 311.0
-offset_top = 413.0
-offset_right = 820.0
-offset_bottom = 590.0
+offset_left = 601.0
+offset_top = 300.0
+offset_right = 1110.0
+offset_bottom = 522.0
 text = "Player 2: Cop
 
 Movement: Arrow Keys
@@ -68,10 +68,10 @@ label_settings = SubResource("LabelSettings_qo8cm")
 
 [node name="Button" type="Button" parent="." unique_id=965429831]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 631.0
-offset_right = 451.0
-offset_bottom = 671.0
+offset_left = 63.0
+offset_top = 609.0
+offset_right = 209.0
+offset_bottom = 659.0
 theme_override_font_sizes/font_size = 30
 text = "BACK"
 

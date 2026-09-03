@@ -69,6 +69,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4evf"]
+size = Vector2(1163, 104.87501)
+
 [node name="Level 4" type="Node2D" unique_id=341672757]
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
@@ -122,5 +125,9 @@ frame_progress = 0.110249065
 
 [node name="CharacterBody2D3" parent="." unique_id=658715563 instance=ExtResource("5_g46qk")]
 position = Vector2(301, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1035632152]
+position = Vector2(581, -24)
+shape = SubResource("RectangleShape2D_s4evf")
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
