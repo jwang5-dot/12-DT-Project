@@ -6,6 +6,9 @@ const MOVE_LEFT: float = -1
 const MOVE_RIGHT: float = 1
 const STOP: float = 0
 const CONTINUOUS_DAMAGE_TIMER: float = 0.5
+const damage_done: int = 5
+const damage_taken: int = 10
+const continuous_damage: int = 1
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -20,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if player_range == true:
 		continuous_damage_count_down -= delta
 	if continuous_damage_count_down < 0:
-		player.take_damage(1)
+		player.take_damage(continuous_damage)
 		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
 
 func _ready() -> void:
@@ -41,14 +44,14 @@ func _process(delta: float) -> void:
 
 func take_damage() -> void:
 	if health > 1:
-		health -= 10
+		health -= damage_taken
 		health_ui.value = health
 	else: 
 		queue_free()
 
 func _take_damage(body: Node2D) -> void:
 	if body is Player_2 or body is Player_1:
-		body.take_damage(5)
+		body.take_damage(damage_done)
 		player_range = true
 
 
