@@ -4,6 +4,8 @@ const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 1
 const ENEMY_WAVES: int = 3
 const WAVE_TIME: int = 10
+const ENEMY_SPAWNED = 0
+const WAVE_INCREASE = 1
 
 @export var enemy_scene: Array[PackedScene]
 @export var spawn_point: Marker2D
@@ -31,12 +33,12 @@ func _timer_countdown() -> void:
 	else:
 		spawn_timer.stop()
 		await get_tree().create_timer(WAVE_TIME).timeout
-		enemy_spawned = 0
-		enemy_wave += 1
+		enemy_spawned = ENEMY_SPAWNED
+		enemy_wave += WAVE_INCREASE
 		spawn_timer.start()
 		
 func spawn_enemy() -> void:
-	var random_spawn = randi_range(0, 2)
+	var random_spawn = randi_range(0, len(enemy_scene) - 1)
 	var enemy = enemy_scene[random_spawn].instantiate()
 	enemy.global_position = spawn_point.global_position
 	get_parent().add_child(enemy)

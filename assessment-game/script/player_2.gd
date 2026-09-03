@@ -5,6 +5,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 1200.0  
 const Continuous_Damage_Timer: float = 0.5
+const TELEPORT_XVALUE = 61
+const TELEPORT_YVALUE = 598
 
 var health: int = 100
 var double_jump: bool = true 
@@ -13,6 +15,7 @@ var teleport_count: int = 0
 var enemy_range: bool = false
 var damage_timer = Continuous_Damage_Timer
 var shielding: bool = false
+var teleport_increase: int = 1
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -26,13 +29,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if enemy_range:
 		damage_timer -= delta
+		
 	if damage_timer < 0:
 		enemy.take_damage()
 		damage_timer = Continuous_Damage_Timer
+		
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
 		double_jump = true  
+		
 	if Input.is_action_pressed("ui_shield"):
 		shielding = true
 		show_shielding.visible = true
@@ -77,9 +83,10 @@ func _attack(body: Node2D) -> void:
 
 func _portal(area: Area2D) -> void:
 	if area.is_in_group("Portal"):
-		position.x = 61
-		position.y = 598
-		teleport_count += 1
+		position.x = TELEPORT_XVALUE
+		position.y = TELEPORT_YVALUE
+		teleport_count += teleport_increase
+		
 		if teleport_count >= 2:
 			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
 

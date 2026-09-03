@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://bqgdr7ykscmoy"]
 
 [ext_resource type="Script" uid="uid://bbmrgiu1r4d2u" path="res://script/ending_scene.gd" id="1_vjpgg"]
-[ext_resource type="Texture2D" uid="uid://cv2vdveaqj01r" path="res://images/Ending_Scene_Door_Walking.png" id="2_cogn0"]
-[ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="4_5lr76"]
+[ext_resource type="Texture2D" uid="uid://bxgawhe5kv8po" path="res://images/walking_new.png" id="3_yht1g"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="4_u8t5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8t5q"]
@@ -18,26 +17,26 @@ size = Vector2(167.5, 847)
 position = Vector2(0, 1)
 script = ExtResource("1_vjpgg")
 
-[node name="EndingSceneDoorWalking" type="Sprite2D" parent="." unique_id=2057187375]
-position = Vector2(581.2031, 379.00003)
-scale = Vector2(0.79971796, 0.7304687)
-texture = ExtResource("2_cogn0")
+[node name="WalkingNew3" type="Sprite2D" parent="." unique_id=608585154]
+position = Vector2(1684, 381.99994)
+scale = Vector2(0.7414181, 0.7453619)
+texture = ExtResource("3_yht1g")
 
-[node name="EndingSceneDoorWalking" type="Sprite2D" parent="EndingSceneDoorWalking" unique_id=309243332]
-position = Vector2(1377.7319, -2.7380104)
-scale = Vector2(0.9217444, 1.0288739)
-texture = ExtResource("2_cogn0")
+[node name="WalkingNew" type="Sprite2D" parent="." unique_id=512525056]
+position = Vector2(572.5, 383.5)
+scale = Vector2(0.8076389, 0.74902344)
+texture = ExtResource("3_yht1g")
 
-[node name="EndingSceneDoorWalking" type="Sprite2D" parent="EndingSceneDoorWalking/EndingSceneDoorWalking" unique_id=1865204101]
-position = Vector2(-2938.4014, -7.983405)
-scale = Vector2(0.9217444, 1.0288739)
-texture = ExtResource("2_cogn0")
+[node name="WalkingNew2" type="Sprite2D" parent="." unique_id=94421711]
+position = Vector2(-497.00027, 385.00003)
+scale = Vector2(0.68062705, 0.7529297)
+texture = ExtResource("3_yht1g")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1398005504]
 position = Vector2(-2, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1697011624]
-position = Vector2(567, 708)
+position = Vector2(579, 726)
 shape = SubResource("RectangleShape2D_u8t5q")
 
 [node name="Right" type="Area2D" parent="." unique_id=998735698]
@@ -49,16 +48,17 @@ shape = SubResource("RectangleShape2D_cogn0")
 [node name="Marker2D" type="Marker2D" parent="Right" unique_id=464493378]
 position = Vector2(4, 3)
 
-[node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
-position = Vector2(101, 483)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1335190959 groups=["Portal"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=686610100 groups=["Portal"]]
 position = Vector2(1237, 420.5)
 shape = SubResource("RectangleShape2D_5lr76")
 
-[node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("4_5lr76")]
-position = Vector2(252, 487)
+[node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("4_u8t5q")]
+position = Vector2(197, 481)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2095907640]
+offset = Vector2(0, -100)
+zoom = Vector2(1.3, 1.3)
 
 [connection signal="body_entered" from="Right" to="Right" method="_on_body_entered"]

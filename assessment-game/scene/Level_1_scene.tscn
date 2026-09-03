@@ -65,6 +65,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc7q2"]
+size = Vector2(1208.5, 170)
+
 [node name="Node2D" type="Node2D" unique_id=252982734]
 script = ExtResource("1_aoa7p")
 
@@ -122,16 +125,24 @@ animation = &"portal1"
 autoplay = "portal1"
 
 [node name="enemy_point_A" type="Marker2D" parent="." unique_id=542621521 groups=["point_a"]]
-position = Vector2(39, 120)
+position = Vector2(100, 166)
+rotation = -0.044063933
 
 [node name="enemy_point_B" type="Marker2D" parent="." unique_id=1865987787 groups=["point_b"]]
-position = Vector2(1111, 116)
+position = Vector2(1022, 161)
 
 [node name="enemy_point_c" type="Marker2D" parent="." unique_id=1836990560 groups=["point_c"]]
-position = Vector2(562, 52)
+position = Vector2(568, 205)
 
 [node name="CharacterBody2D2" parent="." unique_id=516776377 instance=ExtResource("9_jc7q2")]
 position = Vector2(67, 532)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=306202256]
+position = Vector2(-99, 391)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=741213953]
+position = Vector2(676, -404)
+shape = SubResource("RectangleShape2D_jc7q2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
