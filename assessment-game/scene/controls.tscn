@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dl6md8ve5xsx2"]
 
 [ext_resource type="Script" uid="uid://byry3owyavi5p" path="res://controls.gd" id="1_pmc0d"]
+[ext_resource type="Texture2D" uid="uid://c11yjipmwbjov" path="res://images/Controls and Credits BG.png" id="2_rwjmd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmc0d"]
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n156t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4vqr3"]
 font_size = 50
@@ -24,12 +21,17 @@ offset_right = 1155.0
 offset_bottom = 749.0
 script = ExtResource("1_pmc0d")
 
+[node name="ControlsAndCreditsBg" type="Sprite2D" parent="." unique_id=1882395604]
+position = Vector2(578, 376.5)
+scale = Vector2(0.7955801, 0.68968695)
+texture = ExtResource("2_rwjmd")
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1287353916]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 1150.0
 offset_bottom = 750.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pmc0d")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n156t")
 
 [node name="Label" type="Label" parent="." unique_id=739599958]
 layout_mode = 0
@@ -42,36 +44,34 @@ label_settings = SubResource("LabelSettings_4vqr3")
 
 [node name="Label2" type="Label" parent="." unique_id=1617642199]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 230.0
-offset_right = 582.0
-offset_bottom = 407.0
+offset_left = 59.0
+offset_top = 296.0
+offset_right = 610.0
+offset_bottom = 518.0
 text = "Player 1: Aura Farmer
 
 Movement: W,A,S,D
-
 Ability: Plasma ball (Tap or Hold V)"
 label_settings = SubResource("LabelSettings_gpdjo")
 
 [node name="Label3" type="Label" parent="." unique_id=567578953]
 layout_mode = 0
-offset_left = 619.0
-offset_top = 234.0
-offset_right = 1128.0
-offset_bottom = 411.0
+offset_left = 601.0
+offset_top = 300.0
+offset_right = 1110.0
+offset_bottom = 522.0
 text = "Player 2: Cop
 
 Movement: Arrow Keys
-
 Ability: Shielding (Tap or Hold Shift)"
 label_settings = SubResource("LabelSettings_qo8cm")
 
 [node name="Button" type="Button" parent="." unique_id=965429831]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 673.0
-offset_right = 175.0
-offset_bottom = 723.0
+offset_left = 63.0
+offset_top = 609.0
+offset_right = 209.0
+offset_bottom = 659.0
 theme_override_font_sizes/font_size = 30
 text = "BACK"
 

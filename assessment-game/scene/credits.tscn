@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://bwuvs1rfhniu3"]
 
 [ext_resource type="Script" uid="uid://bqi1n4yx4axpq" path="res://credits.gd" id="1_c8jmj"]
+[ext_resource type="Texture2D" uid="uid://c11yjipmwbjov" path="res://images/Controls and Credits BG.png" id="2_hgo0l"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vqr3"]
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8jmj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4vqr3"]
 font_size = 50
@@ -21,13 +18,18 @@ offset_right = 1155.0
 offset_bottom = 749.0
 script = ExtResource("1_c8jmj")
 
+[node name="ControlsAndCreditsBg" type="Sprite2D" parent="." unique_id=420546962]
+position = Vector2(579, 377.5)
+scale = Vector2(0.7955801, 0.68968695)
+texture = ExtResource("2_hgo0l")
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1287353916]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 1151.0
 offset_bottom = 747.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4vqr3")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c8jmj")
 
 [node name="Label" type="Label" parent="." unique_id=739599958]
 layout_mode = 0
@@ -40,10 +42,10 @@ label_settings = SubResource("LabelSettings_4vqr3")
 
 [node name="Label2" type="Label" parent="." unique_id=1617642199]
 layout_mode = 0
-offset_left = 428.0
-offset_top = 257.0
-offset_right = 979.0
-offset_bottom = 434.0
+offset_left = 80.0
+offset_top = 318.0
+offset_right = 631.0
+offset_bottom = 495.0
 text = "Made By: 
 
 Jun Hao and Max 😎"
@@ -51,10 +53,10 @@ label_settings = SubResource("LabelSettings_gpdjo")
 
 [node name="Button" type="Button" parent="." unique_id=965429831]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 677.0
-offset_right = 172.0
-offset_bottom = 727.0
+offset_left = 67.0
+offset_top = 610.0
+offset_right = 213.0
+offset_bottom = 660.0
 theme_override_font_sizes/font_size = 30
 text = "BACK"
 
