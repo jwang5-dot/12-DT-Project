@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://du623gm5mtsx3" path="res://scene/enemy_bullet.tscn" id="2_sja4v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dregr"]
-radius = 73.0
-height = 202.0
+radius = 104.3726
+height = 215.67422
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dregr"]
 bg_color = Color(0.9647059, 0, 0, 1)
@@ -25,8 +25,8 @@ corner_radius_bottom_left = 6
 corner_detail = 6
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sja4v"]
-radius = 74.0
-height = 204.0
+radius = 100.63086
+height = 210.0492
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653680679 node_paths=PackedStringArray("health_ui", "sprite", "bullet_spawn") groups=["enemy"]]
 rotation = -1.9966567
@@ -41,9 +41,9 @@ position = Vector2(-1.5, -2)
 shape = SubResource("CapsuleShape2D_dregr")
 
 [node name="BlackEnemy" type="Sprite2D" parent="." unique_id=302135733]
-position = Vector2(-3, 10)
+position = Vector2(-9.310625, -15.504648)
 rotation = 1.8797196
-scale = Vector2(0.804, 0.8)
+scale = Vector2(0.9593897, 0.8885952)
 texture = ExtResource("1_uramm")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1279991443]

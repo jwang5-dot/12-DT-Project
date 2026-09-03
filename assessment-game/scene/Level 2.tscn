@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="7_h7in3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
-size = Vector2(1148, 104.87501)
+size = Vector2(1163, 104.87501)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brqh1"]
 size = Vector2(20, 720)
@@ -76,8 +76,8 @@ texture_filter = 1
 script = ExtResource("1_2p7nl")
 
 [node name="AncientChina" type="Sprite2D" parent="." unique_id=1820799256]
-position = Vector2(576, 376.3291)
-scale = Vector2(0.79281765, 0.6936849)
+position = Vector2(576.50006, 376.3291)
+scale = Vector2(0.797652, 0.6936849)
 texture = ExtResource("2_h7in3")
 
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_brqh1")]
@@ -87,6 +87,10 @@ position = Vector2(114, 523)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=548512493]
 position = Vector2(571, 773.5625)
+shape = SubResource("RectangleShape2D_y32ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D" unique_id=785791804]
+position = Vector2(14, -737.5625)
 shape = SubResource("RectangleShape2D_y32ns")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1847639150]
