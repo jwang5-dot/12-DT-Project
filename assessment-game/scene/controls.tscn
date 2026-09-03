@@ -33,10 +33,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_pmc0d")
 
 [node name="Label" type="Label" parent="." unique_id=739599958]
 layout_mode = 0
-offset_left = 454.0
-offset_top = 73.0
-offset_right = 732.0
-offset_bottom = 142.0
+offset_left = 422.0
+offset_top = 39.0
+offset_right = 700.0
+offset_bottom = 108.0
 text = "CONTROLS"
 label_settings = SubResource("LabelSettings_4vqr3")
 

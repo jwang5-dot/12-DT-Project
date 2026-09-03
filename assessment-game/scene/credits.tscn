@@ -31,10 +31,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4vqr3")
 
 [node name="Label" type="Label" parent="." unique_id=739599958]
 layout_mode = 0
-offset_left = 454.0
-offset_top = 73.0
-offset_right = 732.0
-offset_bottom = 142.0
+offset_left = 482.0
+offset_top = 50.0
+offset_right = 703.0
+offset_bottom = 119.0
 text = "CREDITS"
 label_settings = SubResource("LabelSettings_4vqr3")
 
