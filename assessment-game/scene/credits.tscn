@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dl6md8ve5xsx2"]
+[gd_scene format=3 uid="uid://bwuvs1rfhniu3"]
 
-[ext_resource type="Script" uid="uid://byry3owyavi5p" path="res://controls.gd" id="1_pmc0d"]
+[ext_resource type="Script" uid="uid://bqi1n4yx4axpq" path="res://credits.gd" id="1_c8jmj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmc0d"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vqr3"]
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -14,22 +14,20 @@ font_size = 50
 [sub_resource type="LabelSettings" id="LabelSettings_gpdjo"]
 font_size = 30
 
-[sub_resource type="LabelSettings" id="LabelSettings_qo8cm"]
-font_size = 30
-
 [node name="Control" type="Control" unique_id=1426118785]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1155.0
 offset_bottom = 749.0
-script = ExtResource("1_pmc0d")
+script = ExtResource("1_c8jmj")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1287353916]
 layout_mode = 0
+offset_left = 1.0
 offset_top = 1.0
-offset_right = 1150.0
-offset_bottom = 750.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pmc0d")
+offset_right = 1151.0
+offset_bottom = 747.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vqr3")
 
 [node name="Label" type="Label" parent="." unique_id=739599958]
 layout_mode = 0
@@ -37,41 +35,26 @@ offset_left = 454.0
 offset_top = 73.0
 offset_right = 732.0
 offset_bottom = 142.0
-text = "CONTROLS"
+text = "CREDITS"
 label_settings = SubResource("LabelSettings_4vqr3")
 
 [node name="Label2" type="Label" parent="." unique_id=1617642199]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 230.0
-offset_right = 582.0
-offset_bottom = 407.0
-text = "Player 1: Aura Farmer
+offset_left = 428.0
+offset_top = 257.0
+offset_right = 979.0
+offset_bottom = 434.0
+text = "Made By: 
 
-Movement: W,A,S,D
-
-Ability: Plasma ball (Tap or Hold V)"
+Jun Hao and Max 😎"
 label_settings = SubResource("LabelSettings_gpdjo")
-
-[node name="Label3" type="Label" parent="." unique_id=567578953]
-layout_mode = 0
-offset_left = 619.0
-offset_top = 234.0
-offset_right = 1128.0
-offset_bottom = 411.0
-text = "Player 2: Cop
-
-Movement: Arrow Keys
-
-Ability: Shielding (Tap or Hold Shift)"
-label_settings = SubResource("LabelSettings_qo8cm")
 
 [node name="Button" type="Button" parent="." unique_id=965429831]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 673.0
-offset_right = 175.0
-offset_bottom = 723.0
+offset_left = 26.0
+offset_top = 677.0
+offset_right = 172.0
+offset_bottom = 727.0
 theme_override_font_sizes/font_size = 30
 text = "BACK"
 

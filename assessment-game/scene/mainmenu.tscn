@@ -1,9 +1,27 @@
 [gd_scene format=3 uid="uid://dd3qjjkboj5yi"]
 
 [ext_resource type="Script" uid="uid://5urilrmdgfjf" path="res://scripts/mainmenu.gd" id="1_0khfh"]
-[ext_resource type="Texture2D" uid="uid://csavqyn30716i" path="res://images/Main menu7.png" id="2_h8uk4"]
+[ext_resource type="Texture2D" uid="uid://7x0r18ysbn23" path="res://images/Better 2.png" id="2_h8uk4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8uk4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omfg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwq8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kwrf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v65w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5p00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eekkd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vh50t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l6v1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egvns"]
 
 [node name="Control" type="Control" unique_id=1504643729]
 layout_mode = 3
@@ -94,20 +112,36 @@ layout_mode = 2
 text = "PLAY"
 
 [node name="MainMenu7" type="Sprite2D" parent="." unique_id=1764803551]
-position = Vector2(576.5, 405.5)
-scale = Vector2(0.8020834, 0.7919922)
+position = Vector2(576.32556, 375.01807)
+scale = Vector2(0.77427644, 0.7126312)
 texture = ExtResource("2_h8uk4")
 
 [node name="Button" type="Button" parent="." unique_id=1730455223]
 layout_mode = 0
-offset_left = 446.0
-offset_top = 489.0
-offset_right = 725.0
-offset_bottom = 566.0
+offset_left = 85.0
+offset_top = 576.0
+offset_right = 364.0
+offset_bottom = 653.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_h8uk4")
-text = "CONTROLS"
+theme_override_styles/hover = SubResource("StyleBoxEmpty_omfg1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_cwq8t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kwrf7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8v65w")
+
+[node name="Button2" type="Button" parent="." unique_id=888717171]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 575.0
+offset_right = 1067.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5p00")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eekkd")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vh50t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3l6v1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_egvns")
 
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_quit"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_play"]
@@ -117,3 +151,4 @@ text = "CONTROLS"
 [connection signal="pressed" from="VBoxContainer5/Button" to="." method="_play"]
 [connection signal="pressed" from="VBoxContainer6/Button" to="." method="_play"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
