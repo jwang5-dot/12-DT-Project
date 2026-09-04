@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://du623gm5mtsx3"]
 
 [ext_resource type="Script" uid="uid://dg7jiedhp1w1q" path="res://scripts/enemy_bullet.gd" id="1_uy161"]
-[ext_resource type="Texture2D" uid="uid://e3vjrkdknlas" path="res://images/fireball-removebg-preview (1).png" id="2_jiqoc"]
+[ext_resource type="Texture2D" uid="uid://bjyfo8imq8bit" path="res://images/Green fireball.png" id="2_uy161"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uy161"]
 size = Vector2(150, 62)
@@ -18,10 +18,11 @@ position = Vector2(-69, -37)
 rect = Rect2(-10, -42, 159, 156)
 enable_node_path = NodePath("../CollisionShape2D")
 
-[node name="Fireball" type="Sprite2D" parent="." unique_id=80860551]
-rotation = 3.9933133
-scale = Vector2(0.27103865, 0.2967221)
-texture = ExtResource("2_jiqoc")
+[node name="Fireball2" type="Sprite2D" parent="." unique_id=891071853]
+position = Vector2(-5.0012803, -1.1515493)
+rotation = 6.2747393
+scale = Vector2(0.24477765, 0.2561235)
+texture = ExtResource("2_uy161")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
