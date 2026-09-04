@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwuvs1rfhniu3"]
 
-[ext_resource type="Script" uid="uid://bqi1n4yx4axpq" path="res://credits.gd" id="1_c8jmj"]
+[ext_resource type="Script" uid="uid://bqi1n4yx4axpq" path="res://scripts/credits.gd" id="1_c8jmj"]
 [ext_resource type="Texture2D" uid="uid://c11yjipmwbjov" path="res://images/Controls and Credits BG.png" id="2_hgo0l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8jmj"]

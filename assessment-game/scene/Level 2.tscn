@@ -102,7 +102,7 @@ position = Vector2(1155.75, 367.25)
 shape = SubResource("RectangleShape2D_h7in3")
 
 [node name="CharacterBody2D2" parent="." unique_id=1653680679 node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("4_h7in3")]
-position = Vector2(1020.00006, 145.99997)
+position = Vector2(904.00006, 487)
 point_a = NodePath("../Marker2D")
 point_b = NodePath("../Marker2D2")
 bullet_scene = ExtResource("5_7h12u")
@@ -114,10 +114,10 @@ position = Vector2(1067.6251, 597.375)
 shape = SubResource("CapsuleShape2D_2p7nl")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1430021390]
-position = Vector2(432, 119)
+position = Vector2(546, 382)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=459738990]
-position = Vector2(1014, 301)
+position = Vector2(992, 324)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1286167650]
 texture_filter = 1
