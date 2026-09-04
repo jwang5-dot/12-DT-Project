@@ -1,5 +1,7 @@
 extends Node2D
 
+signal wave_changed(wave)
+
 const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 1
 const ENEMY_WAVES: int = 3
@@ -14,7 +16,7 @@ const WAVE_INCREASE = 1
 
 var enemy_spawned: int = 0
 var enemy_increased: int = 1
-var enemy_wave: int = 0
+var enemy_wave: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +29,7 @@ func _process(delta: float) -> void:
 
 
 func _timer_countdown() -> void:
-	if enemy_spawned <= ENEMY_NUMBER and enemy_wave < 2:
+	if enemy_spawned <= ENEMY_NUMBER and enemy_wave < ENEMY_WAVES:
 		spawn_enemy()
 		enemy_spawned += enemy_increased
 	else:
@@ -35,6 +37,7 @@ func _timer_countdown() -> void:
 		await get_tree().create_timer(WAVE_TIME).timeout
 		enemy_spawned = ENEMY_SPAWNED
 		enemy_wave += WAVE_INCREASE
+		wave_changed.emit(enemy_wave)
 		spawn_timer.start()
 		
 func spawn_enemy() -> void:

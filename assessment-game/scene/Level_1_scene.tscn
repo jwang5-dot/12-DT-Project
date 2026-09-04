@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="6_jc7q2"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://enemy_scene/EnemyRC.tscn" id="7_iduot"]
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="8_4ebvl"]
+[ext_resource type="Script" uid="uid://c2gt8vcy5xkw5" path="res://scene/wave_label.gd" id="8_iduot"]
 [ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="8_txcqp"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="9_jc7q2"]
 
@@ -21,6 +22,9 @@ size = Vector2(168.5, 244.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxig"]
 size = Vector2(236.5, 807.75)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jc7q2"]
+font_size = 40
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h12u"]
 atlas = ExtResource("8_txcqp")
@@ -116,6 +120,17 @@ position = Vector2(6, 12)
 
 [node name="Timer" type="Timer" parent="enemy_spawn" unique_id=398854253]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="enemy_spawn" unique_id=1496227406]
+
+[node name="wave_label" type="Label" parent="enemy_spawn/CanvasLayer" unique_id=205029536]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Wave 1"
+label_settings = SubResource("LabelSettings_jc7q2")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_iduot")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1682121210]
 texture_filter = 1
 position = Vector2(1058.0001, 512)
@@ -145,4 +160,5 @@ position = Vector2(676, -404)
 shape = SubResource("RectangleShape2D_jc7q2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
+[connection signal="wave_changed" from="enemy_spawn" to="enemy_spawn/CanvasLayer/wave_label" method="_wave_changed"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]
