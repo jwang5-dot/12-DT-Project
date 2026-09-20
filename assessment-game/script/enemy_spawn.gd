@@ -4,7 +4,7 @@ signal wave_changed(wave)
 
 const SPAWN_TIME: int = 1
 const ENEMY_NUMBER: int = 1
-const ENEMY_WAVES: int = 3
+const ENEMY_WAVES: int = 2
 const WAVE_TIME: int = 10
 const ENEMY_SPAWNED = 0
 const WAVE_INCREASE = 1
@@ -29,16 +29,18 @@ func _process(delta: float) -> void:
 
 
 func _timer_countdown() -> void:
-	if enemy_spawned <= ENEMY_NUMBER and enemy_wave < ENEMY_WAVES:
+	if enemy_spawned <= ENEMY_NUMBER and enemy_wave <= ENEMY_WAVES:
 		spawn_enemy()
 		enemy_spawned += enemy_increased
 	else:
 		spawn_timer.stop()
-		await get_tree().create_timer(WAVE_TIME).timeout
-		enemy_spawned = ENEMY_SPAWNED
-		enemy_wave += WAVE_INCREASE
-		wave_changed.emit(enemy_wave)
-		spawn_timer.start()
+		
+		if enemy_wave < ENEMY_WAVES:
+			await get_tree().create_timer(WAVE_TIME).timeout
+			enemy_spawned = ENEMY_SPAWNED
+			enemy_wave += WAVE_INCREASE
+			wave_changed.emit(enemy_wave)
+			spawn_timer.start()
 		
 func spawn_enemy() -> void:
 	var random_spawn = randi_range(0, len(enemy_scene) - 1)
