@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	# Changes to the ending scene when an object enters this area.
-	get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
+	# Checks that the entered area belongs to the player before ending the level.
+	if area.is_in_group("player"):
+		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")

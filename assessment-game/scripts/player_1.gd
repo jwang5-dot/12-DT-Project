@@ -91,14 +91,23 @@ func _shoot() -> void:
 	
 
 func take_damage(amount: int) -> void:
+	# Checks that the damage value is valid before applying it.
+	if amount <= 0:
+		return
+
 	# Reduces the player's health when the player has enough health remaining.
 	if health > amount:
 		health -= amount
 		health_ui.value = health
 	else:
-		# Reloads the current scene when the player's health is depleted.
-		get_tree().reload_current_scene()
+		# Sets health to zero so it cannot become negative at the boundary.
+		health = 0
+		health_ui.value = health
 		
+		# Reloads the current scene when the player's health reaches zero.
+		get_tree().reload_current_scene()
+
+
 func _melee_damage(body: Node2D) -> void:
 	# Checks whether the body is a red enemy before dealing melee damage.
 	if body is Enemy_Red:
@@ -106,8 +115,9 @@ func _melee_damage(body: Node2D) -> void:
 			
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Changes to the ending scene when the player enters this area.
-	get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
+	# Checks that the body entering the area is the player before ending the level.
+	if body is Player_1:
+		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
 		
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
