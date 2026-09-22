@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfu7oj7yajefy"
-path="res://.godot/imported/Player_2_basic_design_shield.png-6692e6da413ed0474e7dea5649ff2377.ctex"
+uid="uid://bdn04gshxhswc"
+path="res://.godot/imported/walking.png-cafb2074023d38daa7b9743171d26e59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/Player_2_basic_design_shield.png"
-dest_files=["res://.godot/imported/Player_2_basic_design_shield.png-6692e6da413ed0474e7dea5649ff2377.ctex"]
+source_file="res://images/walking.png"
+dest_files=["res://.godot/imported/walking.png-cafb2074023d38daa7b9743171d26e59.ctex"]
 
 [params]
 

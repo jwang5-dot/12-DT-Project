@@ -7,6 +7,9 @@ const GRAVITY = 1200.0
 const Continuous_Damage_Timer: float = 0.5
 const TELEPORT_XVALUE = 61
 const TELEPORT_YVALUE = 598
+const SHIELD_COOLDOWN: float = 2.0
+const SHIELD_DURATIOM: float = 4.0
+const SHIELD_REGENERATION: float = 1.5
 
 var health: int = 100
 var double_jump: bool = true 
@@ -16,15 +19,23 @@ var enemy_range: bool = false
 var damage_timer = Continuous_Damage_Timer
 var shielding: bool = false
 var teleport_increase: int = 1
+var shield_time: float = SHIELD_DURATIOM
+var shield_cooldown_time: float = 0.0
+var shield_regeneration_time: float = 0.0
+
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
 @export var show_shielding: Sprite2D
+@export var shielding_bar: ProgressBar
 
 func _ready() -> void:
 	health_ui.max_value = health
 	health_ui.value = health 
 	show_shielding.visible = false
+	
+	shielding_bar.max_value = SHIELD_DURATIOM
+	shielding_bar.value = SHIELD_DURATIOM
 
 func _physics_process(delta: float) -> void:
 	if enemy_range:
@@ -39,12 +50,39 @@ func _physics_process(delta: float) -> void:
 	else:
 		double_jump = true  
 		
-	if Input.is_action_pressed("ui_shield"):
-		shielding = true
-		show_shielding.visible = true
-	else:
-		shielding = false
-		show_shielding.visible = false
+# Shield cooldown
+	if shield_cooldown_time > 0:
+		shield_cooldown_time -= delta
+
+	# Shield regeneration
+	if shield_regeneration_time > 0:
+		shield_regeneration_time -= delta
+
+		if shield_regeneration_time <= 0:
+			shield_time = SHIELD_DURATIOM
+			shielding_bar.value = shield_time
+
+	# Shield active
+	if shielding == true:
+		if not Input.is_action_pressed("ui_shield"):
+			shielding = false
+			show_shielding.visible = false
+		else:
+			shield_time -= delta
+			shielding_bar.value = shield_time
+			
+			if shield_time <= 0:
+				shield_time = 0
+				shielding = false
+				shield_cooldown_time = SHIELD_COOLDOWN
+				shield_regeneration_time = SHIELD_REGENERATION
+				show_shielding.visible = false
+
+	# Activate shield
+	elif shield_cooldown_time <= 0 and shield_regeneration_time <= 0:
+		if Input.is_action_pressed("ui_shield"):
+			shielding = true
+			show_shielding.visible = true
 		
 # Handle jump
 	if Input.is_action_just_pressed("ui_accept"):
