@@ -66,6 +66,7 @@ func _physics_process(delta: float) -> void:
 
 	# Moves the player using the calculated velocity.
 	move_and_slide()
+	
 
 func _shoot() -> void:
 	# Stops the function if no bullet scene has been assigned.
@@ -86,6 +87,7 @@ func _shoot() -> void:
 	await get_tree().create_timer(0.2).timeout
 	can_shoot = true
 	
+
 
 func take_damage(amount: int) -> void:
 	# Checks that the damage value is valid before applying it.
@@ -110,10 +112,12 @@ func _melee_damage(body: Node2D) -> void:
 		body.take_damage()
 			
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player_1:
 		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
 		
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Checks whether the area belongs to the Portal group before teleporting.
