@@ -19,6 +19,8 @@ var direction = STOP
 var continuous_damage_count_down = 0.5
 var player_range: bool = false
 
+
+# Checks if player is in-range with enemy and does continuous damage
 func _physics_process(delta: float) -> void:
 	if player_range == true:
 		continuous_damage_count_down -= delta
@@ -26,12 +28,16 @@ func _physics_process(delta: float) -> void:
 		player.take_damage(continuous_damage)
 		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
 
+
+# Sets enemy at maximum health and finds player at the start
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
 		player = node
 	health_ui.max_value = health
 	health_ui.value = health
 
+
+# Moves towards the player from player's global position
 func _process(delta: float) -> void:
 		if player == null:
 			return
@@ -42,6 +48,8 @@ func _process(delta: float) -> void:
 		velocity = Vector2(direction * SPEED, 1.0)
 		move_and_slide()
 
+
+# Checks if enemy still has health to take damage and deletes enemy from scene when no health
 func take_damage() -> void:
 	if health > 1:
 		health -= damage_taken
@@ -49,11 +57,14 @@ func take_damage() -> void:
 	else: 
 		queue_free()
 
+
+# Checks if the the body interacted is Player and deals damage
 func _take_damage(body: Node2D) -> void:
 	if body is Player_2 or body is Player_1:
 		body.take_damage(damage_done)
 		player_range = true
 
 
+# Checks so the player dosen't take damage when not interacting with enemy
 func _exit_body(body: Node2D) -> void:
 	player_range = false

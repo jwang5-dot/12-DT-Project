@@ -23,25 +23,26 @@ func _ready() -> void:
 	spawn_timer.wait_time = SPAWN_TIME
 	spawn_timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
-
+# Timer used to control when the enemy spawns and starts a new wave
 func _timer_countdown() -> void:
+	# Checks and spawns an amount of enemies
 	if enemy_spawned <= ENEMY_NUMBER and enemy_wave <= ENEMY_WAVES:
 		spawn_enemy()
 		enemy_spawned += enemy_increased
 	else:
 		spawn_timer.stop()
-		
+
+		# Updates the wave number displayed, resets the enemy spawed and starts new wave
 		if enemy_wave < ENEMY_WAVES:
 			await get_tree().create_timer(WAVE_TIME).timeout
 			enemy_spawned = ENEMY_SPAWNED
 			enemy_wave += WAVE_INCREASE
 			wave_changed.emit(enemy_wave)
 			spawn_timer.start()
-		
+
+
+# Randomly spawns enemies in the Packed scene 
 func spawn_enemy() -> void:
 	var random_spawn = randi_range(0, len(enemy_scene) - 1)
 	var enemy = enemy_scene[random_spawn].instantiate()

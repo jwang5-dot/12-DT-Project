@@ -10,6 +10,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
+# To print an output to the user showing what wave they are on
 func _wave_changed(wave: Variant) -> void:
 	text = WAVE_TEXT + str(wave)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqgdr7ykscmoy"]
 
-[ext_resource type="Script" uid="uid://bbmrgiu1r4d2u" path="res://script/ending_scene.gd" id="1_vjpgg"]
+[ext_resource type="Script" uid="uid://do12jjfoxjbx8" path="res://scene/ending_scene.gd" id="1_yht1g"]
 [ext_resource type="Texture2D" uid="uid://bdn04gshxhswc" path="res://images/walking.png" id="2_yht1g"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="4_u8t5q"]
 
@@ -15,7 +15,7 @@ size = Vector2(167.5, 847)
 
 [node name="Node2D" type="Node2D" unique_id=91584699]
 position = Vector2(0, 1)
-script = ExtResource("1_vjpgg")
+script = ExtResource("1_yht1g")
 
 [node name="Walking3" type="Sprite2D" parent="." unique_id=1068611861]
 position = Vector2(1697.9556, 374.5)
