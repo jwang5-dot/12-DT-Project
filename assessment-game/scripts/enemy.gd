@@ -4,7 +4,7 @@ extends CharacterBody2D
 # Stores the enemy's movement speed, target player and current health.
 var speed: float = 200.0
 var player: CharacterBody2D
-var health: int = 850
+var health: int = 700
 
 # References the enemy's health bar and sprite.
 @export var health_ui: ProgressBar
