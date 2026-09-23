@@ -6,14 +6,12 @@ func _ready() -> void:
 	pass # No code is currently required when the level starts.
 
 
-# Called every frame while the level is active.
 func _process(delta: float) -> void:
 	pass
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	# No action is currently required when an area exits this trigger.
-	pass # No code is currently required for this signal.
+	pass 
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

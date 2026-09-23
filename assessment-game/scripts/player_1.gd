@@ -18,7 +18,6 @@ var teleport_count: int = 0
 # Prevents the player from shooting while the shooting cooldown is active.
 var can_shoot: bool = true
 
-# References the nodes used for the player's appearance, aiming, shooting and health.
 @export var sprite: Sprite2D
 @export var score_label: Label
 @export var pivot: Node2D
@@ -27,7 +26,6 @@ var can_shoot: bool = true
 @export var health_ui: ProgressBar
 
 func _ready() -> void:
-	# Sets the health bar's maximum and current values to the player's health.
 	if health_ui:
 		health_ui.max_value = health
 		health_ui.value = health
@@ -35,14 +33,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
-	# Applies gravity while the player is not on the floor.
 	# The double jump is reset when the player lands.
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
 		double_jump = true
 
-	# Checks for the jump input and allows the player to jump or double jump.
+
 	if Input.is_action_just_pressed("ui_W"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -53,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	# Gets the player's horizontal movement input.
 	var direction := Input.get_axis("ui_A", "ui_D")
 
-	# Moves the player in the chosen direction or slows the player when there is no input.
+
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -109,13 +106,11 @@ func take_damage(amount: int) -> void:
 
 
 func _melee_damage(body: Node2D) -> void:
-	# Checks whether the body is a red enemy before dealing melee damage.
 	if body is Enemy_Red:
 		body.take_damage()
 			
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Checks that the body entering the area is the player before ending the level.
 	if body is Player_1:
 		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
 		
@@ -127,6 +122,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		position.y = 598
 		teleport_count += 1
 
-		# Changes to the ending animation after the portal is used twice.
 		if teleport_count >= 2:
 			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
