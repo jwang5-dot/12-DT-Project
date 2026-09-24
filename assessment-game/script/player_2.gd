@@ -4,23 +4,23 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 1200.0  
-const Continuous_Damage_Timer: float = 0.5
+const CONTINUOUS_DAMAGE_TIMER: float = 0.5
 const TELEPORT_XVALUE = 61
 const TELEPORT_YVALUE = 598
 const SHIELD_COOLDOWN: float = 2.0
-const SHIELD_DURATIOM: float = 4.0
+const SHIELD_DURATION: float = 4.0
 const SHIELD_REGENERATION: float = 1.5
-const TELEPORT_REQUIRMENT: int = 2
+const TELEPORT_REQUIREMENT: int = 2
 
 var health: int = 100
 var double_jump: bool = true 
 var enemy: CharacterBody2D
 var teleport_count: int = 0
 var enemy_range: bool = false
-var damage_timer = Continuous_Damage_Timer
+var damage_timer = CONTINUOUS_DAMAGE_TIMER
 var shielding: bool = false
 var teleport_increase: int = 1
-var shield_time: float = SHIELD_DURATIOM
+var shield_time: float = SHIELD_DURATION
 var shield_cooldown_time: float = 0.0
 var shield_regeneration_time: float = 0.0
 
@@ -35,19 +35,19 @@ func _ready() -> void:
 	health_ui.max_value = health
 	health_ui.value = health 
 	show_shielding.visible = false
-	shielding_bar.max_value = SHIELD_DURATIOM
-	shielding_bar.value = SHIELD_DURATIOM
+	shielding_bar.max_value = SHIELD_DURATION
+	shielding_bar.value = SHIELD_DURATION
 
 
 func _physics_process(delta: float) -> void:
 	# Checks if enemy is in range and reduces the timer
-	if enemy_range == true:
+	if enemy_range:
 		damage_timer -= delta
 		
 	# Enemy takes damage after time
 	if damage_timer < 0:
 		enemy.take_damage()
-		damage_timer = Continuous_Damage_Timer
+		damage_timer = CONTINUOUS_DAMAGE_TIMER
 		
 	# Shield cooldown
 	if shield_cooldown_time > 0:
@@ -58,11 +58,11 @@ func _physics_process(delta: float) -> void:
 		shield_regeneration_time -= delta
 
 		if shield_regeneration_time <= 0:
-			shield_time = SHIELD_DURATIOM
+			shield_time = SHIELD_DURATION
 			shielding_bar.value = shield_time
 
 	# Activating shield for player
-	if shielding == true:
+	if shielding:
 		if not Input.is_action_pressed("ui_shield"):
 			shielding = false
 			show_shielding.visible = false
@@ -134,7 +134,7 @@ func _portal(area: Area2D) -> void:
 		position.y = TELEPORT_YVALUE
 		teleport_count += teleport_increase
 		
-		if teleport_count >= TELEPORT_REQUIRMENT:
+		if teleport_count >= TELEPORT_REQUIREMENT:
 			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
 
 
