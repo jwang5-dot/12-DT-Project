@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Changes levels when a player enters the portal.
+	if body.is_in_group("player"):
 		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
