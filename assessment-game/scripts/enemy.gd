@@ -32,7 +32,6 @@ var target_position: Vector2
 @export var bullet_scene: PackedScene
 @export var bullet_spawn: Marker2D
 var can_shoot: bool = true
-		
 
 
 func _ready() -> void:
@@ -48,6 +47,7 @@ func _ready() -> void:
 	if health_ui:
 		health_ui.max_value = health
 		health_ui.value = health
+
 	pick_random_point()
 
 
@@ -60,6 +60,7 @@ func pick_random_point() -> void:
 		randf_range(point_a.global_position.x, point_b.global_position.x),
 		randf_range(point_a.global_position.y, point_b.global_position.y)
 	)
+
 
 func _process(delta: float) -> void:
 	if global_position.distance_to(target_position) < TARGET_DISTANCE:
@@ -86,7 +87,7 @@ func take_damage() -> void:
 	if health > 1:
 		health -= DAMAGE_PER_HIT
 		health_ui.value = health
-	else: 
+	else:
 		queue_free()
 
 
@@ -112,4 +113,3 @@ func _shoot() -> void:
 
 	await get_tree().create_timer(SHOOT_COOLDOWN).timeout
 	can_shoot = true
-	

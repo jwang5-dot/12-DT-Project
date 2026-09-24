@@ -1,7 +1,6 @@
 class_name Enemy_Red
 extends CharacterBody2D
 
-# Stores the values used by the enemy's movement, health and attacks.
 const TARGET_DISTANCE = 10
 const DAMAGE_PER_HIT = 3
 const BULLET_DAMAGE = 30
@@ -18,16 +17,13 @@ var player: CharacterBody2D
 var health: int = 650
 var damage_contact: int = 5
 
-
 @export var health_ui: ProgressBar
 @export var sprite: Sprite2D
-
 
 @export var point_a: Marker2D
 @export var point_b: Marker2D
 
 var target_position: Vector2
-
 
 @export var bullet_scene: PackedScene
 @export var bullet_spawn: Marker2D
@@ -38,10 +34,8 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group(PLAYER_GROUP):
 		player = node
 
-	# Finds the first movement point if it has not already been assigned.
 	if point_a == null:
 		point_a = get_tree().get_first_node_in_group(POINT_A_GROUP)
-
 
 	if point_b == null:
 		point_b = get_tree().get_first_node_in_group(POINT_B_GROUP)
@@ -49,8 +43,6 @@ func _ready() -> void:
 	if health_ui:
 		health_ui.max_value = health
 		health_ui.value = health
-
-	# Selects the enemy's first random movement destination.
 	pick_random_point()
 
 
@@ -72,13 +64,11 @@ func _process(delta: float) -> void:
 	velocity = (target_position - global_position).normalized() * speed
 	move_and_slide()
 
-
 	if player:
 		look_at(player.global_position)
 
 		if can_shoot:
 			_shoot()
-
 
 	if health_ui:
 		health_ui.get_parent().rotation = -rotation
@@ -91,8 +81,8 @@ func take_damage() -> void:
 	if health > 1:
 		health -= DAMAGE_PER_HIT
 		health_ui.value = health
-	else: 
-		queue_free()		
+	else:
+		queue_free()
 
 
 func _take_damage(body: Node2D) -> void:
@@ -104,7 +94,6 @@ func _shoot() -> void:
 	if bullet_scene == null or bullet_spawn == null:
 		return
 
-
 	var bullet = bullet_scene.instantiate()
 	bullet.damage = BULLET_DAMAGE
 
@@ -112,7 +101,6 @@ func _shoot() -> void:
 	bullet.rotation = rotation
 
 	get_parent().add_child(bullet)
-
 
 	can_shoot = false
 
