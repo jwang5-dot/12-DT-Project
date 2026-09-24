@@ -18,6 +18,7 @@ var enemy_spawned: int = 0
 var enemy_increased: int = 1
 var enemy_wave: int = 1
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_timer.wait_time = SPAWN_TIME
