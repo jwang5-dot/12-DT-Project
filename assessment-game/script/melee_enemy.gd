@@ -39,14 +39,14 @@ func _ready() -> void:
 
 # Moves towards the player from player's global position
 func _process(delta: float) -> void:
-		if player == null:
-			return
-		if player.global_position.x > global_position.x:
-			direction = MOVE_RIGHT
-		elif player.global_position.x < global_position.x:
-			direction = MOVE_LEFT
-		velocity = Vector2(direction * SPEED, 1.0)
-		move_and_slide()
+	if player == null:
+		return
+	if player.global_position.x > global_position.x:
+		direction = MOVE_RIGHT
+	elif player.global_position.x < global_position.x:
+		direction = MOVE_LEFT
+	velocity = Vector2(direction * SPEED, 1.0)
+	move_and_slide()
 
 
 # Checks if enemy still has health to take damage and deletes enemy from scene when no health

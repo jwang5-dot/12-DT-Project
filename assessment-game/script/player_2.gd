@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		enemy.take_damage()
 		damage_timer = Continuous_Damage_Timer
 		
-		# Shield cooldown
+	# Shield cooldown
 	if shield_cooldown_time > 0:
 		shield_cooldown_time -= delta
 
@@ -107,7 +107,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	
+
+
 # Checks what happens when the player takes damage
 func take_damage(damage: int) -> void:
 	if shielding == true:
