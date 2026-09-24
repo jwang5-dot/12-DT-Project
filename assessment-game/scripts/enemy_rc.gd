@@ -15,7 +15,7 @@ const POINT_B_GROUP = "point_b"
 # Stores the enemy's movement speed, target player, health and contact damage.
 var speed: float = 200.0
 var player: CharacterBody2D
-var health: int = 700
+var health: int = 650
 var damage_contact: int = 5
 
 
