@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		enemy.take_damage()
 		damage_timer = Continuous_Damage_Timer
 		
-# Shield cooldown
+		# Shield cooldown
 	if shield_cooldown_time > 0:
 		shield_cooldown_time -= delta
 
@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			double_jump = false
 
-# Horizontal movement 
+	# Horizontal movement 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction != 0:
 		velocity.x = direction * SPEED
