@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="7_jp52l"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://enemy_scene/EnemyRC.tscn" id="8_1djuc"]
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="9_vtrs6"]
+[ext_resource type="Script" uid="uid://c2gt8vcy5xkw5" path="res://script/wave_label.gd" id="10_jp52l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se1ga"]
 size = Vector2(236, 763.25)
@@ -75,6 +76,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nwvo"]
 size = Vector2(1237, 148)
 
+[sub_resource type="LabelSettings" id="LabelSettings_1djuc"]
+font_size = 40
+
 [node name="Node2D" type="Node2D" unique_id=162205046]
 script = ExtResource("1_j0ctk")
 
@@ -95,8 +99,9 @@ shape = SubResource("RectangleShape2D_se1ga")
 position = Vector2(598, 669)
 shape = SubResource("RectangleShape2D_p1biq")
 
-[node name="CharacterBody2D" parent="StaticBody2D2" unique_id=658715563 instance=ExtResource("3_p1biq")]
+[node name="CharacterBody2D" parent="StaticBody2D2" unique_id=658715563 node_paths=PackedStringArray("shielding_bar") instance=ExtResource("3_p1biq")]
 position = Vector2(68, 476)
+shielding_bar = NodePath("../../ProgressBar")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1454988149]
 
@@ -151,6 +156,25 @@ skew = 0.0005156994
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1947217752]
 position = Vector2(608.5, -22)
 shape = SubResource("RectangleShape2D_7nwvo")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=219013018]
+offset_left = 41.0
+offset_top = 123.0
+offset_right = 219.0
+offset_bottom = 165.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1734140966]
+
+[node name="wave_label" type="Label" parent="CanvasLayer" unique_id=1811637466]
+offset_left = -1.0
+offset_top = 14.0
+offset_right = 137.0
+offset_bottom = 69.0
+text = "Wave 1"
+label_settings = SubResource("LabelSettings_1djuc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_jp52l")
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_3_portal"]
 [connection signal="timeout" from="enemy_spawn/Timer" to="enemy_spawn" method="_timer_countdown"]

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blbmko3orl7nl" path="res://enemy_scene/Melee_Enemy.tscn" id="6_jc7q2"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://enemy_scene/EnemyRC.tscn" id="7_iduot"]
 [ext_resource type="PackedScene" uid="uid://qsxetot13ond" path="res://enemy_scene/Enemy.tscn" id="8_4ebvl"]
-[ext_resource type="Script" uid="uid://c2gt8vcy5xkw5" path="res://scene/wave_label.gd" id="8_iduot"]
+[ext_resource type="Script" uid="uid://c2gt8vcy5xkw5" path="res://script/wave_label.gd" id="8_iduot"]
 [ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="8_txcqp"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="9_jc7q2"]
 
@@ -80,8 +80,9 @@ position = Vector2(574.75, 379)
 scale = Vector2(0.79479164, 0.734375)
 texture = ExtResource("1_w17ck")
 
-[node name="CharacterBody2D" parent="." unique_id=658715563 instance=ExtResource("3_affpu")]
+[node name="CharacterBody2D" parent="." unique_id=658715563 node_paths=PackedStringArray("shielding_bar") instance=ExtResource("3_affpu")]
 position = Vector2(197, 538)
+shielding_bar = NodePath("../ProgressBar")
 
 [node name="Player_Platform" type="StaticBody2D" parent="." unique_id=2016147382]
 
@@ -156,8 +157,14 @@ position = Vector2(67, 532)
 position = Vector2(-99, 391)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=741213953]
-position = Vector2(676, -404)
+position = Vector2(697, -464)
 shape = SubResource("RectangleShape2D_jc7q2")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2049893866]
+offset_left = 30.0
+offset_top = 109.0
+offset_right = 208.0
+offset_bottom = 151.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_level_portal"]
 [connection signal="wave_changed" from="enemy_spawn" to="enemy_spawn/CanvasLayer/wave_label" method="_wave_changed"]
