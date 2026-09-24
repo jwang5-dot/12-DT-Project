@@ -5,12 +5,14 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 1200.0  
 const CONTINUOUS_DAMAGE_TIMER: float = 0.5
+const CONTINUOUS_DAMAGE: int = 5
 const TELEPORT_XVALUE = 61
 const TELEPORT_YVALUE = 598
 const SHIELD_COOLDOWN: float = 2.0
 const SHIELD_DURATION: float = 4.0
 const SHIELD_REGENERATION: float = 1.5
 const TELEPORT_REQUIREMENT: int = 2
+const ENEMY_DAMAGE_TIMER: float = 0.5
 
 var health: int = 100
 var double_jump: bool = true 
@@ -23,6 +25,7 @@ var teleport_increase: int = 1
 var shield_time: float = SHIELD_DURATION
 var shield_cooldown_time: float = 0.0
 var shield_regeneration_time: float = 0.0
+var enemy_damage_timer: float = ENEMY_DAMAGE_TIMER
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -40,14 +43,20 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Checks if enemy is in range and reduces the timer
+	# Player and enemy take continuous damage when in range
 	if enemy_range:
 		damage_timer -= delta
-		
-	# Enemy takes damage after time
-	if damage_timer < 0:
-		enemy.take_damage()
-		damage_timer = CONTINUOUS_DAMAGE_TIMER
+		enemy_damage_timer -= delta
+	
+		# Player takes continuous damage from enemy
+		if damage_timer <= 0:
+			take_damage(CONTINUOUS_DAMAGE)
+			damage_timer = CONTINUOUS_DAMAGE_TIMER
+
+		# Enemy takes continuous damage from player
+		if enemy_damage_timer <= 0:
+			enemy.take_damage()
+			enemy_damage_timer = ENEMY_DAMAGE_TIMER
 		
 	# Shield cooldown
 	if shield_cooldown_time > 0:
@@ -111,13 +120,14 @@ func _physics_process(delta: float) -> void:
 
 # Checks what happens when the player takes damage
 func take_damage(damage: int) -> void:
-	if shielding == true:
+	if shielding:
 		return
-	elif health <= 0:
+	
+	health -= damage
+	health_ui.value = health
+	
+	if health <= 0:
 		get_tree().call_deferred("reload_current_scene")
-	else:
-		health -= damage
-		health_ui.value = health
 
 
 # Checks when an enemy enters the player's attack range
@@ -140,5 +150,8 @@ func _portal(area: Area2D) -> void:
 
 # Detects when an enemy leaves the player's attack range
 func _exit_body(body: Node2D) -> void:
-	enemy_range = false
+	if body.is_in_group("enemy"):
+		enemy_range = false
+		damage_timer = CONTINUOUS_DAMAGE_TIMER
+		enemy_damage_timer = ENEMY_DAMAGE_TIMER
 	
