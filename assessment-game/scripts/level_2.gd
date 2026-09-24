@@ -15,6 +15,6 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Checks that the body entering the area is Player 1 before changing levels.
-	if body is Player_1:
+	# Changes levels when a player enters the portal.
+	if body.is_in_group("player"):
 		get_tree().change_scene_to_file("res://scene/Level_3_scene.tscn")
