@@ -92,7 +92,7 @@ func take_damage() -> void:
 
 func _take_damage(body: Node2D) -> void:
 	if body is Player_1:
-		body.take_damage()
+		body.take_damage(DAMAGE_PER_HIT)
 
 
 func _shoot() -> void:
