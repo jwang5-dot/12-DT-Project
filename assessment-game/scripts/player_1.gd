@@ -6,11 +6,27 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 1200.0
 
+# Stores values used for the player's health, shooting and portal system.
+const MAX_HEALTH = 100
+const SHOOT_COOLDOWN = 0.2
+const PORTAL_X = 61
+const PORTAL_Y = 598
+const PORTAL_USE_LIMIT = 2
+
+# Stores the input actions, portal group and scene paths used by the player.
+const JUMP_ACTION = "ui_W"
+const LEFT_ACTION = "ui_A"
+const RIGHT_ACTION = "ui_D"
+const SHOOT_ACTION = "ui_shoot"
+const PORTAL_GROUP = "Portal"
+const ENDING_SCENE = "res://scene/Ending_scene.tscn"
+const END_ANIMATION_SCENE = "res://scene/End_Animation.tscn"
+
 # Stores whether the player can perform a second jump.
 var double_jump = true
 
 # Stores the player's current health.
-var health: int = 100
+var health: int = MAX_HEALTH
 
 # Counts how many times the player has used a portal.
 var teleport_count: int = 0
@@ -40,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		double_jump = true
 
 
-	if Input.is_action_just_pressed("ui_W"):
+	if Input.is_action_just_pressed(JUMP_ACTION):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif double_jump:
@@ -48,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			double_jump = false
 
 	# Gets the player's horizontal movement input.
-	var direction := Input.get_axis("ui_A", "ui_D")
+	var direction := Input.get_axis(LEFT_ACTION, RIGHT_ACTION)
 
 
 	if direction:
@@ -61,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		pivot.look_at(get_global_mouse_position())
 
 	# Checks whether the player is shooting and whether shooting is currently allowed.
-	if Input.is_action_pressed("ui_shoot") and can_shoot:
+	if Input.is_action_pressed(SHOOT_ACTION) and can_shoot:
 		_shoot()
 
 	# Moves the player using the calculated velocity.
@@ -84,7 +100,7 @@ func _shoot() -> void:
 	can_shoot = false
 
 	# Waits for the cooldown before allowing the player to shoot again.
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(SHOOT_COOLDOWN).timeout
 	can_shoot = true
 	
 
@@ -115,16 +131,16 @@ func _melee_damage(body: Node2D) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player_1:
-		get_tree().change_scene_to_file("res://scene/Ending_scene.tscn")
+		get_tree().change_scene_to_file(ENDING_SCENE)
 		
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Checks whether the area belongs to the Portal group before teleporting.
-	if area.is_in_group("Portal"):
-		position.x = 61
-		position.y = 598
+	if area.is_in_group(PORTAL_GROUP):
+		position.x = PORTAL_X
+		position.y = PORTAL_Y
 		teleport_count += 1
 
-		if teleport_count >= 2:
-			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
+		if teleport_count >= PORTAL_USE_LIMIT:
+			get_tree().change_scene_to_file(END_ANIMATION_SCENE)
