@@ -41,6 +41,7 @@ var can_shoot: bool = true
 @export var bullet_scene: PackedScene
 @export var health_ui: ProgressBar
 
+
 func _ready() -> void:
 	if health_ui:
 		health_ui.max_value = health
@@ -48,13 +49,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	# The double jump is reset when the player lands.
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
 		double_jump = true
-
 
 	if Input.is_action_just_pressed(JUMP_ACTION):
 		if is_on_floor():
@@ -65,7 +64,6 @@ func _physics_process(delta: float) -> void:
 
 	# Gets the player's horizontal movement input.
 	var direction := Input.get_axis(LEFT_ACTION, RIGHT_ACTION)
-
 
 	if direction:
 		velocity.x = direction * SPEED
@@ -82,7 +80,7 @@ func _physics_process(delta: float) -> void:
 
 	# Moves the player using the calculated velocity.
 	move_and_slide()
-	
+
 
 func _shoot() -> void:
 	# Stops the function if no bullet scene has been assigned.
@@ -102,7 +100,6 @@ func _shoot() -> void:
 	# Waits for the cooldown before allowing the player to shoot again.
 	await get_tree().create_timer(SHOOT_COOLDOWN).timeout
 	can_shoot = true
-	
 
 
 func take_damage(amount: int) -> void:
@@ -118,7 +115,7 @@ func take_damage(amount: int) -> void:
 		# Sets health to zero so it cannot become negative at the boundary.
 		health = 0
 		health_ui.value = health
-		
+
 		# Reloads the current scene when the player's health reaches zero.
 		get_tree().reload_current_scene()
 
@@ -126,13 +123,11 @@ func take_damage(amount: int) -> void:
 func _melee_damage(body: Node2D) -> void:
 	if body is Enemy_Red:
 		body.take_damage()
-			
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player_1:
 		get_tree().change_scene_to_file(ENDING_SCENE)
-		
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
