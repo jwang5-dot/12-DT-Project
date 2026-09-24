@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			
 			# Regenerates the shield after the regeneration time has finished
 			if shield_time <= 0:
-				shield_time == 0
+				shield_time = 0
 				shielding = false
 				shield_cooldown_time = SHIELD_COOLDOWN
 				shield_regeneration_time = SHIELD_REGENERATION
