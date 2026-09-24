@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://igvw8tb6gqr0"]
 
+[ext_resource type="Script" uid="uid://fcshru3m10ms" path="res://scripts/level_4.gd" id="1_s4evf"]
 [ext_resource type="Texture2D" uid="uid://ca3qh1tjo6ms5" path="res://images/Space1.png" id="2_g46qk"]
 [ext_resource type="PackedScene" uid="uid://6c7tsvcvxxtp" path="res://scene/Player 1.tscn" id="3_s4evf"]
 [ext_resource type="Texture2D" uid="uid://7pq7mcurwsf7" path="res://images/Dimensional_Portal.png" id="4_g46qk"]
 [ext_resource type="PackedScene" uid="uid://b8g5meyobi3m7" path="res://enemy_scene/EnemyRC.tscn" id="4_yavb0"]
 [ext_resource type="PackedScene" uid="uid://d1mt6johjoroo" path="res://scene/Player_2.tscn" id="5_g46qk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4evf"]
+size = Vector2(1163, 104.87501)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vqg"]
 size = Vector2(1175, 29)
@@ -69,13 +73,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4evf"]
-size = Vector2(1163, 104.87501)
-
 [sub_resource type="LabelSettings" id="LabelSettings_g46qk"]
 font_size = 50
 
 [node name="Level 4" type="Node2D" unique_id=341672757]
+script = ExtResource("1_s4evf")
 
 [node name="Space1" type="Sprite2D" parent="." unique_id=1737731682]
 position = Vector2(580.00006, 372.00003)
@@ -85,8 +87,16 @@ texture = ExtResource("2_g46qk")
 [node name="CharacterBody2D" parent="." unique_id=516776377 instance=ExtResource("3_s4evf")]
 position = Vector2(136, 607)
 
+[node name="CharacterBody2D3" parent="." unique_id=658715563 node_paths=PackedStringArray("shielding_bar") instance=ExtResource("5_g46qk")]
+position = Vector2(301, 600)
+shielding_bar = NodePath("../ProgressBar")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=723386610]
 position = Vector2(-423, 190)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1035632152]
+position = Vector2(1004, -214)
+shape = SubResource("RectangleShape2D_s4evf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=48585223]
 position = Vector2(998, 533)
@@ -126,14 +136,6 @@ animation = &"portal1"
 autoplay = "portal1"
 frame_progress = 0.110249065
 
-[node name="CharacterBody2D3" parent="." unique_id=658715563 node_paths=PackedStringArray("shielding_bar") instance=ExtResource("5_g46qk")]
-position = Vector2(301, 600)
-shielding_bar = NodePath("../ProgressBar")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1035632152]
-position = Vector2(581, -24)
-shape = SubResource("RectangleShape2D_s4evf")
-
 [node name="Label" type="Label" parent="." unique_id=694610733]
 offset_left = 12.0
 offset_top = 12.0
@@ -148,4 +150,4 @@ offset_top = 109.0
 offset_right = 208.0
 offset_bottom = 151.0
 
-[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
