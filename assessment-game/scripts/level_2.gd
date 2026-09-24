@@ -1,20 +1,20 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+# Called when the level enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass # No code is currently required when the level starts.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
-
+	pass 
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://scene/Level_3_scene.tscn")
+	# Checks that the body entering the area is Player 1 before changing levels.
+	if body is Player_1:
+		get_tree().change_scene_to_file("res://scene/Level_3_scene.tscn")

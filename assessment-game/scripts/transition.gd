@@ -11,14 +11,12 @@ func transition_to(scene_path: String) -> void:
 
 	transitioning = true	
 
-	# Fade to black
 	animation_player.play("fade_out")
 	await animation_player.animation_finished
 
-	# Change scene while screen is black
 	get_tree().change_scene_to_file(scene_path)
 
-	# Fade from black back to visible
+	# Fades the screen back in to show the new scene.
 	animation_player.play("fade_in")
 	await animation_player.animation_finished
 
