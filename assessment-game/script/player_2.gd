@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
-const GRAVITY = 1200.0  
+const GRAVITY = 1200.0
 const CONTINUOUS_DAMAGE_TIMER: float = 0.5
 const CONTINUOUS_DAMAGE: int = 5
 const TELEPORT_XVALUE = 61
@@ -13,21 +13,20 @@ const SHIELD_DURATION: float = 4.0
 const SHIELD_REGENERATION: float = 1.5
 const TELEPORT_REQUIREMENT: int = 2
 const ENEMY_DAMAGE_TIMER: float = 0.5
+const TELEPORT_INCREASE: int = 1
 
 var health: int = 100
-var double_jump: bool = true 
+var double_jump: bool = true
 var enemy: CharacterBody2D
 var teleport_count: int = 0
 var enemy_range: bool = false
 var damage_timer = CONTINUOUS_DAMAGE_TIMER
 var shielding: bool = false
-var teleport_increase: int = 1
 var shield_time: float = SHIELD_DURATION
 var shield_cooldown_time: float = 0.0
 var shield_regeneration_time: float = 0.0
 var enemy_damage_timer: float = ENEMY_DAMAGE_TIMER
 
-@export var sprite: Sprite2D
 @export var health_ui: ProgressBar
 @export var show_shielding: Sprite2D
 @export var shielding_bar: ProgressBar
@@ -36,7 +35,7 @@ var enemy_damage_timer: float = ENEMY_DAMAGE_TIMER
 # Player starts with Maximum health and shield bar
 func _ready() -> void:
 	health_ui.max_value = health
-	health_ui.value = health 
+	health_ui.value = health
 	show_shielding.visible = false
 	shielding_bar.max_value = SHIELD_DURATION
 	shielding_bar.value = SHIELD_DURATION
@@ -97,7 +96,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
-		double_jump = true  
+		double_jump = true
 
 	# Handle double jump
 	if Input.is_action_just_pressed("ui_accept"):
@@ -122,6 +121,9 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage: int) -> void:
 	if shielding:
 		return
+
+	if damage <= 0:
+		return
 	
 	health -= damage
 	health_ui.value = health
@@ -142,7 +144,7 @@ func _portal(area: Area2D) -> void:
 	if area.is_in_group("Portal"):
 		position.x = TELEPORT_XVALUE
 		position.y = TELEPORT_YVALUE
-		teleport_count += teleport_increase
+		teleport_count += TELEPORT_INCREASE
 		
 		if teleport_count >= TELEPORT_REQUIREMENT:
 			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")

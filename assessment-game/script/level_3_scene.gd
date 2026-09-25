@@ -1,17 +1,10 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+const LEVEL_4_SCENE = "res://scene/Level 4.tscn"
+const PLAYER_GROUP = "player"
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-# Teleports the user to the next level 
+# Teleports the user to the next level
 func _level_3_portal(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		get_tree().change_scene_to_file("res://scene/Level 4.tscn")
+	if body.is_in_group(PLAYER_GROUP):
+		get_tree().change_scene_to_file(LEVEL_4_SCENE)

@@ -15,14 +15,14 @@ const CONTINUOUS_DAMAGE: int = 1
 
 var health: int = 100
 var player: CharacterBody2D
-var direction = STOP
-var continuous_damage_count_down = 0.5
+var direction: float = STOP
+var continuous_damage_count_down: float = CONTINUOUS_DAMAGE_TIMER
 var player_range: bool = false
 
 
 # Checks if player is in-range with enemy and does continuous damage
 func _physics_process(delta: float) -> void:
-	if player_range == true:
+	if player_range:
 		continuous_damage_count_down -= delta
 	if continuous_damage_count_down < 0:
 		player.take_damage(CONTINUOUS_DAMAGE)
@@ -55,7 +55,7 @@ func take_damage() -> void:
 	if health > 1:
 		health -= DAMAGE_TAKEN
 		health_ui.value = health
-	else: 
+	else:
 		queue_free()
 
 
@@ -68,4 +68,5 @@ func _take_damage(body: Node2D) -> void:
 
 # Checks so the player dosen't take damage when not interacting with enemy
 func _exit_body(body: Node2D) -> void:
-	player_range = false
+	if body is Player_2 or body is Player_1:
+		player_range = false
