@@ -21,6 +21,8 @@ var enemy_wave: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if spawn_timer == null:
+		return
 	spawn_timer.wait_time = SPAWN_TIME
 	spawn_timer.start()
 
@@ -28,13 +30,14 @@ func _ready() -> void:
 # Timer used to control when the enemy spawns and starts a new wave
 func _timer_countdown() -> void:
 	# Checks and spawns an amount of enemies
-	if enemy_spawned <= ENEMY_NUMBER and enemy_wave <= ENEMY_WAVES:
+	if enemy_spawned < ENEMY_NUMBER and enemy_wave <= ENEMY_WAVES:
 		spawn_enemy()
 		enemy_spawned += ENEMY_INCREASE
 	else:
 		spawn_timer.stop()
 
-		# Updates the wave number displayed, resets the enemy spawed and starts new wave
+		# Updates the wave number displayed
+		# Resets the enemy spawned and starts new wave
 		if enemy_wave < ENEMY_WAVES:
 			await get_tree().create_timer(WAVE_TIME).timeout
 			enemy_spawned = ENEMY_SPAWNED
@@ -46,6 +49,9 @@ func _timer_countdown() -> void:
 # Randomly spawns enemies in the Packed scene
 func spawn_enemy() -> void:
 	if enemy_scene.is_empty():
+		return
+
+	if spawn_point == null:
 		return
 
 	var random_spawn = randi_range(0, len(enemy_scene) - 1)

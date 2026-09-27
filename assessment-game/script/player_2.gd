@@ -6,21 +6,22 @@ const JUMP_VELOCITY = -650.0
 const GRAVITY = 1200.0
 const CONTINUOUS_DAMAGE_TIMER: float = 0.5
 const CONTINUOUS_DAMAGE: int = 5
-const TELEPORT_XVALUE = 61
-const TELEPORT_YVALUE = 598
+const TELEPORT_X_VALUE = 61
+const TELEPORT_Y_VALUE = 598
 const SHIELD_COOLDOWN: float = 2.0
 const SHIELD_DURATION: float = 4.0
 const SHIELD_REGENERATION: float = 1.5
 const TELEPORT_REQUIREMENT: int = 2
 const ENEMY_DAMAGE_TIMER: float = 0.5
 const TELEPORT_INCREASE: int = 1
+const END_ANIMATION_SCENE = "res://scene/End_Animation.tscn"
 
 var health: int = 100
 var double_jump: bool = true
 var enemy: CharacterBody2D
 var teleport_count: int = 0
 var enemy_range: bool = false
-var damage_timer = CONTINUOUS_DAMAGE_TIMER
+var damage_timer: float = CONTINUOUS_DAMAGE_TIMER
 var shielding: bool = false
 var shield_time: float = SHIELD_DURATION
 var shield_cooldown_time: float = 0.0
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	if enemy_range:
 		damage_timer -= delta
 		enemy_damage_timer -= delta
-	
+
 		# Player takes continuous damage from enemy
 		if damage_timer <= 0:
 			take_damage(CONTINUOUS_DAMAGE)
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		if enemy_damage_timer <= 0:
 			enemy.take_damage()
 			enemy_damage_timer = ENEMY_DAMAGE_TIMER
-		
+
 	# Shield cooldown
 	if shield_cooldown_time > 0:
 		shield_cooldown_time -= delta
@@ -77,7 +78,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			shield_time -= delta
 			shielding_bar.value = shield_time
-			
+
 			# Regenerates the shield after the regeneration time has finished
 			if shield_time <= 0:
 				shield_time = 0
@@ -107,7 +108,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			double_jump = false
 
-	# Horizontal movement 
+	# Horizontal movement
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction != 0:
 		velocity.x = direction * SPEED
@@ -124,10 +125,10 @@ func take_damage(damage: int) -> void:
 
 	if damage <= 0:
 		return
-	
+
 	health -= damage
 	health_ui.value = health
-	
+
 	if health <= 0:
 		get_tree().call_deferred("reload_current_scene")
 
@@ -135,19 +136,19 @@ func take_damage(damage: int) -> void:
 # Checks when an enemy enters the player's attack range
 func _attack(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		enemy = body 
+		enemy = body
 		enemy_range = true
 
 
 # Teleports the player within the scene
 func _portal(area: Area2D) -> void:
 	if area.is_in_group("Portal"):
-		position.x = TELEPORT_XVALUE
-		position.y = TELEPORT_YVALUE
+		position.x = TELEPORT_X_VALUE
+		position.y = TELEPORT_Y_VALUE
 		teleport_count += TELEPORT_INCREASE
-		
+
 		if teleport_count >= TELEPORT_REQUIREMENT:
-			get_tree().change_scene_to_file("res://scene/End_Animation.tscn")
+			get_tree().change_scene_to_file(END_ANIMATION_SCENE)
 
 
 # Detects when an enemy leaves the player's attack range
@@ -156,4 +157,3 @@ func _exit_body(body: Node2D) -> void:
 		enemy_range = false
 		damage_timer = CONTINUOUS_DAMAGE_TIMER
 		enemy_damage_timer = ENEMY_DAMAGE_TIMER
-	

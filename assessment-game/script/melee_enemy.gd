@@ -9,6 +9,8 @@ const CONTINUOUS_DAMAGE_TIMER: float = 0.5
 const DAMAGE_DONE: int = 5
 const DAMAGE_TAKEN: int = 10
 const CONTINUOUS_DAMAGE: int = 1
+const STARTING_HEALTH: int = 1
+const PLAYER_GROUP = "player"
 
 @export var sprite: Sprite2D
 @export var health_ui: ProgressBar
@@ -24,14 +26,15 @@ var player_range: bool = false
 func _physics_process(delta: float) -> void:
 	if player_range:
 		continuous_damage_count_down -= delta
-	if continuous_damage_count_down < 0:
-		player.take_damage(CONTINUOUS_DAMAGE)
-		continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
+
+		if continuous_damage_count_down < 0:
+			player.take_damage(CONTINUOUS_DAMAGE)
+			continuous_damage_count_down = CONTINUOUS_DAMAGE_TIMER
 
 
 # Sets enemy at maximum health and finds player at the start
 func _ready() -> void:
-	for node in get_tree().get_nodes_in_group("player"):
+	for node in get_tree().get_nodes_in_group(PLAYER_GROUP):
 		player = node
 	health_ui.max_value = health
 	health_ui.value = health
@@ -52,14 +55,14 @@ func _process(delta: float) -> void:
 # Checks if enemy still has health to take damage
 # Deletes enemy from scene when no health
 func take_damage() -> void:
-	if health > 1:
+	if health > STARTING_HEALTH:
 		health -= DAMAGE_TAKEN
 		health_ui.value = health
 	else:
 		queue_free()
 
 
-# Checks if the the body interacted is Player and deals damage
+# Checks if the body interacted is Player and deals damage
 func _take_damage(body: Node2D) -> void:
 	if body is Player_2 or body is Player_1:
 		body.take_damage(DAMAGE_DONE)
