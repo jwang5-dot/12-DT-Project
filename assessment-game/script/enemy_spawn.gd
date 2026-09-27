@@ -3,7 +3,7 @@ extends Node2D
 signal wave_changed(wave)
 
 const SPAWN_TIME: int = 1
-const ENEMY_NUMBER: int = 1
+const ENEMY_NUMBER: int = 2
 const ENEMY_WAVES: int = 2
 const WAVE_TIME: int = 10
 const ENEMY_SPAWNED: int = 0
